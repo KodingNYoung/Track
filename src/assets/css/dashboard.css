@@ -1,0 +1,126 @@
+.dashboard-layout {
+  @apply min-h-screen;
+}
+
+.dashboard-layout .sidebar {
+  @apply overflow-hidden h-screen fixed left-0 top-0 bottom-0 z-10;
+  background-color: #0247fe;
+}
+
+.dashboard-layout .sidebar .menu {
+  @apply py-16 px-0 border-0;
+  background-color: #0247fe;
+}
+
+.dashboard-layout .sidebar .menu .ant-menu-item {
+  @apply my-6 mx-0 transition-all duration-300 py-2 h-12;
+  color: #fdfdfd;
+}
+
+.dashboard-layout .sidebar .menu .ant-menu-item a {
+  @apply text-inherit;
+}
+
+.dashboard-layout .sidebar .menu .ant-menu-item svg {
+  @apply text-2xl;
+}
+
+.dashboard-layout .sidebar .menu .ant-menu-item:hover {
+  @apply ml-4;
+}
+
+.dashboard-layout .sidebar .menu .ant-menu-item.ant-menu-item-selected {
+  @apply ml-2 font-semibold;
+  background-color: #fdfdfd;
+  color: #0247fe;
+}
+
+.dashboard-layout .sidebar .menu .ant-menu-item.ant-menu-item-selected::after {
+  border-color: #0247fe;
+}
+
+.dashboard-layout .page-content-layout {
+  @apply transition-all duration-200 grid;
+  margin-left: 200px;
+  -ms-grid-rows: 80px auto;
+      grid-template-rows: 80px auto;
+}
+
+.dashboard-layout .page-content-layout .admin-header {
+  @apply py-0 pl-4 pr-4 md:pr-16 h-20 flex justify-between items-center fixed z-10 transition-all duration-200;
+  background-color: #fdfdfd;
+  color: #0247fe;
+  width: calc(100% - 200px);
+}
+
+.dashboard-layout .page-content-layout .admin-header .trigger-container {
+  @apply flex justify-start items-center;
+}
+
+.dashboard-layout .page-content-layout .admin-header .trigger-container .trigger {
+  @apply text-2xl;
+}
+
+.dashboard-layout .page-content-layout .admin-header .trigger-container h1 {
+  @apply ml-5 text-2xl font-semibold;
+}
+
+.dashboard-layout .page-content-layout .admin-header .user-btn {
+  @apply flex justify-end items-center cursor-pointer h-12 w-12;
+}
+
+.dashboard-layout .page-content-layout main.site-layout-background {
+  @apply mt-20 p-6 overflow-y-auto h-screen;
+  background-color: #f6f6f6;
+}
+
+.dashboard-layout.collapsed .page-content-layout {
+  @apply ml-20;
+}
+
+.dashboard-layout.collapsed .page-content-layout .admin-header {
+  width: calc(100% - 80px);
+}
+
+.dashboard-layout.small-screen .sidebar {
+  width: 0 !important;
+  min-width: 0 !important;
+}
+
+.dashboard-layout.small-screen .page-content-layout {
+  @apply ml-0;
+}
+
+.dashboard-layout.small-screen .page-content-layout .admin-header {
+  @apply w-full;
+}
+
+.dashboard-layout.small-screen.collapsed .sidebar {
+  width: 80px !important;
+  min-width: 80px !important;
+}
+
+.dashboard-layout.small-screen.collapsed .page-content-layout .admin-header {
+  @apply ml-20;
+  width: calc(100% - 80px);
+}
+
+.user-menu {
+  @apply border-r-0;
+}
+
+.user-menu .ant-menu-item,
+.user-menu a {
+  @apply flex justify-start items-center m-0;
+}
+
+.user-menu .ant-menu-item.ant-menu-item-selected,
+.user-menu a.ant-menu-item-selected {
+  @apply bg-transparent;
+  color: unset;
+}
+
+.user-menu .ant-menu-item:hover,
+.user-menu a:hover {
+  color: #0247fe;
+}

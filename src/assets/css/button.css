@@ -1,0 +1,20 @@
+button.ant-btn {
+  height: unset;
+}
+
+.primary-btn {
+  @apply px-2 py-3 border border-solid rounded;
+  background-color: #0247fe;
+  color: #fdfdfd;
+  border-color: #0247fe;
+}
+
+.primary-btn:active, .primary-btn:focus, .primary-btn:hover {
+  background-color: #002b9e;
+  border-color: #002b9e;
+  color: #fdfdfd;
+}
+
+.ant-btn-block {
+  @apply text-base font-medium;
+}

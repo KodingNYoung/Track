@@ -1,0 +1,111 @@
+@import "base";
+
+.dashboard-layout {
+  @apply min-h-screen;
+  .sidebar {
+    @apply overflow-hidden h-screen fixed left-0 top-0 bottom-0 z-10;
+    background-color: $primary-color;
+    .menu {
+      @apply py-16 px-0 border-0;
+      background-color: $primary-color;
+      .ant-menu-item {
+        @apply my-6 mx-0 transition-all duration-300 py-2 h-12;
+        color: $text-white;
+        a {
+          @apply text-inherit;
+        }
+        svg {
+          @apply text-2xl;
+        }
+        &:hover {
+          @apply ml-4;
+        }
+        &.ant-menu-item-selected {
+          @apply ml-2 font-semibold;
+          background-color: $text-white;
+          color: $primary-color;
+
+          &::after {
+            border-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  .page-content-layout {
+    @apply transition-all duration-200 grid;
+    margin-left: 200px;
+    grid-template-rows: 80px auto;
+    .admin-header {
+      @apply py-0 pl-4 pr-4 md:pr-16 h-20 flex justify-between items-center fixed z-10 transition-all duration-200;
+      background-color: $text-white;
+      color: $primary-color;
+      width: calc(100% - 200px);
+      .trigger-container {
+        @apply flex justify-start items-center;
+        .trigger {
+          @apply text-2xl;
+        }
+        h1 {
+          @apply ml-5 text-2xl font-semibold;
+        }
+      }
+      .user-btn {
+        @apply flex justify-end items-center cursor-pointer h-12 w-12;
+      }
+    }
+
+    main.site-layout-background {
+      @apply mt-20 p-6 overflow-y-auto h-screen;
+      background-color: $layout-bg;
+    }
+  }
+  &.collapsed {
+    .page-content-layout {
+      @apply ml-20;
+      .admin-header {
+        width: calc(100% - 80px);
+      }
+    }
+  }
+  &.small-screen {
+    .sidebar {
+      width: 0 !important;
+      min-width: 0 !important;
+    }
+    .page-content-layout {
+      @apply ml-0;
+      .admin-header {
+        @apply w-full;
+      }
+    }
+    &.collapsed {
+      .sidebar {
+        width: 80px !important;
+        min-width: 80px !important;
+      }
+      .page-content-layout {
+        .admin-header {
+          @apply ml-20;
+          width: calc(100% - 80px);
+        }
+      }
+    }
+  }
+}
+
+.user-menu {
+  @apply border-r-0;
+  .ant-menu-item,
+  a {
+    @apply flex justify-start items-center m-0;
+    &.ant-menu-item-selected {
+      @apply bg-transparent;
+      color: unset;
+    }
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

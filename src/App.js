@@ -5,6 +5,7 @@ import "./assets/css/app.css";
 // routes
 import Homepage from "./views/Homepage";
 import Dashboard from "./views/dashboard";
+import Auth from "./views/auth";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/auth/*" element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </div>

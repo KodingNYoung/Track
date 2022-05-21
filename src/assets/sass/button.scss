@@ -1,0 +1,23 @@
+@import "base";
+
+button.ant-btn {
+  height: unset;
+}
+
+.primary-btn {
+  @apply px-2 py-3 border border-solid rounded;
+  background-color: $primary-color;
+  color: $text-white;
+  border-color: $primary-color;
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $primary-color-dark;
+    border-color: $primary-color-dark;
+    color: $text-white;
+  }
+}
+
+.ant-btn-block {
+  @apply text-base font-medium;
+}

@@ -1,21 +1,22 @@
 import React from "react";
 
+// lib components
+import { motion } from "framer-motion";
 import { Button } from "antd";
-import { Link } from "react-router-dom";
-import { MdDashboard } from "react-icons/md";
+// core components
+import TestNav from "../components/Nav/TestNav";
 
 const Homepage = () => {
   return (
-    <>
-      <nav>
-        <Link to="dashboard">
-          <MdDashboard />
-          <span>Dashboard</span>
-        </Link>
-      </nav>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+    >
+      <TestNav />
       <div>Homepage</div>
       <Button type="primary">Primary</Button>
-    </>
+    </motion.div>
   );
 };
 

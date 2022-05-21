@@ -1,0 +1,18 @@
+@import "base";
+
+.brand {
+  @apply w-full flex justify-center items-center text-2xl font-bold transition-all duration-300 h-20 p-5;
+  color: $text-white;
+  svg {
+    max-width: 60px;
+  }
+  span {
+    @apply w-20 overflow-hidden transition-all duration-300;
+  }
+  &.collapsed {
+    @apply p-2;
+    span {
+      @apply w-0;
+    }
+  }
+}
