@@ -7,7 +7,7 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
@@ -26,48 +26,102 @@ const options = {
   plugins: {
     legend: {
       position: "top",
-    },
-    title: {
-      display: true,
-      text: "Chart.js Bar Chart",
-    },
+      align: "end",
+      labels: {
+        pointStyle: "circle",
+        usePointStyle: true,
+        padding: 10,
+        font: {
+          family: "'Poppins', sans-serif",
+          size: 14,
+          weight: "700"
+        },
+        color: "#000",
+        boxWidth: 8,
+        boxHeight: 8
+      }
+    }
   },
-  barThickness: 10,
-  borderRadius: 10,
+  scales: {
+    x: {
+      ticks: {
+        color: "#c4c4c4",
+        font: {
+          family: "'Poppins', sans-serif",
+          size: 14,
+          weight: 500
+        }
+      },
+      grid: {
+        display: false
+      }
+    },
+    y: {
+      ticks: {
+        color: "#c4c4c4",
+        font: {
+          family: "'Poppins', sans-serif",
+          size: 14,
+          weight: 500
+        }
+      },
+      grid: {
+        display: false
+      }
+    }
+  },
+  categoryPercentage: 0.4
 };
 
 export const BarChart = () => {
   return (
-    <Bar
-      data={{
-        labels: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sept",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-        datasets: [
-          {
-            label: "Dataset 1",
-            data: [10, 34, 12, 65, 12, 43, 9, 45, 76, 35, 4, 23],
-            backgroundColor: "rgba(255, 99, 132)",
-          },
-          {
-            label: "Dataset 2",
-            data: [90, 34, 50, 65, 12, 43, 9, 5, 56, 14, 4, 23],
-            backgroundColor: "rgba(53, 162, 235)",
-          },
-        ],
-      }}
-      options={options}
-    />
+    <div
+      className="chart-container"
+      style={{ maxWidth: "100vw", overflowX: "auto" }}
+    >
+      <div
+        className="chart"
+        style={{
+          margin: "2rem 1rem 0",
+          minWidth: "700px"
+        }}
+      >
+        <Bar
+          data={{
+            labels: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sept",
+              "Oct",
+              "Nov",
+              "Dec"
+            ],
+            datasets: [
+              {
+                label: "Income",
+                data: [10, 34, 12, 65, 12, 43, 9, 45, 76, 35, 4, 23],
+                backgroundColor: "#00b528",
+                borderRadius: 10,
+                barPercentage: 0.5
+              },
+              {
+                label: "Expenses",
+                data: [90, 34, 50, 65, 12, 43, 9, 5, 56, 14, 4, 23],
+                backgroundColor: "#b60000",
+                borderRadius: 10,
+                barPercentage: 0.5
+              }
+            ]
+          }}
+          options={options}
+        />
+      </div>
+    </div>
   );
 };
