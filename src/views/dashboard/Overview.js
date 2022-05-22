@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Avatar } from "antd";
@@ -6,6 +6,9 @@ import { Avatar } from "antd";
 // core component
 import CardComponent from "../../components/Cards/CardComponent";
 import { BarChart } from "../../components/Charts/Charts";
+import { PrimaryButton } from "../../components/Buttons/Buttons";
+import { SelectField } from "../../components/Inputs/InputFields";
+import { barChartData } from "../../data";
 
 // css and icons
 import {
@@ -16,13 +19,24 @@ import {
   AiOutlinePlus
 } from "../../imports/icons";
 import "../../assets/css/overview.css";
-import { PrimaryButton } from "../../components/Buttons/Buttons";
 
 const Overview = props => {
   const { setView } = props;
+  const [period, setPeriod] = useState({
+    chart: "weekly",
+    analytics: "weekly"
+  });
+  console.log(barChartData[period.chart]);
+
+  // functions
+  const handlePeriodChange = (name, value) => {
+    setPeriod({ ...period, [name]: value });
+  };
+
   useEffect(() => {
     setView("overview");
   }, []);
+
   return (
     <motion.section
       className="overview"
@@ -274,15 +288,31 @@ const Overview = props => {
           <CardComponent className="overview-card">
             <header className="card-header">
               <h3>Analytics</h3>
-              {/* <Link to="transactions">view all</Link> */}
+              <SelectField
+                label="Period"
+                options={[
+                  { value: "weekly", name: "Weekly" },
+                  { value: "monthly", name: "Monthly" }
+                ]}
+                value={period?.analytics}
+                handleChange={value => handlePeriodChange("analytics", value)}
+              />
             </header>
           </CardComponent>
           <CardComponent className="overview-card">
             <header className="card-header">
               <h3>Charts</h3>
-              {/* <Link to="transactions">view all</Link> */}
+              <SelectField
+                label="Period"
+                options={[
+                  { value: "weekly", name: "Weekly" },
+                  { value: "yearly", name: "Yearly" }
+                ]}
+                handleChange={value => handlePeriodChange("chart", value)}
+                value={period?.chart}
+              />
             </header>
-            <BarChart />
+            <BarChart data={barChartData[period.chart]} />
           </CardComponent>
         </section>
       </div>

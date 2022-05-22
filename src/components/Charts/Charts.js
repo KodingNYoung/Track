@@ -73,45 +73,28 @@ const options = {
       }
     }
   },
-  categoryPercentage: 0.4
+  categoryPercentage: 0.4,
+  borderRadius: 10,
+  barPercentage: 0.5
 };
 
-export const BarChart = () => {
+export const BarChart = props => {
+  const { data } = props;
+  console.log(data);
+  const datasets = Object.keys(data.data).map(type => {
+    return {
+      label: type,
+      data: data.data[type],
+      backgroundColor: type === "income" ? "#00b528" : "#b60000"
+    };
+  });
   return (
     <div className="chart-container">
       <div className="chart">
         <Bar
           data={{
-            labels: [
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sept",
-              "Oct",
-              "Nov",
-              "Dec"
-            ],
-            datasets: [
-              {
-                label: "Income",
-                data: [10, 34, 12, 65, 12, 43, 9, 45, 76, 35, 4, 23],
-                backgroundColor: "#00b528",
-                borderRadius: 10,
-                barPercentage: 0.5
-              },
-              {
-                label: "Expenses",
-                data: [90, 34, 50, 65, 12, 43, 9, 5, 56, 14, 4, 23],
-                backgroundColor: "#b60000",
-                borderRadius: 10,
-                barPercentage: 0.5
-              }
-            ]
+            labels: data.labels,
+            datasets: datasets
           }}
           options={options}
         />

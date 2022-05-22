@@ -1,1 +1,35 @@
 @import "base";
+
+.select-field {
+  @apply border rounded pl-2 transition-all duration-300;
+  border-color: lighten($border-gray, 10%);
+  .label {
+    @apply font-light transition-all duration-300;
+    color: $border-gray;
+  }
+  .ant-select {
+    @apply w-28;
+    .ant-select-selector {
+      @apply justify-center border-0;
+    }
+    .ant-select-arrow {
+      color: $black;
+    }
+    &:hover {
+      .ant-select-selector {
+        @apply border-0;
+      }
+    }
+    &.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+      .ant-select-selector {
+      @apply border-0 shadow-none;
+    }
+  }
+  &.active,
+  &:hover {
+    border-color: $primary-color;
+    .label {
+      color: $black;
+    }
+  }
+}
