@@ -1,0 +1,91 @@
+.overview .overview-header-cards {
+  @apply grid grid-cols-1 gap-5 md:grid-cols-2;
+}
+
+.overview .overview-header-cards .overview-header-card h3.card-header {
+  @apply p-5 pb-0 uppercase text-base font-medium;
+}
+
+.overview .overview-header-cards .overview-header-card .card-body {
+  @apply px-5 py-0 pb-1;
+}
+
+.overview .overview-header-cards .overview-header-card .card-body .value {
+  @apply flex justify-between items-center text-2xl py-1 font-bold;
+}
+
+.overview .overview-header-cards .overview-header-card .card-body .value svg {
+  @apply text-5xl;
+}
+
+.overview .overview-header-cards .overview-header-card .card-body small {
+  @apply text-xs;
+}
+
+.overview .overview-header-cards .overview-header-card .card-footer {
+  @apply px-5 py-3 border-t flex justify-end;
+}
+
+.overview .overview-header-cards .overview-header-card .card-footer a {
+  @apply flex items-center text-base transition-all duration-200;
+  color: #0247fe;
+}
+
+.overview .overview-header-cards .overview-header-card .card-footer a svg {
+  @apply ml-5 text-lg;
+  color: #000;
+}
+
+.overview .overview-header-cards .overview-header-card .card-footer a:hover {
+  color: #000;
+}
+
+.overview .overview-header-cards .overview-header-card .card-footer a:hover svg {
+  color: #0247fe;
+}
+
+.overview .overview-main-content {
+  @apply grid gap-5;
+  -ms-grid-columns: 350px auto;
+      grid-template-columns: 350px auto;
+}
+
+.overview .overview-main-content .add-transactions {
+  @apply p-6 mb-5 flex items-center justify-center flex-col text-lg font-medium;
+}
+
+.overview .overview-main-content .add-transactions .icon {
+  @apply text-4xl rounded-2xl w-12 h-12 flex justify-center items-center;
+  background-color: #0046ff1a;
+  color: #0247fe;
+}
+
+.overview .overview-main-content .add-transactions .text {
+  @apply my-5;
+}
+
+.overview .overview-main-content .add-transactions .add-btn {
+  @apply flex items-center justify-center text-2xl p-2 rounded-lg;
+  max-width: 180px;
+}
+
+.overview .overview-main-content .transaction-list header.card-header {
+  @apply border-0;
+}
+
+.overview .overview-main-content .transaction-list header.card-header a {
+  @apply capitalize;
+  color: #c4c4c4;
+}
+
+.overview .overview-card {
+  @apply transition-all duration-300 mb-5;
+}
+
+.overview .overview-card header.card-header {
+  @apply flex justify-between items-center p-5 border-b;
+}
+
+.overview .overview-card header.card-header h3 {
+  @apply text-base font-bold;
+}

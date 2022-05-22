@@ -9,7 +9,7 @@ const BasicButton = props => {
 };
 
 export const PrimaryButton = props => {
-  const { children, buttonProps } = props;
+  const { children, ...buttonProps } = props;
 
   return (
     <BasicButton
@@ -36,5 +36,5 @@ export const SubmitButton = props => {
     size,
     className
   };
-  return <PrimaryButton buttonProps={buttonProps}>{children}</PrimaryButton>;
+  return <PrimaryButton {...buttonProps}>{children}</PrimaryButton>;
 };

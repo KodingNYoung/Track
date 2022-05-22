@@ -16,3 +16,11 @@ body,
 button {
   font-family: "Poppins", sans-serif;
 }
+
+.text-success {
+  color: #00b528;
+}
+
+.text-error {
+  color: #b60000;
+}

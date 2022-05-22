@@ -38,7 +38,7 @@
     margin-left: 200px;
     grid-template-rows: 80px auto;
     .admin-header {
-      @apply py-0 pl-4 pr-4 md:pr-16 h-20 flex justify-between items-center fixed z-10 transition-all duration-200;
+      @apply py-0 pl-4 pr-4 md:pr-8  h-20 flex justify-between items-center fixed z-10 transition-all duration-200;
       background-color: $text-white;
       color: $primary-color;
       width: calc(100% - 200px);
@@ -57,7 +57,7 @@
     }
 
     main.site-layout-background {
-      @apply mt-20 p-6 overflow-y-auto h-screen;
+      @apply pt-24 p-5 overflow-y-auto h-screen;
       background-color: $layout-bg;
     }
   }

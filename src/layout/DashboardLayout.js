@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { Layout, Menu, Dropdown, Avatar, Button } from "antd";
 
 // icons
@@ -11,7 +11,6 @@ import {
 } from "../imports/icons";
 import {
   MenuOutlined,
-  DownOutlined,
   HomeOutlined,
   UserOutlined,
   LogoutOutlined
@@ -26,7 +25,7 @@ const { Sider, Header, Content } = Layout;
 const { Item } = Menu;
 
 const DashboardLayout = props => {
-  const { children, active, user_details } = props;
+  const { children, activeView } = props;
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [modal, setModal] = useState(false);
@@ -77,20 +76,20 @@ const DashboardLayout = props => {
         <Menu
           mode="inline"
           defaultSelectedKeys={["overview"]}
-          selectedKeys={["overview"]}
+          selectedKeys={[activeView]}
           className="menu"
         >
           <Item key="overview" icon={<MdOutlineDashboard />}>
-            <Link to="/dashboard">Overview</Link>
+            <NavLink to="/dashboard">Overview</NavLink>
           </Item>
           <Item key="transactions" icon={<RiExchangeFundsFill />}>
-            <Link to="/dashboard/transactions">Transactions</Link>
+            <NavLink to="/dashboard/transactions">Transactions</NavLink>
           </Item>
           <Item key="categories" icon={<BiCategory />}>
-            <Link to="/dashboard/categories">Categories</Link>
+            <NavLink to="/dashboard/categories">Categories</NavLink>
           </Item>
           <Item key="analytics" icon={<BsBarChart />}>
-            <Link to="/dashboard/analytics">Chart</Link>
+            <NavLink to="/dashboard/analytics">Chart</NavLink>
           </Item>
         </Menu>
       </Sider>

@@ -17,3 +17,10 @@ body,
 button {
   font-family: "Poppins", sans-serif;
 }
+
+.text-success {
+  color: $success-green;
+}
+.text-error {
+  color: $error-red;
+}

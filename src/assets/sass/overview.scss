@@ -1,0 +1,87 @@
+@import "base";
+
+.overview {
+  .overview-header-cards {
+    @apply grid grid-cols-1 gap-5 md:grid-cols-2;
+    .overview-header-card {
+      h3.card-header {
+        @apply p-5 pb-0 uppercase text-base font-medium;
+      }
+      .card-body {
+        @apply px-5 py-0 pb-1;
+        .value {
+          @apply flex justify-between items-center text-2xl py-1 font-bold;
+          svg {
+            @apply text-5xl;
+          }
+        }
+        small {
+          @apply text-xs;
+        }
+      }
+      .card-footer {
+        @apply px-5 py-3 border-t flex justify-end;
+        a {
+          @apply flex items-center text-base transition-all duration-200;
+          color: $primary-color;
+          svg {
+            @apply ml-5 text-lg;
+            color: $black;
+          }
+          &:hover {
+            color: $black;
+            svg {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .overview-main-content {
+    @apply grid gap-5;
+    grid-template-columns: 350px auto;
+    .add-transactions {
+      @apply p-6 mb-5 flex items-center justify-center flex-col text-lg font-medium;
+      .icon {
+        @apply text-4xl rounded-2xl w-12 h-12 flex justify-center items-center;
+        background-color: $light-primary-bg;
+        color: $primary-color;
+      }
+      .text {
+        @apply my-5;
+      }
+      .add-btn {
+        @apply flex items-center justify-center text-2xl p-2 rounded-lg;
+        max-width: 180px;
+      }
+    }
+    .transaction-list {
+      header.card-header {
+        @apply border-0;
+        a {
+          @apply capitalize;
+          color: $border-gray;
+        }
+      }
+    }
+  }
+  .overview-card {
+    @apply transition-all duration-300 mb-5;
+    header.card-header {
+      @apply flex justify-between items-center p-5 border-b;
+      h3 {
+        @apply text-base font-bold;
+      }
+    }
+  }
+  // &:hover {
+  //   .overview-card:not(:hover) {
+  //     color: #ccc;
+  //     background: #f1f1f1;
+  //   }
+  //   .overview-card:hover {
+  //     transform: scale(1.03);
+  //   }
+  // }
+}
