@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Avatar } from "antd";
 
 // core component
 import CardComponent from "../../components/Cards/CardComponent";
@@ -78,11 +79,195 @@ const Overview = props => {
               <AiOutlinePlus />
             </PrimaryButton>
           </CardComponent>
-          <CardComponent className="transaction-list overview-card">
+          <CardComponent className="transactions overview-card">
             <header className="card-header">
               <h3>Transactions</h3>
               <Link to="transactions">view all</Link>
             </header>
+            <div className="transaction-list-container">
+              <ul className="transaction-list">
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type debit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type credit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type debit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type debit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type credit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type debit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type credit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type debit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type debit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+                <li className="transaction">
+                  <Avatar
+                    style={{
+                      backgroundColor: "#00f",
+                      verticalAlign: "middle"
+                    }}
+                    size="large"
+                  >
+                    F
+                  </Avatar>
+                  <div className="transaction-details">
+                    <div className="transaction-meta">
+                      <h4 className="name">Rice</h4>
+                      <span className="transaction-type credit">Food</span>
+                    </div>
+                    <span className="price">$20</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </CardComponent>
         </section>
         <section className="analytics-charts">

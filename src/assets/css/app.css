@@ -24,3 +24,12 @@ button {
 .text-error {
   color: #b60000;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 1px;
+}

@@ -1,0 +1,12 @@
+@import "base";
+
+.chart-container {
+  @apply max-w-full overflow-auto;
+  .chart {
+    @apply md:m-5;
+    canvas {
+      @apply w-full;
+      width: 100% !important;
+    }
+  }
+}

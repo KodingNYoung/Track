@@ -57,8 +57,9 @@
     }
 
     main.site-layout-background {
-      @apply pt-24 p-5 overflow-y-auto h-screen;
+      @apply p-5 overflow-y-auto h-screen mt-20;
       background-color: $layout-bg;
+      height: calc(100vh - 80px);
     }
   }
   &.collapsed {

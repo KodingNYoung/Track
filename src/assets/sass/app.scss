@@ -24,3 +24,11 @@ button {
 .text-error {
   color: $error-red;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  &-thumb {
+    background-color: $border-gray;
+    border-radius: 1px;
+  }
+}

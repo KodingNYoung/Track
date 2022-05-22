@@ -30,7 +30,7 @@ const DashboardLayout = props => {
   const [collapsed, setCollapsed] = useState(false);
   const [modal, setModal] = useState(false);
   const [smScreen, setSmScreen] = useState(
-    window.matchMedia("(max-width: 720px)").matches
+    window.matchMedia("(max-width: 1080px)").matches
   );
 
   // functions
@@ -40,7 +40,7 @@ const DashboardLayout = props => {
   const logoutUser = () => {
     navigate("/login");
   };
-  window.matchMedia("(max-width: 720px)").addListener(query => {
+  window.matchMedia("(max-width: 1080px)").addListener(query => {
     setSmScreen(query.matches);
   });
 

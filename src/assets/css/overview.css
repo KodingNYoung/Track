@@ -1,5 +1,5 @@
 .overview .overview-header-cards {
-  @apply grid grid-cols-1 gap-5 md:grid-cols-2;
+  @apply grid grid-cols-1 md:gap-5 md:grid-cols-2;
 }
 
 .overview .overview-header-cards .overview-header-card h3.card-header {
@@ -45,9 +45,7 @@
 }
 
 .overview .overview-main-content {
-  @apply grid gap-5;
-  -ms-grid-columns: 350px auto;
-      grid-template-columns: 350px auto;
+  @apply grid gap-5 grid-cols-1;
 }
 
 .overview .overview-main-content .add-transactions {
@@ -69,13 +67,66 @@
   max-width: 180px;
 }
 
-.overview .overview-main-content .transaction-list header.card-header {
+.overview .overview-main-content .transactions {
+  @apply mb-0;
+}
+
+.overview .overview-main-content .transactions header.card-header {
   @apply border-0;
 }
 
-.overview .overview-main-content .transaction-list header.card-header a {
+.overview .overview-main-content .transactions header.card-header a {
   @apply capitalize;
   color: #c4c4c4;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container {
+  @apply max-h-96 h-full overflow-y-auto;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction {
+  @apply flex justify-start items-center px-5 py-2 mb-2;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .ant-avatar {
+  @apply h-10 w-10 text-xl flex justify-center items-center;
+  min-width: 40px;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details {
+  @apply flex justify-between items-center w-full mx-2;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details h4.name {
+  @apply text-lg font-semibold;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type {
+  @apply text-sm;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type.credit {
+  color: #00b528;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type.debit {
+  color: #b60000;
+}
+
+.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.price {
+  @apply text-2xl font-medium;
+  color: #00000080;
+}
+
+.overview .overview-main-content .analytics-charts {
+  @apply w-full;
+}
+
+@media screen and (min-width: 768px) {
+  .overview .overview-main-content {
+    -ms-grid-columns: 350px auto;
+        grid-template-columns: 350px auto;
+  }
 }
 
 .overview .overview-card {

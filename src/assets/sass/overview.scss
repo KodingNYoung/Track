@@ -2,7 +2,7 @@
 
 .overview {
   .overview-header-cards {
-    @apply grid grid-cols-1 gap-5 md:grid-cols-2;
+    @apply grid grid-cols-1 md:gap-5 md:grid-cols-2;
     .overview-header-card {
       h3.card-header {
         @apply p-5 pb-0 uppercase text-base font-medium;
@@ -39,8 +39,7 @@
     }
   }
   .overview-main-content {
-    @apply grid gap-5;
-    grid-template-columns: 350px auto;
+    @apply grid gap-5 grid-cols-1;
     .add-transactions {
       @apply p-6 mb-5 flex items-center justify-center flex-col text-lg font-medium;
       .icon {
@@ -56,7 +55,8 @@
         max-width: 180px;
       }
     }
-    .transaction-list {
+    .transactions {
+      @apply mb-0;
       header.card-header {
         @apply border-0;
         a {
@@ -64,6 +64,43 @@
           color: $border-gray;
         }
       }
+      .transaction-list-container {
+        @apply max-h-96 h-full overflow-y-auto;
+        .transaction-list {
+          .transaction {
+            @apply flex justify-start items-center px-5 py-2 mb-2;
+            .ant-avatar {
+              @apply h-10 w-10 text-xl flex justify-center items-center;
+              min-width: 40px;
+            }
+            .transaction-details {
+              @apply flex justify-between items-center w-full mx-2;
+              h4.name {
+                @apply text-lg font-semibold;
+              }
+              span.transaction-type {
+                @apply text-sm;
+                &.credit {
+                  color: $success-green;
+                }
+                &.debit {
+                  color: $error-red;
+                }
+              }
+              span.price {
+                @apply text-2xl font-medium;
+                color: $black-translucent;
+              }
+            }
+          }
+        }
+      }
+    }
+    .analytics-charts {
+      @apply w-full;
+    }
+    @media screen and (min-width: 768px) {
+      grid-template-columns: 350px auto;
     }
   }
   .overview-card {

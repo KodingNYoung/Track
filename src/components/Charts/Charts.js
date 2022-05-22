@@ -11,6 +11,9 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
+// css
+import "../../assets/css/charts.css";
+
 // registering components
 ChartJS.register(
   CategoryScale,
@@ -75,17 +78,8 @@ const options = {
 
 export const BarChart = () => {
   return (
-    <div
-      className="chart-container"
-      style={{ maxWidth: "100vw", overflowX: "auto" }}
-    >
-      <div
-        className="chart"
-        style={{
-          margin: "2rem 1rem 0",
-          minWidth: "700px"
-        }}
-      >
+    <div className="chart-container">
+      <div className="chart">
         <Bar
           data={{
             labels: [
