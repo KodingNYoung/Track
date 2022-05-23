@@ -7,12 +7,14 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Bar, Doughnut } from "react-chartjs-2";
 
 // css
 import "../../assets/css/charts.css";
+import { Container } from "postcss";
 
 // registering components
 ChartJS.register(
@@ -21,84 +23,152 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ArcElement
 );
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top",
-      align: "end",
-      labels: {
-        pointStyle: "circle",
-        usePointStyle: true,
-        padding: 10,
-        font: {
-          family: "'Poppins', sans-serif",
-          size: 14,
-          weight: "700"
-        },
-        color: "#000",
-        boxWidth: 8,
-        boxHeight: 8
-      }
-    }
-  },
-  scales: {
-    x: {
-      ticks: {
-        color: "#c4c4c4",
-        font: {
-          family: "'Poppins', sans-serif",
-          size: 14,
-          weight: 500
-        }
-      },
-      grid: {
-        display: false
-      }
-    },
-    y: {
-      ticks: {
-        color: "#c4c4c4",
-        font: {
-          family: "'Poppins', sans-serif",
-          size: 14,
-          weight: 500
-        }
-      },
-      grid: {
-        display: false
-      }
-    }
-  },
-  categoryPercentage: 0.4,
-  borderRadius: 10,
-  barPercentage: 0.5
-};
 
 export const BarChart = props => {
   const { data } = props;
-  console.log(data);
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+        align: "end",
+        labels: {
+          pointStyle: "circle",
+          usePointStyle: true,
+          padding: 25,
+          font: {
+            family: "'Poppins', sans-serif",
+            size: 14,
+            weight: "700"
+          },
+          color: "#000",
+          boxWidth: 8,
+          boxHeight: 8
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "#c4c4c4",
+          font: {
+            family: "'Poppins', sans-serif",
+            size: 14,
+            weight: 500
+          }
+        },
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        ticks: {
+          color: "#c4c4c4",
+          font: {
+            family: "'Poppins', sans-serif",
+            size: 14,
+            weight: 500
+          }
+        },
+        grid: {
+          display: false
+        }
+      }
+    },
+    categoryPercentage: 0.4,
+    borderRadius: 10,
+    barPercentage: 0.5
+  };
   const datasets = Object.keys(data.data).map(type => {
     return {
       label: type,
       data: data.data[type],
-      backgroundColor: type === "income" ? "#00b528" : "#b60000"
+      backgroundColor: type === "income" ? "#00b528" : "#FC0404"
     };
   });
   return (
     <div className="chart-container">
-      <div className="chart">
-        <Bar
-          data={{
-            labels: data.labels,
-            datasets: datasets
-          }}
-          options={options}
-        />
-      </div>
+      <Bar
+        data={{
+          labels: data.labels,
+          datasets: datasets
+        }}
+        options={options}
+      />
+    </div>
+  );
+};
+
+export const DoughnutChart = props => {
+  const data = {
+    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          "rgba(255, 99, 132,1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(0, 0, 0, 1)"
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(0, 0, 0, 1)"
+        ],
+        borderWidth: 1,
+        circumference: 180,
+        rotation: -90
+      }
+    ]
+  };
+  const options = {
+    plugins: {
+      legend: {
+        position: "right",
+        align: "middle",
+        labels: {
+          pointStyle: "circle",
+          usePointStyle: true,
+          color: "#000",
+          boxWidth: 8,
+          boxHeight: 8,
+          font: {
+            family: "'Poppins', sans-serif",
+            size: 14,
+            weight: "700"
+          }
+        }
+      },
+      title: {
+        display: true,
+        text: "TOTAL INCOME",
+        position: "bottom",
+        color: "#000",
+        font: {
+          family: "'Poppins', sans-serif",
+          size: 20,
+          weight: "600"
+        },
+        padding: {
+          top: -50
+        },
+        fullSize: false
+      }
+    }
+  };
+  return (
+    <div className="chart-container doughnut">
+      <Doughnut data={data} options={options} />
     </div>
   );
 };

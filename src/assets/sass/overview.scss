@@ -1,6 +1,7 @@
 @import "base";
 
 .overview {
+  @apply p-5;
   .overview-header-cards {
     @apply grid grid-cols-1 md:gap-5 md:grid-cols-2;
     .overview-header-card {
@@ -39,57 +40,61 @@
     }
   }
   .overview-main-content {
-    @apply grid gap-5 grid-cols-1;
-    .add-transactions {
-      @apply p-6 mb-5 flex items-center justify-center flex-col text-lg font-medium;
-      .icon {
-        @apply text-4xl rounded-2xl w-12 h-12 flex justify-center items-center;
-        background-color: $light-primary-bg;
-        color: $primary-color;
-      }
-      .text {
-        @apply my-5;
-      }
-      .add-btn {
-        @apply flex items-center justify-center text-2xl p-2 rounded-lg;
-        max-width: 180px;
-      }
-    }
-    .transactions {
-      @apply mb-0;
-      header.card-header {
-        @apply border-0;
-        a {
-          @apply capitalize;
-          color: $border-gray;
+    @apply grid gap-5 grid-cols-1 h-full;
+    .transactions-section {
+      @apply max-h-full h-full grid;
+      grid-template-rows: 250px auto;
+      .add-transactions {
+        @apply p-6 mb-5 flex items-center justify-center flex-col text-lg font-medium;
+        .icon {
+          @apply text-4xl rounded-2xl w-12 h-12 flex justify-center items-center;
+          background-color: $light-primary-bg;
+          color: $primary-color;
+        }
+        .text {
+          @apply my-5;
+        }
+        .add-btn {
+          @apply flex items-center justify-center text-2xl p-2 rounded-lg;
+          max-width: 180px;
         }
       }
-      .transaction-list-container {
-        @apply max-h-96 h-full overflow-y-auto;
-        .transaction-list {
-          .transaction {
-            @apply flex justify-start items-center px-5 py-2 mb-2;
-            .ant-avatar {
-              @apply h-10 w-10 text-xl flex justify-center items-center;
-              min-width: 40px;
-            }
-            .transaction-details {
-              @apply flex justify-between items-center w-full mx-2;
-              h4.name {
-                @apply text-lg font-semibold;
+      .transactions {
+        header.card-header {
+          @apply border-0;
+          a {
+            @apply capitalize;
+            color: $border-gray;
+          }
+        }
+        .transaction-list-container {
+          @apply h-full overflow-y-auto;
+          max-height: 400px;
+          .transaction-list {
+            .transaction {
+              @apply flex justify-start items-center px-5 py-2 mb-2;
+              .ant-avatar {
+                @apply h-10 w-10 text-xl flex justify-center items-center;
+                min-width: 40px;
               }
-              span.transaction-type {
-                @apply text-sm;
-                &.credit {
-                  color: $success-green;
+              .transaction-details {
+                @apply flex justify-between items-center w-full mx-2;
+                h4.name {
+                  @apply text-lg font-semibold;
                 }
-                &.debit {
-                  color: $error-red;
+                span.transaction-type {
+                  @apply text-sm;
+                  &.credit {
+                    color: $success-green;
+                  }
+                  &.debit {
+                    color: $error-red;
+                  }
                 }
-              }
-              span.price {
-                @apply text-2xl font-medium;
-                color: $black-translucent;
+                span.price {
+                  @apply text-2xl font-medium;
+                  color: $black-translucent;
+                }
               }
             }
           }
@@ -97,18 +102,36 @@
       }
     }
     .analytics-charts {
-      @apply w-full;
+      @apply w-full grid;
+      .charts {
+        @apply mx-5 flex justify-center items-center flex-col xl:flex-row;
+        .chart {
+          @apply mx-5 w-11/12 flex justify-center;
+          min-width: 250px;
+        }
+        .divider {
+          @apply xl:h-52 border xl:w-px h-px w-60;
+        }
+      }
     }
     @media screen and (min-width: 768px) {
       grid-template-columns: 350px auto;
+      grid-template-rows: 1fr;
+      .transactions-section {
+        .transactions {
+          .transaction-list-container {
+            max-height: unset;
+          }
+        }
+      }
     }
   }
   .overview-card {
     @apply transition-all duration-300 mb-5;
     header.card-header {
-      @apply flex justify-between items-center p-5 border-b;
+      @apply flex justify-end items-center p-5 py-4 border-b;
       h3 {
-        @apply text-base font-bold;
+        @apply text-lg font-bold mr-auto;
       }
     }
   }

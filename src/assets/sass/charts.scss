@@ -1,12 +1,13 @@
 @import "base";
 
 .chart-container {
-  @apply max-w-full overflow-auto;
-  .chart {
-    @apply md:m-5;
-    canvas {
-      @apply w-full;
-      width: 100% !important;
-    }
+  @apply max-w-full overflow-auto md:m-5;
+  canvas {
+    width: 100% !important;
+    max-height: 400px !important;
+  }
+  &.doughnut {
+    @apply m-0;
+    max-width: 450px;
   }
 }

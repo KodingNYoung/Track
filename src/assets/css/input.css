@@ -1,37 +1,34 @@
-.select-field {
-  @apply border rounded pl-2 transition-all duration-300;
+.customized-select-field {
+  @apply border rounded px-2 transition-all duration-300;
   border-color: #dedede;
 }
 
-.select-field .label {
+.customized-select-field .label {
   @apply font-light transition-all duration-300;
   color: #c4c4c4;
 }
 
-.select-field .ant-select {
+.customized-select-field .ant-select {
   @apply w-28;
 }
 
-.select-field .ant-select .ant-select-selector {
+.customized-select-field .ant-select .ant-select-selector {
   @apply justify-center border-0;
+  height: unset;
 }
 
-.select-field .ant-select .ant-select-arrow {
+.customized-select-field .ant-select .ant-select-arrow {
   color: #000;
 }
 
-.select-field .ant-select:hover .ant-select-selector {
+.customized-select-field .ant-select:hover .ant-select-selector {
   @apply border-0;
 }
 
-.select-field .ant-select.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+.customized-select-field .ant-select.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
   @apply border-0 shadow-none;
 }
 
-.select-field.active, .select-field:hover {
+.customized-select-field.active, .customized-select-field:hover {
   border-color: #0247fe;
-}
-
-.select-field.active .label, .select-field:hover .label {
-  color: #000;
 }

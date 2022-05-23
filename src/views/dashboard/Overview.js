@@ -5,9 +5,12 @@ import { Avatar } from "antd";
 
 // core component
 import CardComponent from "../../components/Cards/CardComponent";
-import { BarChart } from "../../components/Charts/Charts";
+import { BarChart, DoughnutChart } from "../../components/Charts/Charts";
 import { PrimaryButton } from "../../components/Buttons/Buttons";
-import { SelectField } from "../../components/Inputs/InputFields";
+import {
+  CustomizedSelectField,
+  DateField
+} from "../../components/Inputs/InputFields";
 import { barChartData } from "../../data";
 
 // css and icons
@@ -23,8 +26,8 @@ import "../../assets/css/overview.css";
 const Overview = props => {
   const { setView } = props;
   const [period, setPeriod] = useState({
-    chart: "weekly",
-    analytics: "weekly"
+    chart: "week",
+    analytics: "week"
   });
   console.log(barChartData[period.chart]);
 
@@ -83,7 +86,7 @@ const Overview = props => {
         </CardComponent>
       </div>
       <div className="overview-main-content">
-        <section className="transactions">
+        <section className="transactions-section">
           <CardComponent className="add-transactions overview-card">
             <span className="icon">
               <CgArrowsExchange />
@@ -288,25 +291,39 @@ const Overview = props => {
           <CardComponent className="overview-card">
             <header className="card-header">
               <h3>Analytics</h3>
-              <SelectField
+              <CustomizedSelectField
                 label="Period"
                 options={[
-                  { value: "weekly", name: "Weekly" },
-                  { value: "monthly", name: "Monthly" }
+                  { value: "week", name: "Weekly" },
+                  { value: "month", name: "Monthly" }
                 ]}
                 value={period?.analytics}
                 handleChange={value => handlePeriodChange("analytics", value)}
               />
             </header>
+            <div className="charts">
+              <div className="income-chart chart">
+                <DoughnutChart />
+              </div>
+              <div className="divider" />
+              <div className="income-chart chart">
+                <DoughnutChart />
+              </div>
+            </div>
           </CardComponent>
           <CardComponent className="overview-card">
             <header className="card-header">
               <h3>Charts</h3>
-              <SelectField
+              <DateField
+                type={period.chart}
+                onChange={console.log}
+                className="date-selector"
+              />
+              <CustomizedSelectField
                 label="Period"
                 options={[
-                  { value: "weekly", name: "Weekly" },
-                  { value: "yearly", name: "Yearly" }
+                  { value: "week", name: "Weekly" },
+                  { value: "year", name: "Yearly" }
                 ]}
                 handleChange={value => handlePeriodChange("chart", value)}
                 value={period?.chart}

@@ -1,7 +1,7 @@
 @import "base";
 
-.select-field {
-  @apply border rounded pl-2 transition-all duration-300;
+.customized-select-field {
+  @apply border rounded px-2 transition-all duration-300;
   border-color: lighten($border-gray, 10%);
   .label {
     @apply font-light transition-all duration-300;
@@ -11,6 +11,7 @@
     @apply w-28;
     .ant-select-selector {
       @apply justify-center border-0;
+      height: unset;
     }
     .ant-select-arrow {
       color: $black;
@@ -28,8 +29,5 @@
   &.active,
   &:hover {
     border-color: $primary-color;
-    .label {
-      color: $black;
-    }
   }
 }

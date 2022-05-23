@@ -1,5 +1,5 @@
 export const barChartData = {
-  yearly: {
+  year: {
     labels: [
       "Jan",
       "Feb",
@@ -23,7 +23,7 @@ export const barChartData = {
       ]
     }
   },
-  weekly: {
+  week: {
     labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
     data: {
       income: [991, 593, 70, 394, 349, 264, 690],

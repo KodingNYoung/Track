@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "antd";
-import { Select } from "antd";
+import { Input, DatePicker, Select } from "antd";
 
 import "../../assets/css/input.css";
 
@@ -25,8 +24,8 @@ export const PasswordField = props => {
     </div>
   );
 };
-export const SelectField = props => {
-  const { options, label, defaultValue, handleChange } = props;
+export const CustomizedSelectField = props => {
+  const { options, label, defaultValue, handleChange, value } = props;
   const [active, setActive] = useState(false);
 
   const handleFocus = () => {
@@ -37,14 +36,14 @@ export const SelectField = props => {
   };
 
   return (
-    <span className={`select-field${active ? " active" : ""}`}>
+    <span className={`customized-select-field${active ? " active" : ""}`}>
       <span className="label">{label} :</span>
       <Select
         size="large"
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChange={handleChange}
-        defaultValue={defaultValue}
+        value={value}
       >
         {options?.map(option => (
           <Option value={option.value} key={option.value}>
@@ -52,6 +51,16 @@ export const SelectField = props => {
           </Option>
         ))}
       </Select>
+    </span>
+  );
+};
+
+export const DateField = props => {
+  const { type, onChange, className } = props;
+
+  return (
+    <span className={`date-field ${className}`}>
+      <DatePicker onChange={onChange} picker={type} size="large" />
     </span>
   );
 };

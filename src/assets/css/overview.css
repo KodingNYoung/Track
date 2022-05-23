@@ -1,3 +1,7 @@
+.overview {
+  @apply p-5;
+}
+
 .overview .overview-header-cards {
   @apply grid grid-cols-1 md:gap-5 md:grid-cols-2;
 }
@@ -45,87 +49,108 @@
 }
 
 .overview .overview-main-content {
-  @apply grid gap-5 grid-cols-1;
+  @apply grid gap-5 grid-cols-1 h-full;
 }
 
-.overview .overview-main-content .add-transactions {
+.overview .overview-main-content .transactions-section {
+  @apply max-h-full h-full grid;
+  -ms-grid-rows: 250px auto;
+      grid-template-rows: 250px auto;
+}
+
+.overview .overview-main-content .transactions-section .add-transactions {
   @apply p-6 mb-5 flex items-center justify-center flex-col text-lg font-medium;
 }
 
-.overview .overview-main-content .add-transactions .icon {
+.overview .overview-main-content .transactions-section .add-transactions .icon {
   @apply text-4xl rounded-2xl w-12 h-12 flex justify-center items-center;
   background-color: #0046ff1a;
   color: #0247fe;
 }
 
-.overview .overview-main-content .add-transactions .text {
+.overview .overview-main-content .transactions-section .add-transactions .text {
   @apply my-5;
 }
 
-.overview .overview-main-content .add-transactions .add-btn {
+.overview .overview-main-content .transactions-section .add-transactions .add-btn {
   @apply flex items-center justify-center text-2xl p-2 rounded-lg;
   max-width: 180px;
 }
 
-.overview .overview-main-content .transactions {
-  @apply mb-0;
-}
-
-.overview .overview-main-content .transactions header.card-header {
+.overview .overview-main-content .transactions-section .transactions header.card-header {
   @apply border-0;
 }
 
-.overview .overview-main-content .transactions header.card-header a {
+.overview .overview-main-content .transactions-section .transactions header.card-header a {
   @apply capitalize;
   color: #c4c4c4;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container {
-  @apply max-h-96 h-full overflow-y-auto;
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container {
+  @apply h-full overflow-y-auto;
+  max-height: 400px;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction {
   @apply flex justify-start items-center px-5 py-2 mb-2;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .ant-avatar {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction .ant-avatar {
   @apply h-10 w-10 text-xl flex justify-center items-center;
   min-width: 40px;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction .transaction-details {
   @apply flex justify-between items-center w-full mx-2;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details h4.name {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction .transaction-details h4.name {
   @apply text-lg font-semibold;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type {
   @apply text-sm;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type.credit {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type.credit {
   color: #00b528;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type.debit {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.transaction-type.debit {
   color: #b60000;
 }
 
-.overview .overview-main-content .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.price {
+.overview .overview-main-content .transactions-section .transactions .transaction-list-container .transaction-list .transaction .transaction-details span.price {
   @apply text-2xl font-medium;
   color: #00000080;
 }
 
 .overview .overview-main-content .analytics-charts {
-  @apply w-full;
+  @apply w-full grid;
+}
+
+.overview .overview-main-content .analytics-charts .charts {
+  @apply mx-5 flex justify-center items-center flex-col xl:flex-row;
+}
+
+.overview .overview-main-content .analytics-charts .charts .chart {
+  @apply mx-5 w-11/12 flex justify-center;
+  min-width: 250px;
+}
+
+.overview .overview-main-content .analytics-charts .charts .divider {
+  @apply xl:h-52 border xl:w-px h-px w-60;
 }
 
 @media screen and (min-width: 768px) {
   .overview .overview-main-content {
     -ms-grid-columns: 350px auto;
         grid-template-columns: 350px auto;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+  .overview .overview-main-content .transactions-section .transactions .transaction-list-container {
+    max-height: unset;
   }
 }
 
@@ -134,9 +159,9 @@
 }
 
 .overview .overview-card header.card-header {
-  @apply flex justify-between items-center p-5 border-b;
+  @apply flex justify-end items-center p-5 py-4 border-b;
 }
 
 .overview .overview-card header.card-header h3 {
-  @apply text-base font-bold;
+  @apply text-lg font-bold mr-auto;
 }
