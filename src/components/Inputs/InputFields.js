@@ -59,7 +59,7 @@ export const DateField = props => {
   const { type, onChange, className } = props;
 
   return (
-    <span className={`date-field ${className}`}>
+    <span className={`date-field custom ${className}`}>
       <DatePicker onChange={onChange} picker={type} size="large" />
     </span>
   );

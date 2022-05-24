@@ -311,25 +311,29 @@ const Overview = props => {
               </div>
             </div>
           </CardComponent>
-          <CardComponent className="overview-card">
+          <CardComponent className="overview-card bar-chart-card">
             <header className="card-header">
               <h3>Charts</h3>
-              <DateField
-                type={period.chart}
-                onChange={console.log}
-                className="date-selector"
-              />
-              <CustomizedSelectField
-                label="Period"
-                options={[
-                  { value: "week", name: "Weekly" },
-                  { value: "year", name: "Yearly" }
-                ]}
-                handleChange={value => handlePeriodChange("chart", value)}
-                value={period?.chart}
-              />
+              <span className="card-header-action">
+                <DateField
+                  type={period.chart}
+                  onChange={console.log}
+                  className="date-selector"
+                />
+                <CustomizedSelectField
+                  label="Period"
+                  options={[
+                    { value: "week", name: "Weekly" },
+                    { value: "year", name: "Yearly" }
+                  ]}
+                  handleChange={value => handlePeriodChange("chart", value)}
+                  value={period?.chart}
+                />
+              </span>
             </header>
-            <BarChart data={barChartData[period.chart]} />
+            <div className="chart">
+              <BarChart data={barChartData[period.chart]} />
+            </div>
           </CardComponent>
         </section>
       </div>

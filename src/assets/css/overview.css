@@ -78,7 +78,7 @@
 }
 
 .overview .overview-main-content .transactions-section .transactions header.card-header {
-  @apply border-0;
+  @apply border-0 py-3;
 }
 
 .overview .overview-main-content .transactions-section .transactions header.card-header a {
@@ -139,7 +139,7 @@
 }
 
 .overview .overview-main-content .analytics-charts .charts .divider {
-  @apply xl:h-52 border xl:w-px h-px w-60;
+  @apply xl:h-52 border xl:w-px h-px max-w-sm w-3/4;
 }
 
 @media screen and (min-width: 768px) {
@@ -151,6 +151,7 @@
   }
   .overview .overview-main-content .transactions-section .transactions .transaction-list-container {
     max-height: unset;
+    height: 100%;
   }
 }
 
@@ -159,9 +160,13 @@
 }
 
 .overview .overview-card header.card-header {
-  @apply flex justify-end items-center p-5 py-4 border-b;
+  @apply flex justify-end items-center p-5 py-2 border-b;
 }
 
 .overview .overview-card header.card-header h3 {
   @apply text-lg font-bold mr-auto;
+}
+
+.overview .overview-card header.card-header .card-header-action {
+  @apply flex flex-col-reverse justify-end items-center lg:flex-row;
 }

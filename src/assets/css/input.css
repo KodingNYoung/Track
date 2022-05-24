@@ -1,6 +1,6 @@
 .customized-select-field {
-  @apply border rounded px-2 transition-all duration-300;
-  border-color: #dedede;
+  @apply flex items-center pl-2 transition-all duration-300 relative h-11 m-3;
+  width: 180px;
 }
 
 .customized-select-field .label {
@@ -9,26 +9,36 @@
 }
 
 .customized-select-field .ant-select {
-  @apply w-28;
-}
-
-.customized-select-field .ant-select .ant-select-selector {
-  @apply justify-center border-0;
-  height: unset;
+  @apply absolute  top-0 left-0 w-full h-full bg-transparent;
 }
 
 .customized-select-field .ant-select .ant-select-arrow {
   color: #000;
 }
 
-.customized-select-field .ant-select:hover .ant-select-selector {
-  @apply border-0;
+.customized-select-field .ant-select.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector {
+  @apply h-full bg-transparent pl-16 rounded;
+}
+
+.customized-select-field .ant-select.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-item {
+  line-height: 40px;
 }
 
 .customized-select-field .ant-select.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
-  @apply border-0 shadow-none;
+  @apply shadow-none;
+  border-color: #0247fe;
 }
 
-.customized-select-field.active, .customized-select-field:hover {
+.customized-select-field .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: #0247fe;
+}
+
+.date-field.custom .ant-picker {
+  @apply rounded p-2 h-11;
+  width: 180px;
+}
+
+.date-field.custom .ant-picker:hover, .date-field.custom .ant-picker.ant-picker-focused {
+  @apply shadow-none;
   border-color: #0247fe;
 }
