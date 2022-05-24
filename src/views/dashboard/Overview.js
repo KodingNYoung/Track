@@ -295,7 +295,8 @@ const Overview = props => {
                 label="Period"
                 options={[
                   { value: "week", name: "Weekly" },
-                  { value: "month", name: "Monthly" }
+                  { value: "month", name: "Monthly" },
+                  { value: "year", name: "Yearly" }
                 ]}
                 value={period?.analytics}
                 handleChange={value => handlePeriodChange("analytics", value)}

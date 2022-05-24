@@ -71,6 +71,9 @@ export const BarChart = props => {
             family: "'Poppins', sans-serif",
             size: 14,
             weight: 500
+          },
+          callback: function (value, index, ticks) {
+            return index % 2 === 0 ? "$" + value : null;
           }
         },
         grid: {
