@@ -56,11 +56,18 @@ export const CustomizedSelectField = props => {
 };
 
 export const DateField = props => {
-  const { type, onChange, className } = props;
+  const { type, handleChange, className, value, onPanelChange } = props;
 
   return (
     <span className={`date-field custom ${className}`}>
-      <DatePicker onChange={onChange} picker={type} size="large" />
+      <DatePicker
+        onChange={handleChange}
+        picker={type}
+        size="large"
+        showToday={true}
+        value={value}
+        onPanelChange={onPanelChange}
+      />
     </span>
   );
 };

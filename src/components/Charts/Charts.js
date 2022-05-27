@@ -28,7 +28,7 @@ ChartJS.register(
 );
 
 export const BarChart = props => {
-  const { data } = props;
+  const { datasets, labels } = props;
   const options = {
     responsive: true,
     plugins: {
@@ -85,18 +85,18 @@ export const BarChart = props => {
     borderRadius: 10,
     barPercentage: 0.5
   };
-  const datasets = Object.keys(data.data).map(type => {
-    return {
-      label: type,
-      data: data.data[type],
-      backgroundColor: type === "income" ? "#00b528" : "#FC0404"
-    };
-  });
+  // const datasets = Object.keys(data.data).map(type => {
+  //   return {
+  //     label: type,
+  //     data: data.data[type],
+  //     backgroundColor: type === "income" ? "#00b528" : "#FC0404"
+  //   };
+  // });
   return (
     <div className="chart-container">
       <Bar
         data={{
-          labels: data.labels,
+          labels: labels,
           datasets: datasets
         }}
         options={options}

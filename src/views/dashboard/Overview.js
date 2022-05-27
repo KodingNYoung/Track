@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Avatar } from "antd";
+import moment from "moment";
+import { numExtraction, getFormattedDate } from "../../utils";
 
 // core component
 import CardComponent from "../../components/Cards/CardComponent";
@@ -11,7 +13,7 @@ import {
   CustomizedSelectField,
   DateField
 } from "../../components/Inputs/InputFields";
-import { barChartData } from "../../data";
+import { allBarChartData } from "../../data";
 
 // css and icons
 import {
@@ -29,16 +31,48 @@ const Overview = props => {
     chart: "week",
     analytics: "week"
   });
-  console.log(barChartData[period.chart]);
+  const [barChartData, setBarChartData] = useState({});
+  const [barChartFilters, setBarChartFilters] = useState({
+    period: "week",
+    date: ""
+  });
 
   // functions
   const handlePeriodChange = (name, value) => {
     setPeriod({ ...period, [name]: value });
   };
+  const handleBarChartPeriodChange = value => {
+    setBarChartFilters({ period: value, date: "" });
+  };
+  const handleBarChartDateFilter = data => {
+    if (moment(data) <= moment()) {
+      return setBarChartFilters({ ...barChartFilters, date: data });
+    } else {
+      console.log("you can't choose a future date");
+    }
+  };
+  const formatChartDate = filter => {
+    let { date, period } = filter;
+
+    // get date format
+    const format = period === "week" ? "YYYY-wo" : "YYYY";
+    date = getFormattedDate(date, format);
+
+    // get the data from the db
+    const data = allBarChartData?.[period];
+    const labels = data?.labels;
+    const datasets = data?.data?.[date];
+    setBarChartData({ labels, datasets });
+    console.log(datasets);
+  };
 
   useEffect(() => {
     setView("overview");
   }, []);
+
+  useEffect(() => {
+    formatChartDate(barChartFilters);
+  }, [barChartFilters]);
 
   return (
     <motion.section
@@ -317,9 +351,14 @@ const Overview = props => {
               <h3>Charts</h3>
               <span className="card-header-action">
                 <DateField
-                  type={period.chart}
-                  onChange={console.log}
+                  handleChange={handleBarChartDateFilter}
                   className="date-selector"
+                  type={barChartFilters.period}
+                  value={
+                    barChartFilters?.date
+                      ? moment(barChartFilters?.date)
+                      : moment()
+                  }
                 />
                 <CustomizedSelectField
                   label="Period"
@@ -327,13 +366,27 @@ const Overview = props => {
                     { value: "week", name: "Weekly" },
                     { value: "year", name: "Yearly" }
                   ]}
-                  handleChange={value => handlePeriodChange("chart", value)}
-                  value={period?.chart}
+                  handleChange={handleBarChartPeriodChange}
+                  value={barChartFilters?.period}
                 />
               </span>
             </header>
             <div className="chart">
-              <BarChart data={barChartData[period.chart]} />
+              <BarChart
+                labels={barChartData?.labels}
+                datasets={[
+                  {
+                    label: "income",
+                    backgroundColor: "#00b528",
+                    data: barChartData?.datasets?.income
+                  },
+                  {
+                    label: "expenses",
+                    backgroundColor: "#FC0404",
+                    data: barChartData?.datasets?.expenses
+                  }
+                ]}
+              />
             </div>
           </CardComponent>
         </section>

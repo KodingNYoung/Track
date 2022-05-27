@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // core component
 import DashboardLayout from "../../layout/DashboardLayout";
 // Routes
