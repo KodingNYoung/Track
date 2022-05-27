@@ -63,7 +63,6 @@ const Overview = props => {
     const labels = data?.labels;
     const datasets = data?.data?.[date];
     setBarChartData({ labels, datasets });
-    console.log(datasets);
   };
 
   useEffect(() => {

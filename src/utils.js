@@ -13,3 +13,10 @@ export const getFormattedDate = (date = "", format) => {
     .map(ds => numExtraction(ds))
     .join("-");
 };
+
+export const currencySign = {
+  naira: "₦",
+  dollar: "$",
+  pound: "£",
+  euro: "€"
+};
