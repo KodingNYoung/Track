@@ -1,0 +1,112 @@
+.auth-page {
+  @apply w-full h-screen relative;
+}
+
+.auth-page .page-header {
+  @apply absolute p-10 z-50;
+}
+
+.auth-page .page-content {
+  @apply flex justify-center h-full;
+}
+
+.auth-page .page-content .content {
+  @apply lg:w-1/2 h-full;
+}
+
+.auth-page .page-content .content.aside-content {
+  @apply relative hidden justify-center items-center lg:flex;
+  background-color: #fafafa;
+}
+
+.auth-page .page-content .content.aside-content svg.main-svg {
+  @apply p-10;
+  min-width: 500px;
+  max-width: 700px;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern {
+  @apply absolute top-0 left-0 h-full w-full overflow-hidden;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg {
+  @apply absolute;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.small {
+  @apply w-6 h-6;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.normal {
+  @apply w-12 h-12;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.top {
+  top: -0.75rem;
+  right: 30%;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.top-right {
+  top: 3rem;
+  right: 2rem;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.middle-right {
+  top: 50%;
+  right: -0.75rem;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.bottom-right {
+  bottom: 9rem;
+  right: 6rem;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.bottom-center {
+  bottom: 7rem;
+  right: 40%;
+}
+
+.auth-page .page-content .content.aside-content .aside-pattern svg.bottom-left {
+  bottom: 2rem;
+  left: 3rem;
+}
+
+.auth-page .page-content .content.main-content {
+  @apply flex justify-center items-center w-full;
+}
+
+.auth-page .page-content .content.main-content .content-container {
+  @apply lg:w-3/4 w-full shadow-none md:shadow-md lg:shadow-none p-10 transition-all;
+  max-width: 500px;
+}
+
+.auth-page .page-content .content.main-content .content-container h2 {
+  @apply text-center capitalize font-semibold text-2xl mb-10;
+}
+
+.auth-page .page-content .content.main-content .content-container .forgot-password-instructions {
+  @apply font-medium text-base pb-8 block text-center;
+  color: #7a7a7a;
+}
+
+.auth-page .page-content .content.main-content .content-container button.sign-in-with-google {
+  @apply border flex justify-center items-center w-full p-2 font-medium text-base;
+}
+
+.auth-page .page-content .content.main-content .content-container button.sign-in-with-google svg {
+  @apply w-10 h-10 mr-5;
+}
+
+.auth-page .page-content .content.main-content .content-container .forgot-password-link {
+  @apply font-medium text-base ml-auto -mt-4 mb-5 block w-fit;
+  color: #0247fe;
+}
+
+.auth-page .page-content .content.main-content .content-container .have-registered {
+  @apply block text-center text-base font-medium mt-4;
+  color: #c4c4c4;
+}
+
+.auth-page .page-content .content.main-content .content-container .have-registered a {
+  color: #0247fe;
+}

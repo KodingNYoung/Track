@@ -1,0 +1,90 @@
+@import "base";
+
+.auth-page {
+  @apply w-full h-screen relative;
+  .page-header {
+    @apply absolute p-10 z-50;
+  }
+  .page-content {
+    @apply flex justify-center h-full;
+    .content {
+      @apply lg:w-1/2 h-full;
+      &.aside-content {
+        @apply relative hidden justify-center items-center lg:flex;
+        background-color: $auth-bg;
+        svg.main-svg {
+          @apply p-10;
+          min-width: 500px;
+          max-width: 700px;
+        }
+        .aside-pattern {
+          @apply absolute top-0 left-0 h-full w-full overflow-hidden;
+          svg {
+            @apply absolute;
+            &.small {
+              @apply w-6 h-6;
+            }
+            &.normal {
+              @apply w-12 h-12;
+            }
+            &.top {
+              top: -0.75rem;
+              right: 30%;
+            }
+            &.top-right {
+              top: 3rem;
+              right: 2rem;
+            }
+            &.middle-right {
+              top: 50%;
+              right: -0.75rem;
+            }
+            &.bottom-right {
+              bottom: 9rem;
+              right: 6rem;
+            }
+            &.bottom-center {
+              bottom: 7rem;
+              right: 40%;
+            }
+            &.bottom-left {
+              bottom: 2rem;
+              left: 3rem;
+            }
+          }
+        }
+      }
+      &.main-content {
+        @apply flex justify-center items-center w-full;
+        .content-container {
+          @apply lg:w-3/4 w-full shadow-none md:shadow-md lg:shadow-none p-10 transition-all;
+          max-width: 500px;
+          h2 {
+            @apply text-center capitalize font-semibold text-2xl mb-10;
+          }
+          .forgot-password-instructions {
+            @apply font-medium text-base pb-8 block text-center;
+            color: $form-label-text;
+          }
+          button.sign-in-with-google {
+            @apply border flex justify-center items-center w-full p-2 font-medium text-base;
+            svg {
+              @apply w-10 h-10 mr-5;
+            }
+          }
+          .forgot-password-link {
+            @apply font-medium text-base ml-auto -mt-4 mb-5 block w-fit;
+            color: $primary-color;
+          }
+          .have-registered {
+            @apply block text-center text-base font-medium mt-4;
+            color: $border-gray;
+            a {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

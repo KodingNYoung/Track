@@ -18,7 +18,7 @@ import {
 
 // css
 import "../assets/css/dashboard.css";
-import { DashboardBrand } from "../components/Brand/Brands";
+import { Brand } from "../components/Brand/Brands";
 
 // sub components
 const { Sider, Header, Content } = Layout;
@@ -72,7 +72,7 @@ const DashboardLayout = props => {
         collapsed={collapsed || smScreen}
         className="sidebar"
       >
-        <DashboardBrand collapsed={collapsed || smScreen} />
+        <Brand collapsed={collapsed || smScreen} color="white" />
         <Menu
           mode="inline"
           defaultSelectedKeys={["overview"]}

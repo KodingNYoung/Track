@@ -8,18 +8,20 @@ const { Password, Group } = Input;
 export const TextField = props => {
   const { label, ...fieldProps } = props;
   return (
-    <div className="form-group mb-5">
-      <label htmlFor={fieldProps?.id}>{label}</label>
+    <label htmlFor={fieldProps?.id} className="form-group">
+      <span className="input-label">{label}</span>
       <Input {...fieldProps} />
-    </div>
+    </label>
   );
 };
 
 export const PasswordField = props => {
   const { label, ...fieldProps } = props;
   return (
-    <div className="form-group mb-5">
-      <label htmlFor={fieldProps?.id}>{label}</label>
+    <div className="form-group">
+      <label htmlFor={fieldProps?.id} className="input-label">
+        {label}
+      </label>
       <Password {...fieldProps} />
     </div>
   );

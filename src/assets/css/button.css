@@ -3,7 +3,7 @@ button.ant-btn {
 }
 
 .primary-btn {
-  @apply px-2 py-3 border border-solid rounded;
+  @apply px-2 py-3 border border-solid rounded-none;
   background-color: #0247fe;
   color: #fdfdfd;
   border-color: #0247fe;

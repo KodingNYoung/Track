@@ -1,6 +1,15 @@
 @import "base";
 
 .card {
-  // @apply;
   background-color: $text-white;
+}
+.auth-divider {
+  color: $border-gray !important;
+  &::after,
+  &::before {
+    top: unset !important;
+  }
+  span.divider-text {
+    @apply px-5;
+  }
 }

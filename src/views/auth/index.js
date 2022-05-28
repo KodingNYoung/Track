@@ -5,19 +5,18 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import Register from "./Register";
-import TestNav from "../../components/Nav/TestNav";
+
+// css
+import "../../assets/css/auth.css";
 
 const Auth = () => {
   return (
-    <>
-      <TestNav />
-      <Routes>
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="forgot-password" element={<ForgotPassword />} />
-        <Route path="*" element={<Navigate to="login" replace={true} />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
+      <Route path="forgot-password" element={<ForgotPassword />} />
+      <Route path="*" element={<Navigate to="login" replace={true} />} />
+    </Routes>
   );
 };
 
