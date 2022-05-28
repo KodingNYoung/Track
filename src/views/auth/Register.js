@@ -17,7 +17,7 @@ const Register = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    navigate("/dashboard");
+    navigate("/auth/login");
   };
 
   return (
