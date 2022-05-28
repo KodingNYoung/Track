@@ -10,8 +10,8 @@ import { Divider } from "../../components/Dividers/Divider";
 import Carousel from "../../components/Carousel/Carousel";
 
 // images
-import { RegisterSVG, Ellipse, Google } from "../../imports/images";
-import { HiOutlineMail } from "../../imports/icons";
+import { RegisterSVG, Google } from "../../imports/images";
+import { HiOutlineMail, AiOutlineUser } from "../../imports/icons";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -61,7 +61,7 @@ const Register = () => {
               />
               <TextField
                 size="large"
-                suffix={<HiOutlineMail />}
+                suffix={<AiOutlineUser />}
                 id="username"
                 name="username"
                 label="Username"

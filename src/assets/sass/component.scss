@@ -15,7 +15,7 @@
 }
 .carousel {
   ul.slick-dots {
-    @apply relative;
+    @apply relative justify-start mx-0;
     li {
       @apply w-2 h-2;
       button {

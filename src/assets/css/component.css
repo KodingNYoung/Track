@@ -15,7 +15,7 @@
 }
 
 .carousel ul.slick-dots {
-  @apply relative;
+  @apply relative justify-start mx-0;
 }
 
 .carousel ul.slick-dots li {
