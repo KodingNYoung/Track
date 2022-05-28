@@ -121,23 +121,7 @@ export const DoughnutChart = props => {
           "rgba(0, 0, 0, 1)"
         ],
         circumference: 180,
-        rotation: -90,
-        tooltip: {
-          callbacks: {
-            label: tooltipItem => {
-              const items = tooltipItem.dataset.data;
-              const currentValue = items?.[tooltipItem?.dataIndex];
-              const total = items.reduce(function (
-                previousValue,
-                currentValue
-              ) {
-                return previousValue + currentValue;
-              });
-              var percentage = Math.floor((currentValue / total) * 100 + 0.5);
-              return `${percentage}%`;
-            }
-          }
-        }
+        rotation: -90
       }
     ]
   };
@@ -173,6 +157,19 @@ export const DoughnutChart = props => {
           top: -50
         },
         fullSize: false
+      },
+      tooltip: {
+        callbacks: {
+          label: tooltipItem => {
+            const items = tooltipItem.dataset.data;
+            const currentValue = items?.[tooltipItem?.dataIndex];
+            const total = items.reduce(function (previousValue, currentValue) {
+              return previousValue + currentValue;
+            });
+            var percentage = Math.floor((currentValue / total) * 100 + 0.5);
+            return `${tooltipItem?.label}: ${percentage}%`;
+          }
+        }
       }
     }
   };
