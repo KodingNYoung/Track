@@ -13,3 +13,21 @@
 .auth-divider span.divider-text {
   @apply px-5;
 }
+
+.carousel ul.slick-dots {
+  @apply relative;
+}
+
+.carousel ul.slick-dots li {
+  @apply w-2 h-2;
+}
+
+.carousel ul.slick-dots li button {
+  @apply h-full;
+  background-color: #c4c4c4;
+  border-radius: 12px;
+}
+
+.carousel ul.slick-dots li.slick-active button {
+  background-color: #7a7a7a;
+}

@@ -13,3 +13,21 @@
     @apply px-5;
   }
 }
+.carousel {
+  ul.slick-dots {
+    @apply relative;
+    li {
+      @apply w-2 h-2;
+      button {
+        @apply h-full;
+        background-color: $border-gray;
+        border-radius: 12px;
+      }
+      &.slick-active {
+        button {
+          background-color: $form-label-text;
+        }
+      }
+    }
+  }
+}

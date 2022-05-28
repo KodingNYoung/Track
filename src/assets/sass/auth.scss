@@ -3,15 +3,29 @@
 .auth-page {
   @apply w-full h-screen relative;
   .page-header {
-    @apply absolute md:p-10 z-50;
+    @apply absolute md:p-10 md:py-8  z-50;
   }
   .page-content {
     @apply flex justify-center h-full;
     .content {
       @apply lg:w-1/2 h-full;
       &.aside-content {
-        @apply relative hidden justify-center items-center lg:flex;
+        @apply relative hidden justify-center items-center flex-col lg:flex pt-20;
         background-color: $auth-bg;
+        .text-slider-container {
+          @apply w-full md:px-16 md:py-5 mt-5;
+          .slide {
+            color: #fff;
+            h3 {
+              @apply font-semibold pb-8;
+              color: $form-label-text;
+            }
+            span {
+              @apply font-normal max-w-sm block mb-8;
+              color: $border-gray;
+            }
+          }
+        }
         svg.main-svg {
           @apply p-10;
           min-width: 500px;

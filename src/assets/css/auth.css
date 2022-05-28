@@ -3,7 +3,7 @@
 }
 
 .auth-page .page-header {
-  @apply absolute md:p-10 z-50;
+  @apply absolute md:p-10 md:py-8  z-50;
 }
 
 .auth-page .page-content {
@@ -15,8 +15,26 @@
 }
 
 .auth-page .page-content .content.aside-content {
-  @apply relative hidden justify-center items-center lg:flex;
+  @apply relative hidden justify-center items-center flex-col lg:flex pt-20;
   background-color: #fafafa;
+}
+
+.auth-page .page-content .content.aside-content .text-slider-container {
+  @apply w-full md:px-16 md:py-5 mt-5;
+}
+
+.auth-page .page-content .content.aside-content .text-slider-container .slide {
+  color: #fff;
+}
+
+.auth-page .page-content .content.aside-content .text-slider-container .slide h3 {
+  @apply font-semibold pb-8;
+  color: #7a7a7a;
+}
+
+.auth-page .page-content .content.aside-content .text-slider-container .slide span {
+  @apply font-normal max-w-sm block mb-8;
+  color: #c4c4c4;
 }
 
 .auth-page .page-content .content.aside-content svg.main-svg {

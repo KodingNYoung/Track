@@ -7,6 +7,7 @@ import { SubmitButton } from "../../components/Buttons/Buttons";
 import { PasswordField, TextField } from "../../components/Inputs/InputFields";
 import { Brand } from "../../components/Brand/Brands";
 import { Divider } from "../../components/Dividers/Divider";
+import Carousel from "../../components/Carousel/Carousel";
 
 // images
 import { RegisterSVG, Ellipse, Google } from "../../imports/images";
@@ -34,6 +35,9 @@ const Register = () => {
       </header>
       <div className="page-content">
         <aside className="aside-content content">
+          <div className="text-slider-container">
+            <Carousel />
+          </div>
           <RegisterSVG className="main-svg" />
         </aside>
         <main className="main-content content">
