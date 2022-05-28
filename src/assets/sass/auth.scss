@@ -3,7 +3,7 @@
 .auth-page {
   @apply w-full h-screen relative;
   .page-header {
-    @apply absolute p-10 z-50;
+    @apply absolute md:p-10 z-50;
   }
   .page-content {
     @apply flex justify-center h-full;
@@ -61,6 +61,9 @@
           max-width: 500px;
           h2 {
             @apply text-center capitalize font-semibold text-2xl mb-10;
+            span {
+              color: $primary-color;
+            }
           }
           .forgot-password-instructions {
             @apply font-medium text-base pb-8 block text-center;

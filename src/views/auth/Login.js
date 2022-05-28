@@ -55,7 +55,6 @@ const Login = () => {
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
                 size="large"
-                placeholder="johndoe@example.com"
                 suffix={<HiOutlineMail />}
                 id="email"
                 name="email"
@@ -64,7 +63,6 @@ const Login = () => {
               />
               <PasswordField
                 size="large"
-                placeholder="******"
                 id="password"
                 name="password"
                 type="password"

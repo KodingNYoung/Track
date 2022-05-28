@@ -1,12 +1,16 @@
 import React from "react";
-import { AiOutlineUser, RiLockPasswordLine } from "../../imports/icons";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+// components
 import { SubmitButton } from "../../components/Buttons/Buttons";
-import {
-  PasswordField,
-  TextField,
-  InputGroup
-} from "../../components/Inputs/InputFields";
-import { useNavigate } from "react-router-dom";
+import { PasswordField, TextField } from "../../components/Inputs/InputFields";
+import { Brand } from "../../components/Brand/Brands";
+import { Divider } from "../../components/Dividers/Divider";
+
+// images
+import { RegisterSVG, Ellipse, Google } from "../../imports/images";
+import { HiOutlineMail } from "../../imports/icons";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -17,48 +21,65 @@ const Register = () => {
   };
 
   return (
-    <main className="flex h-screen w-full justify-center items-center">
-      <form onSubmit={handleSubmit}>
-        <InputGroup
-          inputs={[
-            <TextField
-              size="large"
-              placeholder="First Name"
-              prefix={<AiOutlineUser />}
-              id="first_name"
-              name="first_name"
-            />,
-            <TextField
-              size="large"
-              placeholder="Last Name"
-              id="last_name"
-              name="last_name"
-            />
-          ]}
-          label="Full Name"
-          id="first_name"
-        />
-        <TextField
-          size="large"
-          placeholder="johndoe@example.com"
-          prefix={<AiOutlineUser />}
-          id="username"
-          name="username"
-          label="Username"
-          type="email"
-        />
-        <PasswordField
-          size="large"
-          placeholder="******"
-          prefix={<RiLockPasswordLine />}
-          id="password"
-          name="password"
-          type="password"
-          label="Password"
-        />
-        <SubmitButton block>Register</SubmitButton>
-      </form>
-    </main>
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+      className="login auth-page"
+    >
+      <header className="page-header">
+        <Link to="/">
+          <Brand color="#0247FE" />
+        </Link>
+      </header>
+      <div className="page-content">
+        <aside className="aside-content content">
+          <RegisterSVG className="main-svg" />
+        </aside>
+        <main className="main-content content">
+          <div className="content-container">
+            <h2>
+              Set up your <span>track</span> account
+            </h2>
+            <button className="sign-in-with-google">
+              <Google />
+              <span>Sign up with Google</span>
+            </button>
+            <Divider text="Or Sign up with" />
+            <form onSubmit={handleSubmit} autoComplete="off">
+              <TextField
+                size="large"
+                suffix={<HiOutlineMail />}
+                id="email"
+                name="email"
+                label="Email"
+                type="email"
+              />
+              <TextField
+                size="large"
+                suffix={<HiOutlineMail />}
+                id="username"
+                name="username"
+                label="Username"
+                type="text"
+              />
+              <PasswordField
+                size="large"
+                id="password"
+                name="password"
+                type="password"
+                label="Password"
+              />
+              <SubmitButton block>Register</SubmitButton>
+            </form>
+            <span className="have-registered">
+              <span>Already have an account ? </span>{" "}
+              <Link to="/auth/login">Log In</Link>
+            </span>
+          </div>
+        </main>
+      </div>
+    </motion.section>
   );
 };
 

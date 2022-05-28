@@ -53,7 +53,6 @@ const ForgotPassword = () => {
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
                 size="large"
-                placeholder="johndoe@example.com"
                 suffix={<HiOutlineMail />}
                 id="email"
                 name="email"
