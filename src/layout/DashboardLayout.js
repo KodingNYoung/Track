@@ -37,8 +37,14 @@ const DashboardLayout = props => {
   const toggleCollapse = () => setCollapsed(!collapsed);
   const openModal = () => setModal(true);
   const closeModal = () => setModal(false);
-  const logoutUser = () => {
-    navigate("/login");
+  const logoutUser = async () => {
+    const res = await fetch("https://trackfi.herokuapp.com/api/users/logout/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    navigate("/auth/login");
   };
   window.matchMedia("(max-width: 1080px)").addListener(query => {
     setSmScreen(query.matches);

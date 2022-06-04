@@ -14,10 +14,26 @@ import { HiOutlineMail } from "../../imports/icons";
 
 const Login = () => {
   const navigate = useNavigate();
-  const handleSubmit = e => {
+
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
-    navigate("/dashboard");
+    const res = await fetch("https://trackfi.herokuapp.com/api/users/login/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: form.email.value,
+        password: form.password.value
+      })
+    });
+    if (res.ok) {
+      // display success message
+      navigate("/dashboard");
+    } else {
+      // display error message
+    }
   };
 
   return (
@@ -47,11 +63,11 @@ const Login = () => {
         <main className="main-content content">
           <div className="content-container">
             <h2>Welcome back!</h2>
-            <button className="sign-in-with-google">
+            {/* <button className="sign-in-with-google">
               <Google />
               <span>Sign In with Google</span>
             </button>
-            <Divider text="Or Sign In with" />
+            <Divider text="Or Sign In with" /> */}
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
                 size="large"
@@ -68,9 +84,9 @@ const Login = () => {
                 type="password"
                 label="Password"
               />
-              <Link to="/auth/forgot-password" className="forgot-password-link">
+              {/* <Link to="/auth/forgot-password" className="forgot-password-link">
                 Forgot Password?
-              </Link>
+              </Link> */}
               <SubmitButton block>Login</SubmitButton>
             </form>
             <span className="have-registered">

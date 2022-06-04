@@ -15,10 +15,30 @@ import { HiOutlineMail, AiOutlineUser } from "../../imports/icons";
 
 const Register = () => {
   const navigate = useNavigate();
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
-    navigate("/auth/login");
+    console.log(form.username.value, form.email.value, form.password.value);
+    const res = await fetch(
+      "https://trackfi.herokuapp.com/api/users/register/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: form.username.value,
+          email: form.email.value,
+          password1: form.password.value
+        })
+      }
+    );
+    if (res.ok) {
+      // display success message
+      navigate("/auth/login");
+    } else {
+      // display error message
+    }
   };
 
   return (
@@ -45,11 +65,11 @@ const Register = () => {
             <h2>
               Set up your <span>track</span> account
             </h2>
-            <button className="sign-in-with-google">
+            {/* <button className="sign-in-with-google">
               <Google />
               <span>Sign up with Google</span>
             </button>
-            <Divider text="Or Sign up with" />
+            <Divider text="Or Sign up with" /> */}
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
                 size="large"
