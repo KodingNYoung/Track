@@ -9,7 +9,6 @@ import Hero from "./Hero";
 import Partners from "./Partners";
 import Features from "./Features";
 import ContactUs from "./ContactUs";
-import Footer from "./Footer";
 
 // styles
 import "../../assets/css/home.css";
@@ -26,7 +25,6 @@ const Homepage = () => {
       <Partners />
       <Features />
       <ContactUs />
-      <Footer />
     </motion.div>
   );
 };

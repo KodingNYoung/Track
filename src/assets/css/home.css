@@ -1,25 +1,46 @@
-.hero {
+.hero-section {
   @apply px-10 pt-28 md:pt-0;
 }
 
-.hero .hero-content {
+.hero-section .hero-content {
   @apply p-5 md:translate-y-36;
 }
 
-.hero .hero-content__text {
+.hero-section .hero-content__text {
   @apply flex flex-col justify-center items-center mb-10 mt-5 text-center;
 }
 
-.hero .hero-content__text h1 {
+.hero-section .hero-content__text h1 {
   @apply text-3xl font-semibold mb-5;
   color: #000;
 }
 
-.hero .hero-content__text > span {
+.hero-section .hero-content__text > span {
   @apply max-w-full w-96 block pb-5;
   color: #7a7a7a;
 }
 
-.hero .hero-content__text a.primary-btn {
+.hero-section .hero-content__text a.primary-btn {
   @apply px-10 rounded-2xl;
+}
+
+.partners-section {
+  @apply p-10 md:pt-36;
+}
+
+.partners-section .partners-content {
+  @apply p-5 text-center;
+}
+
+.partners-section .partners-content h4 {
+  @apply text-lg uppercase font-bold;
+  color: #c4c4c4;
+}
+
+.partners-section .partners-content .partners-content__logo-grid {
+  @apply flex justify-center items-center flex-wrap;
+}
+
+.partners-section .partners-content .partners-content__logo-grid .partner-logo {
+  @apply m-10 my-14;
 }

@@ -9,7 +9,7 @@ import { HeroSVG } from "../../imports/images";
 
 const Hero = () => {
   return (
-    <section className="hero" id="hero">
+    <section className="hero-section" id="hero">
       <div className="hero-content">
         <motion.div
           initial={{ x: "100vw" }}
