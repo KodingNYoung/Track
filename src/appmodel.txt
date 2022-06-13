@@ -1,0 +1,60 @@
+// states
+const state = {
+  user_info: {
+    key: "",
+    user: {}
+  },
+  transactions: {
+    all_transactions: [
+      {
+        id: null,
+        category: {},
+        transaction_time: Date,
+        name: "",
+        amount: "",
+        description: ""
+      }
+    ],
+    filtered_transactions: [{
+        id: null,
+        category: {},
+        transaction_time: Date,
+        name: "",
+        amount: "",
+        description: ""
+      }]
+  },
+  categories: [],
+  dashboard: {}
+};
+
+// UI state
+const UIState = {
+  theme: "", //dark or light
+  transactions_filter: {
+    type: "income/expenses/all",
+    date: {
+      from: Date,
+      to: Date
+    }
+  },
+  dashboard_filters: {
+    barchart: {},
+    doughchart: {}
+  }
+};
+
+// app actions
+
+//async
+- Register // send post to backend and redirect to login
+- Login // send post to backend, gets user info in return and saves it to the redux store
+- Continue with google // 
+- crud transaction // post, update, delete transactions, gets the updated on from the backend and saves it to redux store
+- Crud category // post, update, delete categories, gets the updated on from the backend and saves it to redux store
+- Logout //sends request and deletes token from session storage
+
+// ui actions
+- filter changes on dashboard // gets filter details from ui and update filter list based on the details
+- Filter transaction list // gets filter details from ui and update filter list based on the details
+
