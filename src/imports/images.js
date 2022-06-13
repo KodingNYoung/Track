@@ -6,3 +6,4 @@ export { ReactComponent as RegisterSVG } from "../assets/images/signup.svg";
 export { ReactComponent as ForgotPasswordSVG } from "../assets/images/forgot-password.svg";
 export { ReactComponent as Ellipse } from "../assets/images/ellipse.svg";
 export { ReactComponent as Google } from "../assets/images/google.svg";
+export { ReactComponent as HeroSVG } from "../assets/images/hero.svg";

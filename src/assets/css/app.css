@@ -30,6 +30,10 @@ input {
   color: #b60000;
 }
 
+.text-primary {
+  color: #0247fe;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -37,4 +41,12 @@ input {
 ::-webkit-scrollbar-thumb {
   background-color: #c4c4c4;
   border-radius: 1px;
+}
+
+svg,
+img {
+  max-width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }

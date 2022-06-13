@@ -1,3 +1,25 @@
 .hero {
-  @apply p-10 pt-28;
+  @apply px-10 pt-28 md:pt-0;
+}
+
+.hero .hero-content {
+  @apply p-5 md:translate-y-36;
+}
+
+.hero .hero-content__text {
+  @apply flex flex-col justify-center items-center mb-10 mt-5 text-center;
+}
+
+.hero .hero-content__text h1 {
+  @apply text-3xl font-semibold mb-5;
+  color: #000;
+}
+
+.hero .hero-content__text > span {
+  @apply max-w-full w-96 block pb-5;
+  color: #7a7a7a;
+}
+
+.hero .hero-content__text a.primary-btn {
+  @apply px-10 rounded-2xl;
 }
