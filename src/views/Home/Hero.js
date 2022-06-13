@@ -31,6 +31,7 @@ const Hero = () => {
         <motion.div
           initial={{ y: "-100vw" }}
           animate={{ y: 0 }}
+          transition={{ type: "spring", duration: 1, bounce: 0.5 }}
           className="hero-content__image"
         >
           <HeroSVG />

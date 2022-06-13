@@ -8,10 +8,11 @@ import { partnersLogo } from "../../imports/images";
 
 const Partners = () => {
   return (
-    <motion.div
+    <motion.section
       className="partners-section"
       initial={{ y: "100vh" }}
       animate={{ y: 0 }}
+      transition={{ type: "spring", duration: 1, bounce: 0.5 }}
     >
       <div className="partners-content">
         <h4>Trusted by</h4>
@@ -23,7 +24,7 @@ const Partners = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

@@ -3,7 +3,7 @@
 .hero-section {
   @apply px-10 pt-28 md:pt-0;
   .hero-content {
-    @apply p-5 md:translate-y-36;
+    @apply p-5 md:translate-y-36 relative z-10;
     &__text {
       @apply flex flex-col justify-center items-center mb-10 mt-5 text-center;
       h1 {
@@ -23,6 +23,7 @@
 
 .partners-section {
   @apply p-10 md:pt-36;
+  background-color: $text-white;
   .partners-content {
     @apply p-5 text-center;
     h4 {
@@ -33,6 +34,48 @@
       @apply flex justify-center items-center flex-wrap;
       .partner-logo {
         @apply m-10 my-14;
+      }
+    }
+  }
+}
+
+.reusable-section-class {
+  @apply p-10 py-14;
+  .section-content {
+    @apply p-5 text-center;
+    header {
+      @apply mt-8 mb-24;
+      h2 {
+        @apply text-4xl font-bold mb-4;
+        color: $black;
+      }
+      span {
+        @apply text-lg font-medium;
+        color: $border-gray;
+      }
+    }
+  }
+}
+
+.features-section {
+  background-color: $text-white;
+  .features-grid {
+    @apply flex flex-wrap justify-center items-center;
+    .feature-item {
+      @apply grid justify-items-center w-48 m-10;
+      svg {
+        @apply text-4xl;
+        color: $accent;
+        path {
+          stroke: $accent;
+        }
+      }
+      .name {
+        @apply font-medium text-base capitalize my-5 mt-8;
+      }
+      .description {
+        @apply text-lg;
+        color: $border-gray;
       }
     }
   }
