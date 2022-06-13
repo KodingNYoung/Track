@@ -7,18 +7,16 @@ import {
   MdOutlineDashboard,
   BiCategory,
   BsBarChart,
-  RiExchangeFundsFill
-} from "../imports/icons";
-import {
+  RiExchangeFundsFill,
   MenuOutlined,
   HomeOutlined,
   UserOutlined,
   LogoutOutlined
-} from "@ant-design/icons";
+} from "../../imports/icons";
 
 // css
-import "../assets/css/dashboard.css";
-import { Brand } from "../components/Brand/Brands";
+import "../../assets/css/dashboard.css";
+import { Brand } from "../Brand/Brands";
 
 // sub components
 const { Sider, Header, Content } = Layout;

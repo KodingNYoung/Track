@@ -9,3 +9,9 @@ export { CgArrowsExchange } from "react-icons/cg";
 export { HiOutlineChevronDoubleRight, HiOutlineMail } from "react-icons/hi";
 export { MdOutlineDashboard } from "react-icons/md";
 export { RiLockPasswordLine, RiExchangeFundsFill } from "react-icons/ri";
+export {
+  MenuOutlined,
+  HomeOutlined,
+  UserOutlined,
+  LogoutOutlined
+} from "@ant-design/icons";

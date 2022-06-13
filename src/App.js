@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./assets/css/app.css";
 
 // routes
-import Homepage from "./views/Homepage";
+import Homepage from "./views/Home/Homepage";
 import Dashboard from "./views/dashboard";
 import Auth from "./views/auth";
 

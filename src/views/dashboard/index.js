@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // core component
-import DashboardLayout from "../../layout/DashboardLayout";
+import DashboardLayout from "../../components/layout/DashboardLayout";
 // Routes
 import Overview from "./Overview";
 import Transactions from "./Transactions";
