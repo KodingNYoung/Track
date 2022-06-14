@@ -1,0 +1,77 @@
+.home-navbar {
+  @apply z-50 flex justify-between items-center fixed w-full backdrop-blur md:px-8 py-4 overflow-hidden h-28;
+}
+
+.home-navbar .brand {
+  @apply w-fit;
+}
+
+.home-navbar .burger-icon {
+  @apply text-2xl cursor-pointer p-5 md:hidden;
+}
+
+.home-navbar__links {
+  @apply justify-items-center p-5 grid left-0 md:justify-end md:items-center md:flex md:static md:bg-transparent;
+}
+
+.home-navbar__links nav {
+  @apply mr-0 grid justify-items-center items-center w-full md:block md:mr-16 lg:mr-28;
+}
+
+.home-navbar__links nav a {
+  @apply text-base mx-4 p-3 px-4 transition-all duration-300 lg:mx-8 lg:px-8;
+  color: #000;
+}
+
+.home-navbar__links nav.active a:not(:hover) {
+  color: #7a7a7a;
+}
+
+.home-navbar__links .login-link {
+  @apply flex justify-center items-center;
+}
+
+.home-navbar__links .login-link a {
+  @apply font-semibold text-lg;
+  color: #0247fe;
+}
+
+.home-navbar.smScreen {
+  @apply h-28 grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.home-navbar.smScreen .topbar {
+  @apply w-full flex justify-between items-center;
+  height: 80px;
+}
+
+.home-navbar.smScreen .home-navbar__links {
+  @apply opacity-0 transition-all duration-300;
+  height: calc(100vh - 112px);
+}
+
+.home-navbar.smScreen.opened, .home-navbar.smScreen.opening {
+  @apply h-screen;
+}
+
+.home-navbar.smScreen.opened .home-navbar__links, .home-navbar.smScreen.opening .home-navbar__links {
+  @apply opacity-100;
+}
+
+.home-navbar.smScreen.closing {
+  @apply h-screen;
+}
+
+.home-navbar.smScreen.closing .home-navbar__links {
+  @apply opacity-0;
+}
+
+.home-navbar.smScreen.closed {
+  @apply h-28;
+}
+
+#hero {
+  background-color: #f4f6ff;
+}

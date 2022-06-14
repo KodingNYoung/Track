@@ -12,7 +12,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body,
 button,
 input {
@@ -25,11 +27,19 @@ input {
 .text-error {
   color: $error-red;
 }
-
+.text-primary {
+  color: $primary-color;
+}
 ::-webkit-scrollbar {
   width: 5px;
   &-thumb {
     background-color: $border-gray;
     border-radius: 1px;
   }
+}
+
+svg,
+img {
+  max-width: 100%;
+  height: fit-content;
 }

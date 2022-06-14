@@ -1,0 +1,66 @@
+@import "base";
+
+.home-navbar {
+  @apply z-50 flex justify-between items-center fixed w-full backdrop-blur md:px-8 py-4 overflow-hidden h-28;
+  .brand {
+    @apply w-fit;
+  }
+  .burger-icon {
+    @apply text-2xl cursor-pointer p-5 md:hidden;
+  }
+  &__links {
+    @apply justify-items-center p-5 grid left-0 md:justify-end md:items-center md:flex md:static md:bg-transparent;
+    nav {
+      @apply mr-0 grid justify-items-center items-center w-full md:block md:mr-16 lg:mr-28;
+      a {
+        @apply text-base mx-4 p-3 px-4 transition-all duration-300 lg:mx-8 lg:px-8;
+        color: $black;
+      }
+      // when the nav is active, gray out the links that not hovered on.
+      &.active {
+        a:not(:hover) {
+          color: $form-label-text;
+        }
+      }
+    }
+    .login-link {
+      @apply flex justify-center items-center;
+      a {
+        @apply font-semibold text-lg;
+        color: $primary-color;
+      }
+    }
+  }
+  &.smScreen {
+    @apply h-28 grid;
+    grid-template-columns: 1fr;
+    .topbar {
+      @apply w-full flex justify-between items-center;
+      height: 80px;
+    }
+    .home-navbar__links {
+      @apply opacity-0 transition-all duration-300;
+      height: calc(100vh - 112px);
+    }
+    &.opened,
+    &.opening {
+      @apply h-screen;
+      .home-navbar__links {
+        @apply opacity-100;
+      }
+    }
+    &.closing {
+      @apply h-screen;
+      .home-navbar__links {
+        @apply opacity-0;
+      }
+    }
+    &.closed {
+      @apply h-28;
+    }
+  }
+}
+
+#hero {
+  background-color: $hero-bg;
+}
