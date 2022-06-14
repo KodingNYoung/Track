@@ -10,6 +10,8 @@ export {
   BsArrowDownRightSquare
 } from "react-icons/bs";
 export { CgArrowsExchange } from "react-icons/cg";
+export { FaEnvelope } from "react-icons/fa";
+export { FiSend } from "react-icons/fi";
 export { GiCardExchange } from "react-icons/gi";
 export { GrPlan } from "react-icons/gr";
 export { HiOutlineChevronDoubleRight, HiOutlineMail } from "react-icons/hi";

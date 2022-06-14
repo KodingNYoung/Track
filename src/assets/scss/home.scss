@@ -46,7 +46,7 @@
     header {
       @apply mt-8 mb-24;
       h2 {
-        @apply text-4xl font-bold mb-4;
+        @apply text-4xl font-bold mb-4 capitalize;
         color: $black;
       }
       span {
@@ -76,6 +76,60 @@
       .description {
         @apply text-lg;
         color: $border-gray;
+      }
+    }
+  }
+}
+
+.contactus-section {
+  background-color: $auth-bg;
+  .contact-items {
+    @apply flex flex-wrap justify-center lg:justify-between items-center max-w-5xl mx-auto;
+    .contact-item {
+      @apply grid justify-items-center m-10 lg:w-1/4;
+      .tag {
+        @apply w-10 h-1 rounded-2xl;
+      }
+      .media-name {
+        @apply font-medium text-lg mt-2 mb-5;
+      }
+      .contact {
+        @apply text-base font-normal;
+        color: $border-gray;
+      }
+    }
+  }
+  .help-form {
+    @apply mb-5 flex justify-center items-center;
+    label.input-group {
+      @apply flex justify-center items-center p-2 px-5 rounded-2xl m-2 transition-all duration-300;
+      box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.06);
+      background-color: $text-white;
+      svg {
+        @apply text-base;
+        color: $border-gray;
+      }
+      textarea {
+        @apply bg-transparent py-2 px-5 outline-0 transition-all duration-300;
+        width: 200px;
+        height: 40px;
+        resize: none;
+        &::placeholder {
+          color: $border-gray;
+        }
+        &:focus,
+        &:valid {
+          width: 300px;
+          height: 120px;
+          max-width: 70vw;
+        }
+      }
+    }
+    button.submit-button {
+      @apply p-3 rounded-2xl text-3xl;
+      background-color: $primary-color-dark;
+      &:hover {
+        @apply scale-105;
       }
     }
   }
