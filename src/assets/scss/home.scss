@@ -1,135 +1,139 @@
 @import "base";
 
-.hero-section {
-  @apply px-10 pt-28 md:pt-0;
-  .hero-content {
-    @apply p-5 md:translate-y-36 relative z-10;
-    &__text {
-      @apply flex flex-col justify-center items-center mb-10 mt-5 text-center;
-      h1 {
-        @apply text-3xl font-semibold mb-5;
-        color: $black;
-      }
-      & > span {
-        @apply max-w-full w-96 block pb-5;
-        color: $form-label-text;
-      }
-      a.primary-btn {
-        @apply px-10 rounded-2xl;
-      }
-    }
-  }
-}
-
-.partners-section {
-  @apply p-10 md:pt-36;
-  background-color: $text-white;
-  .partners-content {
-    @apply p-5 text-center;
-    h4 {
-      @apply text-lg uppercase font-bold;
-      color: $border-gray;
-    }
-    .partners-content__logo-grid {
-      @apply flex justify-center items-center flex-wrap;
-      .partner-logo {
-        @apply m-10 my-14;
-      }
-    }
-  }
-}
-
-.reusable-section-class {
-  @apply p-10 py-14;
-  .section-content {
-    @apply p-5 text-center;
-    header {
-      @apply mt-8 mb-24;
-      h2 {
-        @apply text-4xl font-bold mb-4 capitalize;
-        color: $black;
-      }
-      span {
-        @apply text-lg font-medium;
-        color: $border-gray;
-      }
-    }
-  }
-}
-
-.features-section {
-  background-color: $text-white;
-  .features-grid {
-    @apply flex flex-wrap justify-center items-center;
-    .feature-item {
-      @apply grid justify-items-center w-48 m-10;
-      svg {
-        @apply text-4xl;
-        color: $accent;
-        path {
-          stroke: $accent;
+.homepage {
+  max-width: 100vw;
+  overflow: hidden;
+  .hero-section {
+    @apply px-10 pt-28 md:pt-0;
+    .hero-content {
+      @apply p-5 md:translate-y-36 relative z-10;
+      &__text {
+        @apply flex flex-col justify-center items-center mb-10 mt-5 text-center;
+        h1 {
+          @apply text-3xl font-semibold mb-5;
+          color: $black;
+        }
+        & > span {
+          @apply max-w-full w-96 block pb-8;
+          color: $form-label-text;
+        }
+        a.primary-btn {
+          @apply px-10 rounded-2xl;
         }
       }
-      .name {
-        @apply font-medium text-base capitalize my-5 mt-8;
-      }
-      .description {
-        @apply text-lg;
-        color: $border-gray;
-      }
     }
   }
-}
 
-.contactus-section {
-  background-color: $auth-bg;
-  .contact-items {
-    @apply flex flex-wrap justify-center lg:justify-between items-center max-w-5xl mx-auto;
-    .contact-item {
-      @apply grid justify-items-center m-10 lg:w-1/4;
-      .tag {
-        @apply w-10 h-1 rounded-2xl;
-      }
-      .media-name {
-        @apply font-medium text-lg mt-2 mb-5;
-      }
-      .contact {
-        @apply text-base font-normal;
+  .partners-section {
+    @apply p-10 md:pt-36;
+    background-color: $text-white;
+    .partners-content {
+      @apply p-5 text-center;
+      h4 {
+        @apply text-lg uppercase font-bold;
         color: $border-gray;
+      }
+      .partners-content__logo-grid {
+        @apply flex justify-center items-center flex-wrap;
+        .partner-logo {
+          @apply m-10 my-14;
+        }
       }
     }
   }
-  .help-form {
-    @apply mb-5 flex justify-center items-center;
-    label.input-group {
-      @apply flex justify-center items-center p-2 px-5 rounded-2xl m-2 transition-all duration-300;
-      box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.06);
-      background-color: $text-white;
-      svg {
-        @apply text-base;
-        color: $border-gray;
-      }
-      textarea {
-        @apply bg-transparent py-2 px-5 outline-0 transition-all duration-300;
-        width: 200px;
-        height: 40px;
-        resize: none;
-        &::placeholder {
+
+  .reusable-section-class {
+    @apply p-10 py-14;
+    .section-content {
+      @apply p-5 text-center;
+      header {
+        @apply mt-8 mb-24;
+        h2 {
+          @apply text-4xl font-bold mb-4 capitalize;
+          color: $black;
+        }
+        span {
+          @apply text-lg font-medium;
           color: $border-gray;
         }
-        &:focus,
-        &:valid {
-          width: 300px;
-          height: 120px;
-          max-width: 70vw;
+      }
+    }
+  }
+
+  .features-section {
+    background-color: $text-white;
+    .features-grid {
+      @apply flex flex-wrap justify-center items-center;
+      .feature-item {
+        @apply grid justify-items-center w-48 m-10;
+        svg {
+          @apply text-4xl;
+          color: $accent;
+          path {
+            stroke: $accent;
+          }
+        }
+        .name {
+          @apply font-medium text-base capitalize my-5 mt-8;
+        }
+        .description {
+          @apply text-lg;
+          color: $border-gray;
         }
       }
     }
-    button.submit-button {
-      @apply p-3 rounded-2xl text-3xl;
-      background-color: $primary-color-dark;
-      &:hover {
-        @apply scale-105;
+  }
+
+  .contactus-section {
+    background-color: $auth-bg;
+    .contact-items {
+      @apply flex flex-wrap justify-center lg:justify-between items-center max-w-5xl mx-auto;
+      .contact-item {
+        @apply grid justify-items-center m-10 lg:w-1/4;
+        .tag {
+          @apply w-10 h-1 rounded-2xl;
+        }
+        .media-name {
+          @apply font-medium text-lg mt-2 mb-5;
+        }
+        .contact {
+          @apply text-base font-normal;
+          color: $border-gray;
+        }
+      }
+    }
+    .help-form {
+      @apply mb-5 flex justify-center items-center;
+      label.input-group {
+        @apply flex justify-center items-center p-2 px-5 rounded-2xl m-2 transition-all duration-300;
+        box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.06);
+        background-color: $text-white;
+        svg {
+          @apply text-base;
+          color: $border-gray;
+        }
+        textarea {
+          @apply bg-transparent py-2 px-5 outline-0 transition-all duration-300;
+          width: 200px;
+          height: 40px;
+          resize: none;
+          &::placeholder {
+            color: $border-gray;
+          }
+          &:focus,
+          &:valid {
+            width: 300px;
+            height: 120px;
+            max-width: 70vw;
+          }
+        }
+      }
+      button.submit-button {
+        @apply p-3 rounded-2xl text-3xl;
+        background-color: $primary-color-dark;
+        &:hover {
+          @apply scale-105;
+        }
       }
     }
   }

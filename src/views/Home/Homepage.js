@@ -19,6 +19,7 @@ const Homepage = () => {
       initial="hidden"
       animate="visible"
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+      className="homepage"
     >
       <Navbar />
       <Hero />

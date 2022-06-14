@@ -1,178 +1,183 @@
-.hero-section {
+.homepage {
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.homepage .hero-section {
   @apply px-10 pt-28 md:pt-0;
 }
 
-.hero-section .hero-content {
+.homepage .hero-section .hero-content {
   @apply p-5 md:translate-y-36 relative z-10;
 }
 
-.hero-section .hero-content__text {
+.homepage .hero-section .hero-content__text {
   @apply flex flex-col justify-center items-center mb-10 mt-5 text-center;
 }
 
-.hero-section .hero-content__text h1 {
+.homepage .hero-section .hero-content__text h1 {
   @apply text-3xl font-semibold mb-5;
   color: #000;
 }
 
-.hero-section .hero-content__text > span {
-  @apply max-w-full w-96 block pb-5;
+.homepage .hero-section .hero-content__text > span {
+  @apply max-w-full w-96 block pb-8;
   color: #7a7a7a;
 }
 
-.hero-section .hero-content__text a.primary-btn {
+.homepage .hero-section .hero-content__text a.primary-btn {
   @apply px-10 rounded-2xl;
 }
 
-.partners-section {
+.homepage .partners-section {
   @apply p-10 md:pt-36;
   background-color: #fdfdfd;
 }
 
-.partners-section .partners-content {
+.homepage .partners-section .partners-content {
   @apply p-5 text-center;
 }
 
-.partners-section .partners-content h4 {
+.homepage .partners-section .partners-content h4 {
   @apply text-lg uppercase font-bold;
   color: #c4c4c4;
 }
 
-.partners-section .partners-content .partners-content__logo-grid {
+.homepage .partners-section .partners-content .partners-content__logo-grid {
   @apply flex justify-center items-center flex-wrap;
 }
 
-.partners-section .partners-content .partners-content__logo-grid .partner-logo {
+.homepage .partners-section .partners-content .partners-content__logo-grid .partner-logo {
   @apply m-10 my-14;
 }
 
-.reusable-section-class {
+.homepage .reusable-section-class {
   @apply p-10 py-14;
 }
 
-.reusable-section-class .section-content {
+.homepage .reusable-section-class .section-content {
   @apply p-5 text-center;
 }
 
-.reusable-section-class .section-content header {
+.homepage .reusable-section-class .section-content header {
   @apply mt-8 mb-24;
 }
 
-.reusable-section-class .section-content header h2 {
+.homepage .reusable-section-class .section-content header h2 {
   @apply text-4xl font-bold mb-4 capitalize;
   color: #000;
 }
 
-.reusable-section-class .section-content header span {
+.homepage .reusable-section-class .section-content header span {
   @apply text-lg font-medium;
   color: #c4c4c4;
 }
 
-.features-section {
+.homepage .features-section {
   background-color: #fdfdfd;
 }
 
-.features-section .features-grid {
+.homepage .features-section .features-grid {
   @apply flex flex-wrap justify-center items-center;
 }
 
-.features-section .features-grid .feature-item {
+.homepage .features-section .features-grid .feature-item {
   @apply grid justify-items-center w-48 m-10;
 }
 
-.features-section .features-grid .feature-item svg {
+.homepage .features-section .features-grid .feature-item svg {
   @apply text-4xl;
   color: #959fff;
 }
 
-.features-section .features-grid .feature-item svg path {
+.homepage .features-section .features-grid .feature-item svg path {
   stroke: #959fff;
 }
 
-.features-section .features-grid .feature-item .name {
+.homepage .features-section .features-grid .feature-item .name {
   @apply font-medium text-base capitalize my-5 mt-8;
 }
 
-.features-section .features-grid .feature-item .description {
+.homepage .features-section .features-grid .feature-item .description {
   @apply text-lg;
   color: #c4c4c4;
 }
 
-.contactus-section {
+.homepage .contactus-section {
   background-color: #fafafa;
 }
 
-.contactus-section .contact-items {
+.homepage .contactus-section .contact-items {
   @apply flex flex-wrap justify-center lg:justify-between items-center max-w-5xl mx-auto;
 }
 
-.contactus-section .contact-items .contact-item {
+.homepage .contactus-section .contact-items .contact-item {
   @apply grid justify-items-center m-10 lg:w-1/4;
 }
 
-.contactus-section .contact-items .contact-item .tag {
+.homepage .contactus-section .contact-items .contact-item .tag {
   @apply w-10 h-1 rounded-2xl;
 }
 
-.contactus-section .contact-items .contact-item .media-name {
+.homepage .contactus-section .contact-items .contact-item .media-name {
   @apply font-medium text-lg mt-2 mb-5;
 }
 
-.contactus-section .contact-items .contact-item .contact {
+.homepage .contactus-section .contact-items .contact-item .contact {
   @apply text-base font-normal;
   color: #c4c4c4;
 }
 
-.contactus-section .help-form {
+.homepage .contactus-section .help-form {
   @apply mb-5 flex justify-center items-center;
 }
 
-.contactus-section .help-form label.input-group {
+.homepage .contactus-section .help-form label.input-group {
   @apply flex justify-center items-center p-2 px-5 rounded-2xl m-2 transition-all duration-300;
   -webkit-box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.06);
           box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.06);
   background-color: #fdfdfd;
 }
 
-.contactus-section .help-form label.input-group svg {
+.homepage .contactus-section .help-form label.input-group svg {
   @apply text-base;
   color: #c4c4c4;
 }
 
-.contactus-section .help-form label.input-group textarea {
+.homepage .contactus-section .help-form label.input-group textarea {
   @apply bg-transparent py-2 px-5 outline-0 transition-all duration-300;
   width: 200px;
   height: 40px;
   resize: none;
 }
 
-.contactus-section .help-form label.input-group textarea::-webkit-input-placeholder {
+.homepage .contactus-section .help-form label.input-group textarea::-webkit-input-placeholder {
   color: #c4c4c4;
 }
 
-.contactus-section .help-form label.input-group textarea:-ms-input-placeholder {
+.homepage .contactus-section .help-form label.input-group textarea:-ms-input-placeholder {
   color: #c4c4c4;
 }
 
-.contactus-section .help-form label.input-group textarea::-ms-input-placeholder {
+.homepage .contactus-section .help-form label.input-group textarea::-ms-input-placeholder {
   color: #c4c4c4;
 }
 
-.contactus-section .help-form label.input-group textarea::placeholder {
+.homepage .contactus-section .help-form label.input-group textarea::placeholder {
   color: #c4c4c4;
 }
 
-.contactus-section .help-form label.input-group textarea:focus, .contactus-section .help-form label.input-group textarea:valid {
+.homepage .contactus-section .help-form label.input-group textarea:focus, .homepage .contactus-section .help-form label.input-group textarea:valid {
   width: 300px;
   height: 120px;
   max-width: 70vw;
 }
 
-.contactus-section .help-form button.submit-button {
+.homepage .contactus-section .help-form button.submit-button {
   @apply p-3 rounded-2xl text-3xl;
   background-color: #002b9e;
 }
 
-.contactus-section .help-form button.submit-button:hover {
+.homepage .contactus-section .help-form button.submit-button:hover {
   @apply scale-105;
 }

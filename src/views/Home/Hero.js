@@ -11,27 +11,36 @@ const Hero = () => {
   return (
     <section className="hero-section" id="hero">
       <div className="hero-content">
-        <motion.div
-          initial={{ x: "100vw" }}
-          animate={{ x: 0 }}
-          transition={{ type: "spring", duration: 1, bounce: 0.5 }}
-          className="hero-content__text"
-        >
-          <h1>
+        <div className="hero-content__text">
+          <motion.h1
+            initial={{ y: "-10vh", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "tween", duration: 1 }}
+          >
             Easy way to <span className="text-primary">track</span> your money
-          </h1>
-          <span>
+          </motion.h1>
+          <motion.span
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "tween", duration: 1.2, delay: 1.1 }}
+          >
             Get real-time statistics of your income and expense, make budgets
             and get monthly reports
-          </span>
-          <Link to="/auth/register" className="primary-btn">
-            Get Started
-          </Link>
-        </motion.div>
+          </motion.span>
+          <motion.span
+            initial={{ y: -32, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "tween", duration: 1.5, delay: 2.4 }}
+          >
+            <Link to="/auth/register" className="primary-btn">
+              Get Started
+            </Link>
+          </motion.span>
+        </div>
         <motion.div
-          initial={{ y: "-100vw" }}
-          animate={{ y: 0 }}
-          transition={{ type: "spring", duration: 1, bounce: 0.5 }}
+          initial={{ y: "10vh" }}
+          animate={{ y: "0" }}
+          transition={{ type: "spring", duration: 2, bounce: 0.5 }}
           className="hero-content__image"
         >
           <HeroSVG />

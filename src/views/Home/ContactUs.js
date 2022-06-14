@@ -1,27 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-// framer motion
-import { motion } from "framer-motion";
+// animations
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import { FaEnvelope, FiSend } from "../../imports/icons";
 import { SubmitButton } from "../../components/Buttons/Buttons";
 
 const ContactUs = () => {
+  // animation hooks
+  // section
+  const [sectionRef, sectionInView] = useInView();
+  const helpSectionAnimation = useAnimation();
+  const contactSectionAnimation = useAnimation();
+
+  // functions
   const handleSubmit = e => {
     e.preventDefault();
   };
+  const handleAnimations = async () => {
+    if (sectionInView) {
+      await contactSectionAnimation.start({
+        x: "0",
+        opacity: 1,
+        transition: { type: "tween", duration: 1 }
+      });
+      return await helpSectionAnimation.start({
+        x: "0",
+        opacity: 1,
+        transition: { type: "tween", duration: 1 }
+      });
+    }
+    if (!sectionInView) {
+      await helpSectionAnimation.start({
+        x: "-10vw",
+        opacity: 0
+      });
+      return await contactSectionAnimation.start({
+        x: "10vw",
+        opacity: 0
+      });
+    }
+  };
+
+  // useEffect
+  useEffect(() => {
+    handleAnimations();
+  }, [sectionInView]);
   return (
-    <motion.section
+    <section
       id="contactus"
-      initial={{ y: "100vh" }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", duration: 1, bounce: 0.5 }}
       className="contactus-section reusable-section-class"
+      ref={sectionRef}
     >
-      <div className="contactus-content section-content">
+      <motion.div
+        className="contactus-content section-content"
+        animate={contactSectionAnimation}
+      >
         <header>
           <h2>contact us</h2>
-          <span>Make sure to keep in touch</span>
+          <span>Make sure to be in touch.</span>
         </header>
         <div className="contact-items">
           <ContactItem
@@ -40,8 +78,11 @@ const ContactUs = () => {
             contact="08104356189"
           />
         </div>
-      </div>
-      <div className="help-content section-content">
+      </motion.div>
+      <motion.div
+        className="help-content section-content"
+        animate={helpSectionAnimation}
+      >
         <header>
           <h2>Help!</h2>
           <span>Send a message. Let us help.</span>
@@ -61,8 +102,8 @@ const ContactUs = () => {
             <FiSend />
           </SubmitButton>
         </form>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };
 
