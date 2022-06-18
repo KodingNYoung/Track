@@ -1,10 +1,5 @@
-import { combineReducers } from "redux";
-import buttonsReducer from "./test/showSlice";
-import testReducer from "./test/testSlice";
+import todosReducer from "./test/todos";
 
-const rootReducer = combineReducers({
-  test: testReducer,
-  buttons: buttonsReducer
-});
+const rootReducer = { todos: todosReducer };
 
 export default rootReducer;

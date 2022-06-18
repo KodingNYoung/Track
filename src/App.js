@@ -6,6 +6,7 @@ import "./assets/css/app.css";
 import Homepage from "./views/Home/Homepage";
 import Dashboard from "./views/dashboard";
 import Auth from "./views/auth";
+import Redux from "./views/Redux";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/auth/*" element={<Auth />} />
+          <Route path="/redux" element={<Redux />} />
         </Routes>
       </BrowserRouter>
     </div>

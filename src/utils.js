@@ -20,3 +20,24 @@ export const currencySign = {
   pound: "£",
   euro: "€"
 };
+
+export const setToken = token => {
+  sessionStorage.setItem("token", token);
+};
+
+export const getToken = () => {
+  return sessionStorage.getItem("token");
+};
+
+export const endSession = () => {
+  sessionStorage.clear();
+};
+
+export const normalizeArray = (arr, key) => {
+  const obj = {};
+  arr.forEach(item => {
+    const normalizer = item[key];
+    obj[normalizer] = item;
+  });
+  return obj;
+};
