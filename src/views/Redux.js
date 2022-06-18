@@ -10,8 +10,9 @@ import {
   todoToggle,
   colorChanged,
   todoDeleted,
+  resetStatus,
   fetchTodos,
-  resetStatus
+  addTodos
 } from "../redux/features/test/todos";
 
 const Redux = () => {
@@ -28,6 +29,11 @@ const Redux = () => {
   };
   const handleStatusReset = () => {
     dispatch(resetStatus());
+  };
+  const handleTodoAdd = e => {
+    e.preventDefault();
+    dispatch(addTodos(e.target.text.value));
+    e.target.text.value = "";
   };
 
   return (
@@ -52,6 +58,13 @@ const Redux = () => {
               )}
             </span>
           ) : null}
+          <form
+            className="mt-3 flex items-center justify-center"
+            onSubmit={handleTodoAdd}
+          >
+            <input name="text" id="text" placeholder="Enter your text." />
+            <button type="submit">add</button>
+          </form>
         </header>
         <ul className="grid my-10 gap-4 w-full">
           {todosId.map(todoId => (
