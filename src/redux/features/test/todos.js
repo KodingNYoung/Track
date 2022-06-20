@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { normalizeArray } from "../../../utils";
 
 // async thunk creators
-import { fetchTodos, addTodos } from "./actionCreators";
+import { fetchTodos, addTodos } from "./actions";
 
 const initialState = {
   entities: {},

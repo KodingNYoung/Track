@@ -41,3 +41,11 @@ export const normalizeArray = (arr, key) => {
   });
   return obj;
 };
+export const isValidJSON = str => {
+  try {
+    JSON.parse(str);
+  } catch (err) {
+    return false;
+  }
+  return true;
+};

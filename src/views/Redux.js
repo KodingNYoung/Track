@@ -1,5 +1,6 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import jwt_decode from "jwt-decode";
 
 // icons
 import { FaTimes } from "react-icons/fa";
@@ -35,6 +36,28 @@ const Redux = () => {
     dispatch(addTodos(e.target.text.value));
     e.target.text.value = "";
   };
+  const handleCallbackResponse = response => {
+    const user = jwt_decode(response.credential);
+    const { email, email_verified, family_name, given_name, picture } = user;
+    console.log({
+      email,
+      email_verified,
+      last_name: family_name,
+      first_name: given_name,
+      picture
+    });
+  };
+  // useEffect
+  useEffect(() => {
+    window.google.accounts.id.initialize({
+      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+      callback: handleCallbackResponse
+    });
+    window.google.accounts.id.renderButton(
+      document.querySelector(".google-button"),
+      { theme: "outline", size: "large" }
+    );
+  }, []);
 
   return (
     <div className="h-screen flex items-center mt-20 flex-col">
@@ -72,6 +95,7 @@ const Redux = () => {
           ))}
         </ul>
       </div>
+      <div className="google-button"></div>
     </div>
   );
 };

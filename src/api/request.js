@@ -1,5 +1,6 @@
-import { testUrl } from "../config";
 import { getToken } from "../utils";
+
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 // body and config were joined together because they are both optional
 export const request = async (
@@ -8,18 +9,18 @@ export const request = async (
   authorize
 ) => {
   // form the request url
-  const url = `${testUrl}${endpoint}`;
+  const url = `${baseUrl}${endpoint}`;
 
-  // declare request header
-  const header = {};
-  if (authorize) header.Authorization = `Token ${getToken()}`;
+  // declare request headers
+  const headers = {};
+  if (authorize) headers.Authorization = `Token ${getToken()}`;
 
   // declare options
   const customConfig = {
     ...config,
-    header: {
-      ...config.header,
-      ...header
+    headers: {
+      ...config.headers,
+      ...headers
     }
   };
 
@@ -42,12 +43,13 @@ export const request = async (
     throw new Error(res.statusText);
   } catch (err) {
     // error handling
-    // return {
-    //   success: false,
-    //   message: err ? err.message : data
-    // };
+    // if bad request, get data
+    // else, error message
+    console.log({ data, error: err.message });
     return Promise.reject(
-      err.message || "Opps, something went wrong. Please try again later"
+      JSON.stringify(data) ||
+        err.message ||
+        "Opps, something went wrong. Please try again later"
     );
   }
 };

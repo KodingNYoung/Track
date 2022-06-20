@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -13,16 +13,37 @@ import Carousel from "../../components/Carousel/Carousel";
 import { RegisterSVG, Google } from "../../imports/images";
 import { HiOutlineMail, AiOutlineUser } from "../../imports/icons";
 
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../redux/features/users/actions";
+
 const Register = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // selectors
+  const userRequestMeta = useSelector(state => state.user.meta);
+
   const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
-    console.log(form.username.value, form.email.value, form.password.value);
-
-    navigate("/auth/login");
+    const payload = {
+      username: form.username.value,
+      email: form.email.value,
+      password: form.password.value
+    };
+    dispatch(registerUser(payload));
   };
-
+  useEffect(() => {
+    if (userRequestMeta.status === "success") {
+      // show success toast
+      navigate("/auth/login");
+    }
+    if (userRequestMeta.status === "error") {
+      // show failed toast and do nothng
+    }
+    // console.log(userRequestMeta);
+  }, [userRequestMeta.status]);
   return (
     <motion.section
       initial="hidden"
@@ -76,7 +97,12 @@ const Register = () => {
                 type="password"
                 label="Password"
               />
-              <SubmitButton block>Register</SubmitButton>
+              <SubmitButton
+                block
+                loading={userRequestMeta.status === "registering"}
+              >
+                Register
+              </SubmitButton>
             </form>
             <span className="have-registered">
               <span>Already have an account ? </span>{" "}
