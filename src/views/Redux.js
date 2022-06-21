@@ -41,10 +41,8 @@ const Redux = () => {
     const { email, email_verified, family_name, given_name, picture } = user;
     console.log({
       email,
-      email_verified,
-      last_name: family_name,
-      first_name: given_name,
-      picture
+      password: null,
+      third_party: true
     });
   };
   // useEffect

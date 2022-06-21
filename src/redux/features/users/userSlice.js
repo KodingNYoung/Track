@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser } from "./actions";
+import { isValidJSON } from "../../../utils";
+import { loginUser, registerUser } from "./actions";
 
 const initialState = { user_info: {}, meta: { status: "idle" } };
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    resetStatus: state => {
+      state.meta.status = "idle";
+      state.meta.message = "";
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(registerUser.pending, state => {
@@ -17,12 +23,27 @@ const userSlice = createSlice({
       .addCase(registerUser.rejected, (state, action) => {
         state.meta.status = "error";
         state.meta.message = action.error.message;
+      })
+      .addCase(loginUser.pending, state => {
+        state.meta.status = "loging in";
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.meta.status = "success";
+        state.meta.message = "Successfully login.";
+        state.user_info = action.payload.data;
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        const message = isValidJSON(action.error.message)
+          ? JSON.parse(action.error.message).error.message
+          : action.error.message;
+        state.meta.status = "error";
+        state.meta.message = message;
       });
   }
 });
 
-export { registerUser };
+export { registerUser, loginUser };
 
-export const {} = userSlice.actions;
+export const { resetStatus } = userSlice.actions;
 
 export default userSlice.reducer;

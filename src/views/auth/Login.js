@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -12,15 +12,42 @@ import { Divider } from "../../components/Dividers/Divider";
 import { LoginSVG, Ellipse, Google } from "../../imports/images";
 import { HiOutlineMail } from "../../imports/icons";
 
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser, resetStatus } from "../../redux/features/users/userSlice";
+
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  // selectors
+  const { status, message } = useSelector(state => state.user.meta);
+
+  // functions
   const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
-    console.log(form.email.value, form.password.value);
-    navigate("/dashboard");
+    handleLogin({ email: form.email.value, password: form.password.value });
   };
+  const handleLogin = payload => {
+    dispatch(loginUser(payload));
+  };
+  const handleStatusReset = () => {
+    dispatch(resetStatus());
+  };
+
+  // useEffects
+  useEffect(() => {
+    if (status === "success") {
+      // show success toast without
+      navigate("/dashboard");
+      setTimeout(handleStatusReset, 2000);
+    }
+
+    if (status === "error") {
+      // console.log(message);
+    }
+  }, [status]);
 
   return (
     <motion.section
@@ -49,6 +76,9 @@ const Login = () => {
         <main className="main-content content">
           <div className="content-container">
             <h2>Welcome back!</h2>
+            {/* toast */}
+            {message && <>{message}</>}
+            {/* toast ends*/}
             <button className="sign-in-with-google">
               <Google />
               <span>Sign In with Google</span>
@@ -73,7 +103,9 @@ const Login = () => {
               {/* <Link to="/auth/forgot-password" className="forgot-password-link">
                 Forgot Password?
               </Link> */}
-              <SubmitButton block>Login</SubmitButton>
+              <SubmitButton block loading={status === "loging in"}>
+                Log in
+              </SubmitButton>
             </form>
             <span className="have-registered">
               <span>Don’t have an account ? </span>{" "}

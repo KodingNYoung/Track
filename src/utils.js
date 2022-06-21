@@ -49,3 +49,12 @@ export const isValidJSON = str => {
   }
   return true;
 };
+export const getValidJSON = async value => {
+  let data;
+  try {
+    data = await value.json();
+  } catch (err) {
+    return null;
+  }
+  return data;
+};

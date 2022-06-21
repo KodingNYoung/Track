@@ -1,4 +1,4 @@
-import { getToken } from "../utils";
+import { getToken, getValidJSON } from "../utils";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
@@ -32,7 +32,7 @@ export const request = async (
   try {
     // send request
     const res = await fetch(url, customConfig);
-    data = await res.json();
+    data = await getValidJSON(res);
 
     // if response is ok
     if (res.ok) {
@@ -45,11 +45,10 @@ export const request = async (
     // error handling
     // if bad request, get data
     // else, error message
-    console.log({ data, error: err.message });
     return Promise.reject(
-      JSON.stringify(data) ||
-        err.message ||
-        "Opps, something went wrong. Please try again later"
+      data
+        ? JSON.stringify(data)
+        : err.message || "Opps, something went wrong. Please try again later"
     );
   }
 };
