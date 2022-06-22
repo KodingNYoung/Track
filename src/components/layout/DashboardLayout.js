@@ -36,12 +36,6 @@ const DashboardLayout = props => {
   const openModal = () => setModal(true);
   const closeModal = () => setModal(false);
   const logoutUser = async () => {
-    const res = await fetch("https://trackfi.herokuapp.com/api/users/logout/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
     navigate("/auth/login");
   };
   window.matchMedia("(max-width: 1080px)").addListener(query => {
@@ -53,9 +47,6 @@ const DashboardLayout = props => {
     <Menu className="user-menu">
       <Item key="1" icon={<HomeOutlined />}>
         <Link to="/">Home</Link>
-      </Item>
-      <Item key="2" icon={<UserOutlined />} onClick={openModal}>
-        Self Service
       </Item>
       <Item key="3" icon={<LogoutOutlined />} onClick={logoutUser}>
         Logout

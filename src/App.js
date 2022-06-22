@@ -7,10 +7,12 @@ import Homepage from "./views/Home/Homepage";
 import Dashboard from "./views/dashboard";
 import Auth from "./views/auth";
 import Redux from "./views/Redux";
+import Toast from "./components/Feedbacks/Toasts";
 
 function App() {
   return (
     <div className="App">
+      <Toast />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />

@@ -7,6 +7,7 @@ import { SubmitButton } from "../../components/Buttons/Buttons";
 import { PasswordField, TextField } from "../../components/Inputs/InputFields";
 import { Brand } from "../../components/Brand/Brands";
 import { Divider } from "../../components/Dividers/Divider";
+import { toast } from "../../components/Feedbacks/Toasts";
 
 // images
 import { LoginSVG, Ellipse, Google } from "../../imports/images";
@@ -40,12 +41,19 @@ const Login = () => {
   useEffect(() => {
     if (status === "success") {
       // show success toast without
-      navigate("/dashboard");
-      setTimeout(handleStatusReset, 2000);
+      toast("success", message, { autoclose: true });
+      setTimeout(() => {
+        navigate("/dashboard");
+        handleStatusReset();
+      }, 2000);
     }
 
     if (status === "error") {
       // console.log(message);
+      toast("error", message, { closable: true });
+      setTimeout(() => {
+        handleStatusReset();
+      }, 2000);
     }
   }, [status]);
 
@@ -76,9 +84,6 @@ const Login = () => {
         <main className="main-content content">
           <div className="content-container">
             <h2>Welcome back!</h2>
-            {/* toast */}
-            {message && <>{message}</>}
-            {/* toast ends*/}
             <button className="sign-in-with-google">
               <Google />
               <span>Sign In with Google</span>
@@ -92,6 +97,7 @@ const Login = () => {
                 name="email"
                 label="Email"
                 type="email"
+                required
               />
               <PasswordField
                 size="large"
@@ -99,6 +105,7 @@ const Login = () => {
                 name="password"
                 type="password"
                 label="Password"
+                required
               />
               {/* <Link to="/auth/forgot-password" className="forgot-password-link">
                 Forgot Password?

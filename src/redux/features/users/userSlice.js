@@ -30,7 +30,7 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.meta.status = "success";
         state.meta.message = "Successfully login.";
-        state.user_info = action.payload.data;
+        state.user_info = action.payload;
       })
       .addCase(loginUser.rejected, (state, action) => {
         const message = isValidJSON(action.error.message)

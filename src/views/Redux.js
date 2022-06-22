@@ -15,6 +15,7 @@ import {
   fetchTodos,
   addTodos
 } from "../redux/features/test/todos";
+import { toast } from "../components/Feedbacks/Toasts";
 
 const Redux = () => {
   const dispatch = useDispatch();
@@ -42,8 +43,17 @@ const Redux = () => {
     console.log({
       email,
       password: null,
-      third_party: true
+      third_party: true,
+      email_verified,
+      family_name,
+      given_name,
+      picture
     });
+    toast(
+      "success",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta cum voluptatibus repellendus sint nobis suscipit, neque dolorum esse maiores facere omnis sed atque commodi aut, ducimus id in earum repellat numquam consectetur culpa minima? Soluta unde praesentium eius, dolor, ipsum voluptatibus blanditiis ratione nemo est laboriosam sunt numquam tenetur. Debitis eum aperiam sit odio molestiae, ",
+      true
+    );
   };
   // useEffect
   useEffect(() => {
@@ -58,7 +68,7 @@ const Redux = () => {
   }, []);
 
   return (
-    <div className="h-screen flex items-center mt-20 flex-col">
+    <div className="h-screen flex items-center pt-20 flex-col">
       <div className="w-80 max-w-full">
         <header>
           <span className="flex justify-between ">
@@ -94,6 +104,11 @@ const Redux = () => {
         </ul>
       </div>
       <div className="google-button"></div>
+      necessitatibus reiciendis dolorum, vero eos maxime corporis. Ad quisquam
+      nihil cupiditate laudantium nostrum a provident necessitatibus id commodi
+      nam cum voluptatibus rem libero fugit debitis ipsum ex porro dolorum
+      perspiciatis modi dolorem inventore culpa, ullam natus? Sint repellendus
+      temporibus laudantium dolorum assumenda necessitatibus quisquam maiores.
     </div>
   );
 };

@@ -32,6 +32,7 @@ export const request = async (
   try {
     // send request
     const res = await fetch(url, customConfig);
+    console.log(res);
     data = await getValidJSON(res);
 
     // if response is ok

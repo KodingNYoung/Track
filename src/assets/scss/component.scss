@@ -1,5 +1,18 @@
 @import "base";
 
+@mixin conceptual-toast($color) {
+  .toast-content-container {
+    border-color: $color;
+    background-color: lighten($color, 60%);
+    .strip {
+      background-color: $color;
+    }
+    .toast-content {
+      color: $color;
+    }
+  }
+}
+
 .card {
   background-color: $text-white;
 }
@@ -29,5 +42,43 @@
         }
       }
     }
+  }
+}
+.toast {
+  @apply fixed w-full mt-16 z-50;
+  .toast-content-container {
+    @apply flex items-center justify-between max-w-md px-4 py-3 bg-white border rounded-md shadow-sm ml-auto mr-4 relative;
+    .strip {
+      @apply absolute left-0 top-0 bottom-0 w-1;
+    }
+    .toast-content {
+      @apply flex items-center;
+      .icon {
+        @apply text-2xl;
+        min-width: 20px;
+      }
+      .text {
+        @apply ml-3 text-sm font-bold;
+      }
+    }
+    .cancel-btn {
+      @apply inline-flex items-center cursor-pointer;
+      .icon {
+        @apply text-3xl text-gray-600;
+        min-width: 20px;
+      }
+    }
+  }
+  &.success-toast {
+    @include conceptual-toast($success-green);
+  }
+  &.error-toast {
+    @include conceptual-toast($error-red);
+  }
+  &.warning-toast {
+    @include conceptual-toast($warning-color);
+  }
+  &.info-toast {
+    @include conceptual-toast($primary-color);
   }
 }
