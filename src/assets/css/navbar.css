@@ -1,5 +1,5 @@
 .home-navbar {
-  @apply z-50 flex justify-between items-center fixed w-full backdrop-blur md:px-8 py-4 overflow-hidden h-28;
+  @apply z-50 flex justify-between items-center fixed w-full backdrop-blur md:px-8 md:py-4 overflow-hidden h-28 transition-all duration-300;
 }
 
 .home-navbar .brand {
@@ -37,7 +37,7 @@
 }
 
 .home-navbar.smScreen {
-  @apply h-28 grid;
+  @apply grid items-start;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
 }
@@ -56,7 +56,7 @@
   @apply h-screen;
 }
 
-.home-navbar.smScreen.opened .home-navbar__links, .home-navbar.smScreen.opening .home-navbar__links {
+.home-navbar.smScreen.opened .home-navbar__links {
   @apply opacity-100;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .home-navbar.smScreen.closed {
-  @apply h-28;
+  @apply h-20;
 }
 
 #hero {

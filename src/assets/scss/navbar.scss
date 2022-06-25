@@ -1,7 +1,7 @@
 @import "base";
 
 .home-navbar {
-  @apply z-50 flex justify-between items-center fixed w-full backdrop-blur md:px-8 py-4 overflow-hidden h-28;
+  @apply z-50 flex justify-between items-center fixed w-full backdrop-blur md:px-8 md:py-4 overflow-hidden h-28 transition-all duration-300;
   .brand {
     @apply w-fit;
   }
@@ -32,7 +32,7 @@
     }
   }
   &.smScreen {
-    @apply h-28 grid;
+    @apply grid items-start;
     grid-template-columns: 1fr;
     .topbar {
       @apply w-full flex justify-between items-center;
@@ -45,6 +45,8 @@
     &.opened,
     &.opening {
       @apply h-screen;
+    }
+    &.opened {
       .home-navbar__links {
         @apply opacity-100;
       }
@@ -56,7 +58,7 @@
       }
     }
     &.closed {
-      @apply h-28;
+      @apply h-20;
     }
   }
 }

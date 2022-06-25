@@ -1,9 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 
 // redux persist
-import { persistReducer } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 // reducers
