@@ -5,6 +5,7 @@
   overflow: hidden;
   .hero-section {
     @apply px-10 pt-28 md:pt-0;
+    background-color: $hero-bg;
     .hero-content {
       @apply p-5 md:translate-y-36 relative z-10;
       &__text {
@@ -129,8 +130,9 @@
         }
       }
       button.submit-button {
-        @apply p-3 rounded-2xl text-3xl;
+        @apply w-14 rounded-2xl text-3xl flex justify-center items-center;
         background-color: $primary-color-dark;
+        min-width: 56px;
         &:hover {
           @apply scale-105;
         }

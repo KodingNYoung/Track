@@ -82,3 +82,29 @@
     @include conceptual-toast($primary-color);
   }
 }
+
+// preloaders
+.preloader {
+  &.page-preloader {
+    @apply h-screen flex flex-col justify-center items-center;
+    background-color: $hero-bg;
+    .scroll-loader {
+      @apply h-1 w-32 mt-6 relative overflow-hidden flex items-center;
+      background-color: $light-primary-bg;
+      .scroll {
+        @apply w-1/2 h-3/6 absolute;
+        background-color: $primary-color;
+        animation: scroll 1s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 100%;
+  }
+}

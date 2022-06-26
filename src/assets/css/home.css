@@ -5,6 +5,7 @@
 
 .homepage .hero-section {
   @apply px-10 pt-28 md:pt-0;
+  background-color: #f4f6ff;
 }
 
 .homepage .hero-section .hero-content {
@@ -174,8 +175,9 @@
 }
 
 .homepage .contactus-section .help-form button.submit-button {
-  @apply p-3 rounded-2xl text-3xl;
+  @apply w-14 rounded-2xl text-3xl flex justify-center items-center;
   background-color: #002b9e;
+  min-width: 56px;
 }
 
 .homepage .contactus-section .help-form button.submit-button:hover {

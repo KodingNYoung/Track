@@ -117,3 +117,38 @@
 .toast.info-toast .toast-content-container .toast-content {
   color: #0247fe;
 }
+
+.preloader.page-preloader {
+  @apply h-screen flex flex-col justify-center items-center;
+  background-color: #f4f6ff;
+}
+
+.preloader.page-preloader .scroll-loader {
+  @apply h-1 w-32 mt-6 relative overflow-hidden flex items-center;
+  background-color: #0046ff1a;
+}
+
+.preloader.page-preloader .scroll-loader .scroll {
+  @apply w-1/2 h-3/6 absolute;
+  background-color: #0247fe;
+  -webkit-animation: scroll 1s linear infinite;
+          animation: scroll 1s linear infinite;
+}
+
+@-webkit-keyframes scroll {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes scroll {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 100%;
+  }
+}

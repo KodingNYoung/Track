@@ -71,7 +71,3 @@
 .home-navbar.smScreen.closed {
   @apply h-20;
 }
-
-#hero {
-  background-color: #f4f6ff;
-}

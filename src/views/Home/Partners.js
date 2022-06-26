@@ -12,31 +12,31 @@ const Partners = () => {
   const logoControls = useAnimation();
 
   // functions
-  const handleAnimations = async () => {
+  const handleAnimations = () => {
     if (inView) {
       headerControls.start({
         y: "0",
         opacity: 1,
-        transition: { type: "tween", duration: 1.8 }
+        transition: { type: "tween", duration: 1 }
       });
       logoControls.start(custom => ({
         x: 0,
         opacity: 1,
         transition: {
           type: "spring",
-          delay: custom * 0.4,
-          duration: 1.4,
+          delay: custom * 0.3,
+          duration: 1,
           bounce: 0.5
         }
       }));
     }
     if (!inView) {
       if (entry?.boundingClientRect?.y > 0) {
-        await headerControls.start({
+        headerControls.start({
           y: "10vh",
           opacity: 0
         });
-        return await logoControls.start({
+        logoControls.start({
           x: 70,
           opacity: 0
         });
@@ -64,9 +64,13 @@ const Partners = () => {
               className="partner-logo"
               key={index}
               custom={index}
+              initial={{
+                x: 70,
+                opacity: 0
+              }}
               animate={logoControls}
             >
-              <img src={partner} />
+              <img src={partner} alt="" />
             </motion.div>
           ))}
         </div>

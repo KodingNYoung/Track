@@ -14,58 +14,49 @@ import {
 const Features = () => {
   // animation hooks
   // section
-  const [sectionRef, sectionInView, sectionEntry] = useInView({
-    threshold: 0.4
-  });
-  const sectionAnimation = useAnimation();
-  // feature list
-  const [listRef, listInView] = useInView({ threshold: 0.5 });
+  const [sectionRef, sectionInView, sectionEntry] = useInView();
   const listAnimation = useAnimation();
+  const headerAnimation = useAnimation();
 
   // useEffect
   useEffect(() => {
     if (sectionInView) {
-      sectionAnimation.start({
+      headerAnimation.start({
         y: "0",
         opacity: 1,
-        transition: { type: "tween", duration: 2 }
+        transition: { type: "tween", duration: 1 }
       });
+      listAnimation.start(custom => ({
+        scale: 1,
+        opacity: 1,
+        transition: {
+          type: "tween",
+          duration: 1,
+          delay: custom * 0.2
+        }
+      }));
     }
     if (!sectionInView) {
+      // if the section is no longer in view
+      listAnimation.start({
+        scale: 0,
+        opacity: 0
+      });
       //if it's coming from below
       if (sectionEntry?.boundingClientRect?.y > 0) {
-        sectionAnimation.start({
+        headerAnimation.start({
           y: "10vh",
           opacity: 0
         });
       } else {
         // if it is going topwards
-        sectionAnimation.start({
+        headerAnimation.start({
           y: "-10vh",
           opacity: 0
         });
       }
     }
   }, [sectionInView]);
-  useEffect(() => {
-    if (listInView) {
-      listAnimation.start(custom => ({
-        scale: 1,
-        opacity: 1,
-        transition: {
-          type: "spring",
-          duration: 1,
-          bounce: 0.5,
-          delay: custom * 0.5
-        }
-      }));
-    } else {
-      listAnimation.start({
-        scale: 0,
-        opacity: 0
-      });
-    }
-  }, [listInView]);
 
   return (
     <section
@@ -73,15 +64,12 @@ const Features = () => {
       id="features"
       className="features-section reusable-section-class"
     >
-      <motion.div
-        className="features-content section-content"
-        animate={sectionAnimation}
-      >
-        <header>
+      <div className="features-content section-content">
+        <motion.header animate={headerAnimation}>
           <h2>Features</h2>
           <span>Amazing services driven by</span>
-        </header>
-        <div className="features-grid" ref={listRef}>
+        </motion.header>
+        <div className="features-grid">
           <FeatureItem
             icon={<GiCardExchange />}
             name="transaction"
@@ -111,7 +99,7 @@ const Features = () => {
             custom={4}
           />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
