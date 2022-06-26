@@ -13,8 +13,6 @@ const Navbar = () => {
   );
 
   // functions
-  const handleMouseEnter = () => setNavActive(true);
-  const handleMouseLeave = () => setNavActive(false);
   const toggleMenuActive = () => {
     if (smScrnMenuState === "opened" || smScrnMenuState === "opening") {
       setSmScrnMenuState("closing");
@@ -38,36 +36,46 @@ const Navbar = () => {
       </div>
       <div className="home-navbar__links">
         <nav className={navActive ? "active" : ""}>
-          <HashLink
-            smooth
+          <NavItem
             to="/#hero"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Home
-          </HashLink>
-          <HashLink
-            smooth
+            label="Home"
+            setNavActive={setNavActive}
+            onClick={toggleMenuActive}
+          />
+          <NavItem
             to="/#features"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Features
-          </HashLink>
-          <HashLink
-            smooth
+            label="Features"
+            setNavActive={setNavActive}
+            onClick={toggleMenuActive}
+          />
+          <NavItem
             to="/#contactus"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            Contact
-          </HashLink>
+            label="Contact"
+            setNavActive={setNavActive}
+            onClick={toggleMenuActive}
+          />
         </nav>
         <span className="login-link">
           <Link to="/auth/login">Login</Link>
         </span>
       </div>
     </header>
+  );
+};
+const NavItem = props => {
+  const { to, label, setNavActive, onClick } = props;
+  const handleMouseEnter = () => setNavActive(true);
+  const handleMouseLeave = () => setNavActive(false);
+  return (
+    <HashLink
+      smooth
+      to={to}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+    >
+      {label}
+    </HashLink>
   );
 };
 

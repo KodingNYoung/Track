@@ -22,7 +22,7 @@ const Hero = () => {
           <motion.span
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ type: "tween", duration: 1.2, delay: 1.1 }}
+            transition={{ type: "tween", duration: 1.2, delay: 0.7 }}
           >
             Get real-time statistics of your income and expense, make budgets
             and get monthly reports
@@ -30,7 +30,7 @@ const Hero = () => {
           <motion.span
             initial={{ y: -32, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ type: "tween", duration: 1.5, delay: 2.4 }}
+            transition={{ type: "tween", duration: 1, delay: 1 }}
           >
             <Link to="/auth/register" className="primary-btn">
               Get Started
@@ -40,7 +40,7 @@ const Hero = () => {
         <motion.div
           initial={{ y: "10vh" }}
           animate={{ y: "0" }}
-          transition={{ type: "spring", duration: 2, bounce: 0.5 }}
+          transition={{ type: "spring", duration: 1, bounce: 0.5, delay: 0.7 }}
           className="hero-content__image"
         >
           <HeroSVG />
