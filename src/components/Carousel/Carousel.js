@@ -6,12 +6,12 @@ const Carousel = () => {
   const carouselItems = [
     {
       key: 1,
-      title: "Learn more About your Funds",
+      title: "Learn more about your funds",
       body: "Discover how much you earn and pen over a desired period of time"
     },
     {
       key: 2,
-      title: "NoCredit or Debit cad needed",
+      title: "No credit or debit card needed",
       body: "Give us your day to day transaction details without having to use your bank card details."
     },
     {

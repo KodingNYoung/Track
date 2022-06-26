@@ -30,6 +30,10 @@
   color: #00000080;
 }
 
+.form-group .helper-text.field-error {
+  color: #b60000;
+}
+
 .customized-select-field {
   @apply flex items-center pl-2 transition-all duration-300 relative h-11 m-3;
   width: 180px;

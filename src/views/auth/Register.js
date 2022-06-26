@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -8,6 +8,7 @@ import { PasswordField, TextField } from "../../components/Inputs/InputFields";
 import { Brand } from "../../components/Brand/Brands";
 import { Divider } from "../../components/Dividers/Divider";
 import Carousel from "../../components/Carousel/Carousel";
+import { toast } from "../../components/Feedbacks/Toasts";
 
 // images
 import { RegisterSVG, Google } from "../../imports/images";
@@ -15,35 +16,92 @@ import { HiOutlineMail, AiOutlineUser } from "../../imports/icons";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../redux/features/users/actions";
+import {
+  registerUser,
+  resetStatus
+} from "../../redux/features/users/userSlice";
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // selectors
-  const userRequestMeta = useSelector(state => state.user.meta);
+  const { status, message } = useSelector(state => state.user.meta);
+  // states
+  const [userInput, setUserInput] = useState({});
+  const [errorType, setErrorType] = useState("");
+  const [errorMessage, setErrorMessage] = useState({});
 
+  // functions
+  // handle the input from the user
+  const handleUserInput = e => {
+    const { name, value } = e.target;
+    setUserInput(input => ({ ...input, [name]: value }));
+    // set the error message of that field to empty string
+    setErrorMessage(message => ({ ...message, [name]: "" }));
+  };
+  // handle the submit and call the actions to initiate signup
   const handleSubmit = async e => {
     e.preventDefault();
-    const form = e.target;
     const payload = {
-      username: form.username.value,
-      email: form.email.value,
-      password: form.password.value
+      ...userInput,
+      password1: userInput.password
     };
     dispatch(registerUser(payload));
   };
+  // reset the status in the store
+  const handleStatusReset = () => {
+    dispatch(resetStatus());
+  };
+  // format the helper text to be display
+  const formatHelperMessages = useCallback(message => {
+    const email = message?.email?.error_message;
+    const username = message?.username?.error_message;
+    const password = message?.password1?.error_message;
+    const helperMessage = { email, username, password };
+
+    return helperMessage;
+  }, []);
+  // get the type of error sentd from the server
+  const getErrorType = message => {
+    const fields = ["username", "email", "password1"];
+    const hasFieldError = fields.some(field => message.hasOwnProperty(field));
+    const type = hasFieldError ? "field" : "toast";
+
+    return `${type}-error`;
+  };
+
+  // useEffect
   useEffect(() => {
-    if (userRequestMeta.status === "success") {
+    if (status === "success") {
       // show success toast
-      navigate("/auth/login");
+      toast("success", message, { autoclose: true });
+
+      // after 2secs, navigate to login and reset store meta status
+      setTimeout(() => {
+        navigate("/auth/login");
+        handleStatusReset();
+      }, 2000);
     }
-    if (userRequestMeta.status === "error") {
-      // show failed toast and do nothng
+    if (status === "error") {
+      // get the error type - "toast" || "field"
+      const type = getErrorType(message);
+
+      // if the type of error is toast, then display a toast
+      if (type === "toast-error")
+        return toast("error", message, { closable: true });
+
+      // if it's a field error message should be formatted first.
+      const messages = formatHelperMessages(message);
+      // set states so the ui can render helper texts for the fields
+      setErrorType(type);
+      setErrorMessage(messages);
+
+      // reset the error status in the redux store
+      setTimeout(() => handleStatusReset(), 2000);
     }
-    // console.log(userRequestMeta);
-  }, [userRequestMeta.status]);
+  }, [status]);
+
   return (
     <motion.section
       initial="hidden"
@@ -81,6 +139,13 @@ const Register = () => {
                 name="email"
                 label="Email"
                 type="email"
+                onChange={handleUserInput}
+                helper={{
+                  status: errorType,
+                  text: errorMessage.email
+                }}
+                status={errorMessage.email && "error"}
+                required
               />
               <TextField
                 size="large"
@@ -89,6 +154,13 @@ const Register = () => {
                 name="username"
                 label="Username"
                 type="text"
+                onChange={handleUserInput}
+                helper={{
+                  status: errorType,
+                  text: errorMessage.username
+                }}
+                status={errorMessage.username && "error"}
+                required
               />
               <PasswordField
                 size="large"
@@ -96,11 +168,15 @@ const Register = () => {
                 name="password"
                 type="password"
                 label="Password"
+                onChange={handleUserInput}
+                helper={{
+                  status: errorType,
+                  text: errorMessage.password
+                }}
+                status={errorMessage.password && "error"}
+                required
               />
-              <SubmitButton
-                block
-                loading={userRequestMeta.status === "registering"}
-              >
+              <SubmitButton block loading={status === "registering"}>
                 Register
               </SubmitButton>
             </form>

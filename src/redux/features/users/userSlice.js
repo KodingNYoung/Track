@@ -19,10 +19,15 @@ const userSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, state => {
         state.meta.status = "success";
+        state.meta.message =
+          "Registration successfully, you will be redirected to the login page to sign in to your dashboard.";
       })
       .addCase(registerUser.rejected, (state, action) => {
+        const message = isValidJSON(action.error.message)
+          ? JSON.parse(action.error.message)
+          : action.error.message;
         state.meta.status = "error";
-        state.meta.message = action.error.message;
+        state.meta.message = message;
       })
       .addCase(loginUser.pending, state => {
         state.meta.status = "loging in";

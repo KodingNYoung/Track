@@ -6,23 +6,29 @@ import "../../assets/css/input.css";
 const { Option } = Select;
 const { Password, Group } = Input;
 export const TextField = props => {
-  const { label, ...fieldProps } = props;
+  const { label, helper, ...fieldProps } = props;
   return (
     <label htmlFor={fieldProps?.id} className="form-group">
       <span className="input-label">{label}</span>
       <Input {...fieldProps} />
+      {helper?.status?.includes("field-") && (
+        <span className={`helper-text ${helper?.status}`}>{helper?.text}</span>
+      )}
     </label>
   );
 };
 
 export const PasswordField = props => {
-  const { label, ...fieldProps } = props;
+  const { label, helper, ...fieldProps } = props;
   return (
     <div className="form-group">
       <label htmlFor={fieldProps?.id} className="input-label">
         {label}
       </label>
       <Password {...fieldProps} />
+      {helper?.status?.includes("field-") && (
+        <span className={`helper-text ${helper?.status}`}>{helper?.text}</span>
+      )}
     </div>
   );
 };

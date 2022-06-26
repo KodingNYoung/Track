@@ -27,6 +27,11 @@
       }
     }
   }
+  .helper-text {
+    &.field-error {
+      color: $error-red;
+    }
+  }
 }
 
 .customized-select-field {
