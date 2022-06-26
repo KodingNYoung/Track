@@ -32,12 +32,12 @@ const ContactUs = () => {
       });
     }
     if (!sectionInView) {
-      await helpSectionAnimation.start({
-        x: "-10vw",
+      helpSectionAnimation.start({
+        x: "-30vw",
         opacity: 0
       });
-      return await contactSectionAnimation.start({
-        x: "10vw",
+      contactSectionAnimation.start({
+        x: "30vw",
         opacity: 0
       });
     }
