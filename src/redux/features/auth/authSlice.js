@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { isValidJSON, setToken } from "../../../utils";
-import { loginUser, registerUser, googleSignInUser } from "./actions";
+import {
+  loginUser,
+  registerUser,
+  googleSignInUser,
+  logoutUser
+} from "./actions";
 
 const initialState = { auth_info: {}, meta: { status: "idle", message: "" } };
 const authSlice = createSlice({
@@ -60,11 +65,16 @@ const authSlice = createSlice({
           : action.error.message;
         state.meta.status = "error";
         state.meta.message = message;
+      })
+      .addCase(logoutUser.fulfilled, (state, action) => {
+        console.log(action);
+        state.meta.status = "logout_success";
+        state.auth_info = {};
       });
   }
 });
 
-export { registerUser, loginUser, googleSignInUser };
+export { registerUser, loginUser, googleSignInUser, logoutUser };
 
 export const { resetStatus } = authSlice.actions;
 

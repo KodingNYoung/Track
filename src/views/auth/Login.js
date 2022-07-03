@@ -8,6 +8,7 @@ import { PasswordField, TextField } from "../../components/Inputs/InputFields";
 import { Brand } from "../../components/Brand/Brands";
 import { Divider } from "../../components/Dividers/Divider";
 import { toast } from "../../components/Feedbacks/Toasts";
+import GoogleSignInButton from "../../components/Google/GoogleSignInButton";
 
 // images
 import { LoginSVG, Ellipse, Google } from "../../imports/images";
@@ -16,7 +17,6 @@ import { HiOutlineMail } from "../../imports/icons";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, resetStatus } from "../../redux/features/auth/authSlice";
-import GoogleSignInButton from "../../components/Google/GoogleSignInButton";
 
 const Login = () => {
   const navigate = useNavigate();

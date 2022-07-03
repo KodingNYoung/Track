@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
-import { Layout, Menu, Dropdown, Avatar, Button } from "antd";
+import { Layout, Menu, Dropdown, Avatar } from "antd";
 
 // icons
 import {
@@ -10,9 +10,12 @@ import {
   RiExchangeFundsFill,
   MenuOutlined,
   HomeOutlined,
-  UserOutlined,
   LogoutOutlined
 } from "../../imports/icons";
+
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser, resetStatus } from "../../redux/features/auth/authSlice";
 
 // css
 import "../../assets/css/dashboard.css";
@@ -23,8 +26,14 @@ const { Sider, Header, Content } = Layout;
 const { Item } = Menu;
 
 const DashboardLayout = props => {
+  // props
   const { children, activeView } = props;
+  // hooks
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // selectors
+  const { status, message } = useSelector(state => state.auth.meta);
+  // state
   const [collapsed, setCollapsed] = useState(false);
   const [modal, setModal] = useState(false);
   const [smScreen, setSmScreen] = useState(
@@ -35,12 +44,25 @@ const DashboardLayout = props => {
   const toggleCollapse = () => setCollapsed(!collapsed);
   const openModal = () => setModal(true);
   const closeModal = () => setModal(false);
-  const logoutUser = async () => {
-    navigate("/auth/login");
+
+  //
+  const logout = () => {
+    dispatch(logoutUser());
+  };
+  const handleStatusReset = () => {
+    dispatch(resetStatus());
   };
   window.matchMedia("(max-width: 1080px)").addListener(query => {
     setSmScreen(query.matches);
   });
+
+  // useEfffect
+  useEffect(() => {
+    if (status === "logout_success") {
+      navigate("/auth/login");
+      handleStatusReset();
+    }
+  }, [status]);
 
   // UI
   const userMenuContent = (
@@ -48,7 +70,7 @@ const DashboardLayout = props => {
       <Item key="1" icon={<HomeOutlined />}>
         <Link to="/">Home</Link>
       </Item>
-      <Item key="3" icon={<LogoutOutlined />} onClick={logoutUser}>
+      <Item key="3" icon={<LogoutOutlined />} onClick={logout}>
         Logout
       </Item>
     </Menu>

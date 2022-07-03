@@ -33,10 +33,6 @@ const GoogleSignInButton = props => {
     dispatch(resetStatus());
   };
 
-  function onSignout() {
-    window.google.accounts.id.disableAutoSelect();
-  }
-
   // useEffects
   useEffect(() => {
     window.google.accounts.id.initialize({
