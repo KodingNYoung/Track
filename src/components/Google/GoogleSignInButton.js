@@ -48,6 +48,7 @@ const GoogleSignInButton = props => {
         logo_alignment: "center"
       }
     );
+    window.google.accounts.id.prompt();
   }, []);
   useEffect(() => {
     if (status === "g_success") {
@@ -65,10 +66,7 @@ const GoogleSignInButton = props => {
       className="google-button-container"
       style={{ display: "flex", justifyContent: "center" }}
     >
-      <div
-        className="google-button"
-        style={{ width: "100%", display: "flex", justifyContent: "center" }}
-      />
+      <div className="google-button" />
     </div>
   );
 };

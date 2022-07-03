@@ -5,11 +5,9 @@
 .auth-divider {
   color: #c4c4c4 !important;
 }
-
 .auth-divider::after, .auth-divider::before {
   top: unset !important;
 }
-
 .auth-divider span.divider-text {
   @apply px-5;
 }
@@ -17,17 +15,14 @@
 .carousel ul.slick-dots {
   @apply relative justify-start mx-0;
 }
-
 .carousel ul.slick-dots li {
   @apply w-2 h-2;
 }
-
 .carousel ul.slick-dots li button {
   @apply h-full;
   background-color: #c4c4c4;
   border-radius: 12px;
 }
-
 .carousel ul.slick-dots li.slick-active button {
   background-color: #7a7a7a;
 }
@@ -35,85 +30,66 @@
 .toast {
   @apply fixed w-full mt-16 z-50;
 }
-
 .toast .toast-content-container {
   @apply flex items-center justify-between max-w-md px-4 py-3 bg-white border rounded-md shadow-sm ml-auto mr-4 relative;
 }
-
 .toast .toast-content-container .strip {
   @apply absolute left-0 top-0 bottom-0 w-1;
 }
-
 .toast .toast-content-container .toast-content {
   @apply flex items-center;
 }
-
 .toast .toast-content-container .toast-content .icon {
   @apply text-2xl;
   min-width: 20px;
 }
-
 .toast .toast-content-container .toast-content .text {
   @apply ml-3 text-sm font-bold;
 }
-
 .toast .toast-content-container .cancel-btn {
   @apply inline-flex items-center cursor-pointer;
 }
-
 .toast .toast-content-container .cancel-btn .icon {
   @apply text-3xl text-gray-600;
   min-width: 20px;
 }
-
 .toast.success-toast .toast-content-container {
   border-color: #00b528;
   background-color: #e8ffed;
 }
-
 .toast.success-toast .toast-content-container .strip {
   background-color: #00b528;
 }
-
 .toast.success-toast .toast-content-container .toast-content {
   color: #00b528;
 }
-
 .toast.error-toast .toast-content-container {
   border-color: #b60000;
   background-color: #ffe9e9;
 }
-
 .toast.error-toast .toast-content-container .strip {
   background-color: #b60000;
 }
-
 .toast.error-toast .toast-content-container .toast-content {
   color: #b60000;
 }
-
 .toast.warning-toast .toast-content-container {
   border-color: #eed202;
   background-color: white;
 }
-
 .toast.warning-toast .toast-content-container .strip {
   background-color: #eed202;
 }
-
 .toast.warning-toast .toast-content-container .toast-content {
   color: #eed202;
 }
-
 .toast.info-toast .toast-content-container {
   border-color: #0247fe;
   background-color: white;
 }
-
 .toast.info-toast .toast-content-container .strip {
   background-color: #0247fe;
 }
-
 .toast.info-toast .toast-content-container .toast-content {
   color: #0247fe;
 }
@@ -122,12 +98,10 @@
   @apply h-screen flex flex-col justify-center items-center;
   background-color: #f4f6ff;
 }
-
 .preloader.page-preloader .scroll-loader {
   @apply h-1 w-32 mt-6 relative overflow-hidden flex items-center;
-  background-color: #0046ff1a;
+  background-color: rgba(0, 70, 255, 0.1019607843);
 }
-
 .preloader.page-preloader .scroll-loader .scroll {
   @apply w-1/2 h-3/6 absolute;
   background-color: #0247fe;

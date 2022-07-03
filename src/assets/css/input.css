@@ -1,35 +1,28 @@
 .form-group {
   @apply mb-5 block;
 }
-
 .form-group .input-label {
   @apply text-base mb-1 block;
   color: #7a7a7a;
 }
-
 .form-group .ant-input-affix-wrapper {
   @apply h-14 rounded-none;
 }
-
 .form-group .ant-input-affix-wrapper input {
   font-family: "Poppins", sans-serif;
 }
-
 .form-group .ant-input-affix-wrapper input:-webkit-autofill, .form-group .ant-input-affix-wrapper input:-webkit-autofill:hover, .form-group .ant-input-affix-wrapper input:-webkit-autofill:focus, .form-group .ant-input-affix-wrapper input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-
 .form-group .ant-input-affix-wrapper .ant-input-suffix,
 .form-group .ant-input-affix-wrapper .ant-input-password-icon {
   @apply transition-all text-xl duration-300;
   color: #c4c4c4;
 }
-
 .form-group .ant-input-affix-wrapper .ant-input-suffix:hover,
 .form-group .ant-input-affix-wrapper .ant-input-password-icon:hover {
-  color: #00000080;
+  color: rgba(0, 0, 0, 0.5019607843);
 }
-
 .form-group .helper-text.field-error {
   color: #b60000;
 }
@@ -38,33 +31,26 @@
   @apply flex items-center pl-2 transition-all duration-300 relative h-11 m-3;
   width: 180px;
 }
-
 .customized-select-field .label {
   @apply font-light transition-all duration-300;
   color: #c4c4c4;
 }
-
 .customized-select-field .ant-select {
   @apply absolute  top-0 left-0 w-full h-full bg-transparent;
 }
-
 .customized-select-field .ant-select .ant-select-arrow {
   color: #000;
 }
-
 .customized-select-field .ant-select.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector {
   @apply h-full bg-transparent pl-16 rounded;
 }
-
 .customized-select-field .ant-select.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-item {
   line-height: 40px;
 }
-
 .customized-select-field .ant-select.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
   @apply shadow-none;
   border-color: #0247fe;
 }
-
 .customized-select-field .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
   border-color: #0247fe;
 }
@@ -73,7 +59,6 @@
   @apply rounded p-2 h-11;
   width: 180px;
 }
-
 .date-field.custom .ant-picker:hover, .date-field.custom .ant-picker.ant-picker-focused {
   @apply shadow-none;
   border-color: #0247fe;

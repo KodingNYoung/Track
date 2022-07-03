@@ -4,18 +4,18 @@
   @apply min-h-screen;
   .sidebar {
     @apply overflow-hidden h-screen;
-    background-color: $primary-color;
+    background-color: $text-white;
     .menu {
       @apply py-16 px-0 border-0;
-      background-color: $primary-color;
+      background-color: $text-white;
       .ant-menu-item {
         @apply my-6 mx-0 transition-all duration-300 py-2 h-12;
-        color: $text-white;
+        color: $icons-grey;
         a {
           @apply text-inherit;
         }
         svg {
-          @apply text-2xl;
+          @apply text-5xl;
         }
         &:hover {
           @apply ml-4;

@@ -15,4 +15,9 @@
       @apply w-0;
     }
   }
+  &.small {
+    svg {
+      max-width: 30px;
+    }
+  }
 }

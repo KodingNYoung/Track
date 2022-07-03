@@ -13,13 +13,15 @@ import {
   LogoutOutlined
 } from "../../imports/icons";
 
+// components
+import { Brand } from "../Brand/Brands";
+
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser, resetStatus } from "../../redux/features/auth/authSlice";
 
 // css
 import "../../assets/css/dashboard.css";
-import { Brand } from "../Brand/Brands";
 
 // sub components
 const { Sider, Header, Content } = Layout;
@@ -79,17 +81,12 @@ const DashboardLayout = props => {
     <Layout
       theme="light"
       hasSider={true}
-      className={`dashboard-layout${collapsed ? " collapsed" : ""}${
-        smScreen ? " small-screen" : ""
+      className={`dashboard-layout small-screen ${
+        collapsed ? " collapsed" : ""
       }`}
     >
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed || smScreen}
-        className="sidebar"
-      >
-        <Brand collapsed={collapsed || smScreen} color="white" />
+      <Sider trigger={null} collapsible collapsed={true} className="sidebar">
+        <Brand collapsed={true} color="blue" size="small" />
         <Menu
           mode="inline"
           defaultSelectedKeys={["overview"]}
