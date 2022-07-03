@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { isValidJSON } from "../../../utils";
-import { loginUser, registerUser } from "./actions";
+import { isValidJSON, setToken } from "../../../utils";
+import { loginUser, registerUser, googleSignInUser } from "./actions";
 
-const initialState = { user_info: {}, meta: { status: "idle" } };
-const userSlice = createSlice({
-  name: "user",
+const initialState = { auth_info: {}, meta: { status: "idle", message: "" } };
+const authSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
     resetStatus: state => {
@@ -15,7 +15,7 @@ const userSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(registerUser.pending, state => {
-        state.meta.status = "registering";
+        state.meta.status = "loading";
       })
       .addCase(registerUser.fulfilled, state => {
         state.meta.status = "success";
@@ -30,12 +30,13 @@ const userSlice = createSlice({
         state.meta.message = message;
       })
       .addCase(loginUser.pending, state => {
-        state.meta.status = "loging in";
+        state.meta.status = "loading";
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.meta.status = "success";
         state.meta.message = "Successfully login.";
-        state.user_info = action.payload;
+        state.auth_info = action.payload;
+        setToken(action.payload.access_token);
       })
       .addCase(loginUser.rejected, (state, action) => {
         const message = isValidJSON(action.error.message)
@@ -43,12 +44,28 @@ const userSlice = createSlice({
           : action.error.message;
         state.meta.status = "error";
         state.meta.message = message;
+      })
+      .addCase(googleSignInUser.pending, state => {
+        state.meta.status = "g_loading";
+      })
+      .addCase(googleSignInUser.fulfilled, (state, action) => {
+        state.meta.status = "g_success";
+        state.meta.message = "You have been signed in successfully.";
+        state.auth_info = action.payload;
+        setToken(action.payload.access_token);
+      })
+      .addCase(googleSignInUser.rejected, (state, action) => {
+        const message = isValidJSON(action.error.message)
+          ? JSON.parse(action.error.message).email.error_message
+          : action.error.message;
+        state.meta.status = "error";
+        state.meta.message = message;
       });
   }
 });
 
-export { registerUser, loginUser };
+export { registerUser, loginUser, googleSignInUser };
 
-export const { resetStatus } = userSlice.actions;
+export const { resetStatus } = authSlice.actions;
 
-export default userSlice.reducer;
+export default authSlice.reducer;

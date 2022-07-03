@@ -16,17 +16,15 @@ import { HiOutlineMail, AiOutlineUser } from "../../imports/icons";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import {
-  registerUser,
-  resetStatus
-} from "../../redux/features/users/userSlice";
+import { registerUser, resetStatus } from "../../redux/features/auth/authSlice";
+import GoogleSignInButton from "../../components/Google/GoogleSignInButton";
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // selectors
-  const { status, message } = useSelector(state => state.user.meta);
+  const { status, message } = useSelector(state => state.auth.meta);
   // states
   const [userInput, setUserInput] = useState({});
   const [errorType, setErrorType] = useState("");
@@ -126,10 +124,8 @@ const Register = () => {
             <h2>
               Set up your <span>track</span> account
             </h2>
-            <button className="sign-in-with-google">
-              <Google />
-              <span>Sign up with Google</span>
-            </button>
+            <GoogleSignInButton />
+
             <Divider text="Or Sign up with" />
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField

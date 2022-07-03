@@ -12,7 +12,7 @@ export const request = async (
   const url = `${baseUrl}${endpoint}`;
 
   // declare request headers
-  const headers = {};
+  const headers = { "Content-Type": "application/json" };
   if (authorize) headers.Authorization = `Token ${getToken()}`;
 
   // declare options

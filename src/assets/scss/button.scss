@@ -21,3 +21,18 @@ button.ant-btn {
 .ant-btn-block {
   @apply text-base font-medium;
 }
+
+.google-button {
+  iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    margin: 0 !important;
+    #container {
+      width: 100%;
+      padding: 0 !important;
+      display: block;
+    }
+  }
+}

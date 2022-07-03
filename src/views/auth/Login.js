@@ -15,14 +15,15 @@ import { HiOutlineMail } from "../../imports/icons";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, resetStatus } from "../../redux/features/users/userSlice";
+import { loginUser, resetStatus } from "../../redux/features/auth/authSlice";
+import GoogleSignInButton from "../../components/Google/GoogleSignInButton";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // selectors
-  const { status, message } = useSelector(state => state.user.meta);
+  const { status, message } = useSelector(state => state.auth.meta);
 
   // functions
   const handleSubmit = async e => {
@@ -84,10 +85,11 @@ const Login = () => {
         <main className="main-content content">
           <div className="content-container">
             <h2>Welcome back!</h2>
-            <button className="sign-in-with-google">
+            <GoogleSignInButton />
+            {/* <button className="sign-in-with-google">
               <Google />
               <span>Sign In with Google</span>
-            </button>
+            </button> */}
             <Divider text="Or Sign In with" />
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
@@ -110,7 +112,7 @@ const Login = () => {
               {/* <Link to="/auth/forgot-password" className="forgot-password-link">
                 Forgot Password?
               </Link> */}
-              <SubmitButton block loading={status === "loging in"}>
+              <SubmitButton block loading={status === "loading"}>
                 Log in
               </SubmitButton>
             </form>
