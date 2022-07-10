@@ -1,6 +1,6 @@
 import React from "react";
 
-import GoogleSignIn from "components/GoogleSignInButton";
+import GoogleSignIn from "./auth/components/GoogleSignIn";
 
 const Redux = () => {
   return (

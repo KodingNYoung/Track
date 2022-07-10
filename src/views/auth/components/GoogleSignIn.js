@@ -13,7 +13,7 @@ import { googleSignInUser, resetStatus } from "redux/features/auth/authSlice";
 // styles
 import "assets/css/component.css";
 
-const GoogleSignInButton = props => {
+const GoogleSignIn = props => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // selectors
@@ -59,4 +59,4 @@ const GoogleSignInButton = props => {
   );
 };
 
-export default GoogleSignInButton;
+export default GoogleSignIn;

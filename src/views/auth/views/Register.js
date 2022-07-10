@@ -3,20 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // components
-import { SubmitButton } from "../../components/Buttons";
-import { PasswordField, TextField } from "../../components/InputFields";
-import { Brand } from "../../components/Brands";
-import Carousel from "../../components/Carousel";
-import { toast } from "../../components/feedbacks/Toasts";
+import { SubmitButton } from "../../../components/Buttons";
+import { PasswordField, TextField } from "../../../components/InputFields";
+import { Brand } from "../../../components/Brands";
+import Carousel from "../../../components/Carousel";
+import { toast } from "../../../components/feedbacks/Toasts";
 
 // images
 import { RegisterSVG } from "imports/images";
 import { HiOutlineMail, AiOutlineUser } from "imports/icons";
 
+// core components
+import GoogleSignIn from "../components/GoogleSignIn";
+
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser, resetStatus } from "redux/features/auth/authSlice";
-import GoogleSignInButton from "components/GoogleSignInButton";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -106,7 +108,7 @@ const Register = () => {
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       className="login auth-page"
     >
-      <GoogleSignInButton />
+      <GoogleSignIn />
       <header className="page-header">
         <Link to="/">
           <Brand color="#0247FE" />

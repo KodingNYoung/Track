@@ -2,12 +2,12 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // routes
-import Login from "./Login";
-import ForgotPassword from "./ForgotPassword";
-import Register from "./Register";
+import Login from "./views/Login";
+import ForgotPassword from "./views/ForgotPassword";
+import Register from "./views/Register";
 
 // css
-import "../../assets/css/auth.css";
+import "assets/css/auth.css";
 
 const Auth = () => {
   return (

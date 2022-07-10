@@ -7,7 +7,7 @@ import { SubmitButton } from "components/Buttons";
 import { PasswordField, TextField } from "components/InputFields";
 import { Brand } from "components/Brands";
 import { toast } from "components/feedbacks/Toasts";
-import GoogleSignInButton from "components/GoogleSignInButton";
+import GoogleSignIn from "../components/GoogleSignIn";
 
 // images
 import { LoginSVG, Ellipse } from "imports/images";
@@ -64,7 +64,7 @@ const Login = () => {
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       className="login auth-page"
     >
-      <GoogleSignInButton />
+      <GoogleSignIn />
       <header className="page-header">
         <Link to="/">
           <Brand color="#0247FE" />
