@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, Link } from "react-router-dom";
-import { Layout, Menu, Dropdown, Avatar } from "antd";
-import { Brand } from "components/Brands";
+import { useNavigate } from "react-router-dom";
+import { Layout } from "antd";
 
-// icons
-import {
-  MdOutlineDashboard,
-  BiCategory,
-  BsBarChart,
-  RiExchangeFundsFill,
-  MenuOutlined,
-  HomeOutlined,
-  LogoutOutlined
-} from "imports/icons";
+// core components
+import DashboardHeader from "./children/DashboardHeader";
+import DashboardSider from "./children/DashboardSider";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -23,8 +15,7 @@ import { getUserProfile } from "redux/features/user/slice";
 import "assets/css/dashboard.css";
 
 // sub components
-const { Sider, Header, Content } = Layout;
-const { Item } = Menu;
+const { Content } = Layout;
 
 const DashboardLayout = props => {
   // props
@@ -42,7 +33,7 @@ const DashboardLayout = props => {
   );
 
   // functions
-  const toggleCollapse = () => setCollapsed(!collapsed);
+  const toggleSiderCollapse = () => setCollapsed(collapsed => !collapsed);
   const openModal = () => setModal(true);
   const closeModal = () => setModal(false);
 
@@ -72,16 +63,7 @@ const DashboardLayout = props => {
   }, []);
 
   // UI
-  const userMenuContent = (
-    <Menu className="user-menu">
-      <Item key="1" icon={<HomeOutlined />}>
-        <Link to="/">Home</Link>
-      </Item>
-      <Item key="3" icon={<LogoutOutlined />} onClick={logout}>
-        Logout
-      </Item>
-    </Menu>
-  );
+
   return (
     <Layout
       theme="light"
@@ -90,49 +72,14 @@ const DashboardLayout = props => {
         smScreen ? " small-screen" : ""
       }`}
     >
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed || smScreen}
-        className="sidebar"
-      >
-        <Brand collapsed={collapsed || smScreen} color="white" />
-        <Menu
-          mode="inline"
-          defaultSelectedKeys={["overview"]}
-          selectedKeys={[activeView]}
-          className="menu"
-        >
-          <Item key="overview" icon={<MdOutlineDashboard />}>
-            <NavLink to="/dashboard">Overview</NavLink>
-          </Item>
-          <Item key="transactions" icon={<RiExchangeFundsFill />}>
-            <NavLink to="/dashboard/transactions">Transactions</NavLink>
-          </Item>
-          <Item key="categories" icon={<BiCategory />}>
-            <NavLink to="/dashboard/categories">Categories</NavLink>
-          </Item>
-          <Item key="analytics" icon={<BsBarChart />}>
-            <NavLink to="/dashboard/analytics">Chart</NavLink>
-          </Item>
-        </Menu>
-      </Sider>
+      <DashboardSider
+        smScreen={smScreen}
+        activeView={activeView}
+        collapsed={collapsed}
+      />
       <Layout className="page-content-layout">
-        <Header className="admin-header">
-          <section className="trigger-container">
-            <MenuOutlined className="trigger" onClick={toggleCollapse} />
-            <h1>My Dashboard</h1>
-          </section>
-
-          <Dropdown
-            trigger={["click"]}
-            overlay={userMenuContent}
-            className="user-btn"
-          >
-            <Avatar>JD</Avatar>
-          </Dropdown>
-        </Header>
-        <Content className="site-layout-background">{children}</Content>
+        <DashboardHeader toggleSiderCollapse={toggleSiderCollapse} />
+        {/* <Content className="site-layout-background">{children}</Content> */}
       </Layout>
     </Layout>
   );

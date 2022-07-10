@@ -5,6 +5,7 @@ const Analytics = props => {
   const { setView } = props;
   useEffect(() => {
     setView("analytics");
+    console.log("analytics");
   }, []);
   return (
     <motion.section
