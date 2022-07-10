@@ -3,17 +3,14 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Avatar } from "antd";
 import moment from "moment";
-import { numExtraction, getFormattedDate } from "../../utils";
+import { getFormattedDate } from "utils";
 
 // core component
-import CardComponent from "../../components/Cards/CardComponent";
-import { BarChart, DoughnutChart } from "../../components/Charts/Charts";
-import { PrimaryButton } from "../../components/Buttons/Buttons";
-import {
-  CustomizedSelectField,
-  DateField
-} from "../../components/Inputs/InputFields";
-import { allBarChartData } from "../../data";
+import CardComponent from "components/CardComponent";
+import { BarChart, DoughnutChart } from "components/Charts";
+import { PrimaryButton } from "components/Buttons";
+import { CustomizedSelectField, DateField } from "components/InputFields";
+import { allBarChartData } from "data";
 
 // css and icons
 import {
@@ -22,8 +19,8 @@ import {
   HiOutlineChevronDoubleRight,
   CgArrowsExchange,
   AiOutlinePlus
-} from "../../imports/icons";
-import "../../assets/css/overview.css";
+} from "imports/icons";
+import "assets/css/overview.css";
 
 const Overview = props => {
   const { setView } = props;

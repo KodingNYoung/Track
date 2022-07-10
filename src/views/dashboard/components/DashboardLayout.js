@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
 import { Layout, Menu, Dropdown, Avatar } from "antd";
+import { Brand } from "components/Brands";
 
 // icons
 import {
@@ -11,16 +12,15 @@ import {
   MenuOutlined,
   HomeOutlined,
   LogoutOutlined
-} from "../../imports/icons";
+} from "imports/icons";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser, resetStatus } from "../../redux/features/auth/authSlice";
-import { getUserProfile } from "../../redux/features/user/slice";
+import { logoutUser, resetStatus } from "redux/features/auth/authSlice";
+import { getUserProfile } from "redux/features/user/slice";
 
 // css
-import "../../assets/css/dashboard.css";
-import { Brand } from "../Brand/Brands";
+import "assets/css/dashboard.css";
 
 // sub components
 const { Sider, Header, Content } = Layout;

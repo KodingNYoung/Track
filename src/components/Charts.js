@@ -11,10 +11,10 @@ import {
   ArcElement
 } from "chart.js";
 import { Bar, Doughnut } from "react-chartjs-2";
-import { currencySign } from "../../utils";
+import { currencySign } from "utils";
 
 // css
-import "../../assets/css/charts.css";
+import "assets/css/charts.css";
 
 // registering components
 ChartJS.register(

@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel as AntdCarousel } from "antd";
-import "../../assets/css/component.css";
+import "assets/css/component.css";
 
 const Carousel = () => {
   const carouselItems = [

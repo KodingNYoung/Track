@@ -1,15 +1,15 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { HiOutlineMail } from "../../imports/icons";
+import { HiOutlineMail } from "imports/icons";
 
 // components
-import { SubmitButton } from "../../components/Buttons/Buttons";
-import { TextField } from "../../components/Inputs/InputFields";
-import { Brand } from "../../components/Brand/Brands";
+import { SubmitButton } from "components/Buttons";
+import { TextField } from "components/InputFields";
+import { Brand } from "components/Brands";
 
 // images
-import { ForgotPasswordSVG, Ellipse } from "../../imports/images";
+import { ForgotPasswordSVG, Ellipse } from "imports/images";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();

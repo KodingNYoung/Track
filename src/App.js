@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // css
-import "./assets/css/app.css";
+import "assets/css/app.css";
 
 // routes
-import Homepage from "./views/Home/Homepage";
-import Dashboard from "./views/dashboard";
-import Auth from "./views/auth";
-import Redux from "./views/Redux";
-import Toast from "./components/Feedbacks/Toasts";
+import Home from "views/Home";
+import Dashboard from "views/dashboard";
+import Auth from "views/auth";
+import Redux from "views/Redux";
+import Toast from "components/feedbacks/Toasts";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Toast />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route path="/auth/*" element={<Auth />} />
           <Route path="/redux" element={<Redux />} />

@@ -9,7 +9,7 @@ import {
   GiCardExchange,
   AiOutlinePieChart,
   IoBarChartOutline
-} from "../../imports/icons";
+} from "imports/icons";
 
 const Features = () => {
   // animation hooks

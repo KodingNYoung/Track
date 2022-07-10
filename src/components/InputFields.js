@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input, DatePicker, Select } from "antd";
 
-import "../../assets/css/input.css";
+import "assets/css/input.css";
 
 const { Option } = Select;
 const { Password, Group } = Input;

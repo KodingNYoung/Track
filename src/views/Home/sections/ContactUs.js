@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import { FaEnvelope, FiSend } from "../../imports/icons";
-import { SubmitButton } from "../../components/Buttons/Buttons";
+import { FaEnvelope, FiSend } from "imports/icons";
+import { SubmitButton } from "components/Buttons";
 
 const ContactUs = () => {
   // animation hooks

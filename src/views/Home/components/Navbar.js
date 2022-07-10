@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Brand } from "../Brand/Brands";
+import { Brand } from "components/Brands";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
-import { MenuOutlined } from "../../imports/icons";
+import { MenuOutlined } from "imports/icons";
 // styles
-import "../../assets/css/navbar.css";
+import "assets/css/navbar.css";
 const Navbar = () => {
   const [navActive, setNavActive] = useState(false);
   const [smScrnMenuState, setSmScrnMenuState] = useState("closed");

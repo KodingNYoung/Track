@@ -3,20 +3,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // components
-import { SubmitButton } from "../../components/Buttons/Buttons";
-import { PasswordField, TextField } from "../../components/Inputs/InputFields";
-import { Brand } from "../../components/Brand/Brands";
-import Carousel from "../../components/Carousel/Carousel";
-import { toast } from "../../components/Feedbacks/Toasts";
+import { SubmitButton } from "../../components/Buttons";
+import { PasswordField, TextField } from "../../components/InputFields";
+import { Brand } from "../../components/Brands";
+import Carousel from "../../components/Carousel";
+import { toast } from "../../components/feedbacks/Toasts";
 
 // images
-import { RegisterSVG } from "../../imports/images";
-import { HiOutlineMail, AiOutlineUser } from "../../imports/icons";
+import { RegisterSVG } from "imports/images";
+import { HiOutlineMail, AiOutlineUser } from "imports/icons";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser, resetStatus } from "../../redux/features/auth/authSlice";
-import GoogleSignInButton from "../../components/Google/GoogleSignInButton";
+import { registerUser, resetStatus } from "redux/features/auth/authSlice";
+import GoogleSignInButton from "components/GoogleSignInButton";
 
 const Register = () => {
   const dispatch = useDispatch();

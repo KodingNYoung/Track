@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // core component
-import DashboardLayout from "../../components/layout/DashboardLayout";
+import DashboardLayout from "./components/DashboardLayout";
 // Routes
-import Overview from "./Overview";
-import Transactions from "./Transactions";
-import Analytics from "./Analytics";
-import Categories from "./Categories";
+import Overview from "./views/Overview";
+import Transactions from "./views/Transactions";
+import Analytics from "./views/Analytics";
+import Categories from "./views/Categories";
 
 const Dashboard = () => {
   const [currentView, setCurrentView] = useState("");

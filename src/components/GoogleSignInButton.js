@@ -3,18 +3,15 @@ import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 //core components
-import { toast } from "../Feedbacks/Toasts";
+import { toast } from "components/feedbacks/Toasts";
 import Spinner from "components/Loaders/Spinner";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import {
-  googleSignInUser,
-  resetStatus
-} from "../../redux/features/auth/authSlice";
+import { googleSignInUser, resetStatus } from "redux/features/auth/authSlice";
 
 // styles
-import "../../assets/css/component.css";
+import "assets/css/component.css";
 
 const GoogleSignInButton = props => {
   const navigate = useNavigate();

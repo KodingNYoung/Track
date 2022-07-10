@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // images
-import { HeroSVG } from "../../imports/images";
+import { HeroSVG } from "imports/images";
 
 const Hero = () => {
   return (

@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 // images
-import { partnersLogo } from "../../imports/images";
+import { partnersLogo } from "imports/images";
 
 const Partners = () => {
   const { ref, inView, entry } = useInView();

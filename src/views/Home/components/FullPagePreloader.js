@@ -1,10 +1,10 @@
 import React from "react";
 
 // logo
-import { BlueLogo } from "../../imports/images";
+import { BlueLogo } from "imports/images";
 
 // style
-import "../../assets/css/component.css";
+import "assets/css/component.css";
 
 const FullPagePreloader = () => {
   return (

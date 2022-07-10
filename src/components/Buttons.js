@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "antd";
 
-import "../../assets/css/button.css";
+import "assets/css/button.css";
 
 const BasicButton = props => {
   const { children, buttonProps } = props;

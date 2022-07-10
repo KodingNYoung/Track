@@ -3,19 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // components
-import { SubmitButton } from "../../components/Buttons/Buttons";
-import { PasswordField, TextField } from "../../components/Inputs/InputFields";
-import { Brand } from "../../components/Brand/Brands";
-import { toast } from "../../components/Feedbacks/Toasts";
-import GoogleSignInButton from "../../components/Google/GoogleSignInButton";
+import { SubmitButton } from "components/Buttons";
+import { PasswordField, TextField } from "components/InputFields";
+import { Brand } from "components/Brands";
+import { toast } from "components/feedbacks/Toasts";
+import GoogleSignInButton from "components/GoogleSignInButton";
 
 // images
-import { LoginSVG, Ellipse } from "../../imports/images";
-import { HiOutlineMail } from "../../imports/icons";
+import { LoginSVG, Ellipse } from "imports/images";
+import { HiOutlineMail } from "imports/icons";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, resetStatus } from "../../redux/features/auth/authSlice";
+import { loginUser, resetStatus } from "redux/features/auth/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
