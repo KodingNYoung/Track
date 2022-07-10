@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 //core components
 import { toast } from "../Feedbacks/Toasts";
+import Spinner from "components/Loaders/Spinner";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -32,44 +33,32 @@ const GoogleSignInButton = props => {
   const handleStatusReset = () => {
     dispatch(resetStatus());
   };
-
   // useEffects
   useEffect(() => {
-    window.google.accounts.id.initialize({
+    window.google?.accounts?.id?.initialize({
       client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
       callback: handleCallbackResponse
     });
-    window.google.accounts.id.renderButton(
-      document.querySelector(".google-button"),
-      {
-        theme: "outline",
-        size: "large",
-        text: "continue_with",
-        logo_alignment: "center"
-      }
-    );
+
+    window.google?.accounts?.id?.prompt();
   }, []);
   useEffect(() => {
     if (status === "g_success") {
       // show success toast without
       toast("success", message, { autoclose: true });
+      navigate("/dashboard");
       setTimeout(() => {
-        navigate("/dashboard");
         handleStatusReset();
-      }, 2000);
+      }, 1000);
     }
   }, [status]);
 
-  return (
-    <div
-      className="google-button-container"
-      style={{ display: "flex", justifyContent: "center" }}
-    >
-      <div
-        className="google-button"
-        style={{ width: "100%", display: "flex", justifyContent: "center" }}
-      />
-    </div>
+  return status === "g_loading" ? (
+    <span className="g_spinner-container">
+      <Spinner color="#ccc" size={5} />
+    </span>
+  ) : (
+    <></>
   );
 };
 

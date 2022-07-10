@@ -67,7 +67,6 @@ const authSlice = createSlice({
         state.meta.message = message;
       })
       .addCase(logoutUser.fulfilled, (state, action) => {
-        console.log(action);
         state.meta.status = "logout_success";
         state.auth_info = {};
       });

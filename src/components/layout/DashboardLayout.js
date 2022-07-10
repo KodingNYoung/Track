@@ -16,6 +16,7 @@ import {
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser, resetStatus } from "../../redux/features/auth/authSlice";
+import { getUserProfile } from "../../redux/features/user/slice";
 
 // css
 import "../../assets/css/dashboard.css";
@@ -52,6 +53,9 @@ const DashboardLayout = props => {
   const handleStatusReset = () => {
     dispatch(resetStatus());
   };
+  const handleGetProfile = () => {
+    dispatch(getUserProfile());
+  };
   window.matchMedia("(max-width: 1080px)").addListener(query => {
     setSmScreen(query.matches);
   });
@@ -63,6 +67,9 @@ const DashboardLayout = props => {
       handleStatusReset();
     }
   }, [status]);
+  useEffect(() => {
+    handleGetProfile();
+  }, []);
 
   // UI
   const userMenuContent = (

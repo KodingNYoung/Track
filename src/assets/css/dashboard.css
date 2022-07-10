@@ -1,98 +1,75 @@
 .dashboard-layout {
   @apply min-h-screen;
 }
-
 .dashboard-layout .sidebar {
   @apply overflow-hidden h-screen;
   background-color: #0247fe;
 }
-
 .dashboard-layout .sidebar .menu {
   @apply py-16 px-0 border-0;
   background-color: #0247fe;
 }
-
 .dashboard-layout .sidebar .menu .ant-menu-item {
   @apply my-6 mx-0 transition-all duration-300 py-2 h-12;
   color: #fdfdfd;
 }
-
 .dashboard-layout .sidebar .menu .ant-menu-item a {
   @apply text-inherit;
 }
-
 .dashboard-layout .sidebar .menu .ant-menu-item svg {
   @apply text-2xl;
 }
-
 .dashboard-layout .sidebar .menu .ant-menu-item:hover {
   @apply ml-4;
 }
-
 .dashboard-layout .sidebar .menu .ant-menu-item.ant-menu-item-selected {
   @apply ml-2 font-semibold;
   background-color: #fdfdfd;
   color: #0247fe;
 }
-
 .dashboard-layout .sidebar .menu .ant-menu-item.ant-menu-item-selected::after {
   border-color: #0247fe;
 }
-
 .dashboard-layout .page-content-layout {
   @apply transition-all duration-200 grid;
-  -ms-grid-rows: 80px auto;
-      grid-template-rows: 80px auto;
+  grid-template-rows: 80px auto;
 }
-
 .dashboard-layout .page-content-layout .admin-header {
   @apply py-0 pl-4 pr-4 md:pr-8  h-20 flex justify-between items-center  z-10 transition-all duration-200 w-full;
   background-color: #fdfdfd;
   color: #0247fe;
 }
-
 .dashboard-layout .page-content-layout .admin-header .trigger-container {
   @apply flex justify-start items-center;
 }
-
 .dashboard-layout .page-content-layout .admin-header .trigger-container .trigger {
   @apply text-2xl;
 }
-
 .dashboard-layout .page-content-layout .admin-header .trigger-container h1 {
   @apply ml-5 text-2xl font-semibold;
 }
-
 .dashboard-layout .page-content-layout .admin-header .user-btn {
   @apply flex justify-end items-center cursor-pointer h-12 w-12;
 }
-
 .dashboard-layout .page-content-layout main.site-layout-background {
   @apply overflow-y-auto;
   background-color: #f6f6f6;
   height: calc(100vh - 80px);
 }
-
 .dashboard-layout.collapsed .page-content-layout .admin-header {
   width: 100%;
 }
-
 .dashboard-layout.small-screen .sidebar {
   width: 0 !important;
   min-width: 0 !important;
-  -webkit-box-flex: unset !important;
-      -ms-flex: unset !important;
-          flex: unset !important;
+  flex: unset !important;
 }
-
 .dashboard-layout.small-screen .page-content-layout {
   @apply ml-0;
 }
-
 .dashboard-layout.small-screen .page-content-layout .admin-header {
   @apply w-full;
 }
-
 .dashboard-layout.small-screen.collapsed .sidebar {
   width: 80px !important;
   min-width: 80px !important;
@@ -101,18 +78,15 @@
 .user-menu {
   @apply border-r-0;
 }
-
 .user-menu .ant-menu-item,
 .user-menu a {
   @apply flex justify-start items-center m-0;
 }
-
 .user-menu .ant-menu-item.ant-menu-item-selected,
 .user-menu a.ant-menu-item-selected {
   @apply bg-transparent;
   color: unset;
 }
-
 .user-menu .ant-menu-item:hover,
 .user-menu a:hover {
   color: #0247fe;

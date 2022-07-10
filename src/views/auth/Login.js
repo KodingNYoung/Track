@@ -6,12 +6,11 @@ import { motion } from "framer-motion";
 import { SubmitButton } from "../../components/Buttons/Buttons";
 import { PasswordField, TextField } from "../../components/Inputs/InputFields";
 import { Brand } from "../../components/Brand/Brands";
-import { Divider } from "../../components/Dividers/Divider";
 import { toast } from "../../components/Feedbacks/Toasts";
 import GoogleSignInButton from "../../components/Google/GoogleSignInButton";
 
 // images
-import { LoginSVG, Ellipse, Google } from "../../imports/images";
+import { LoginSVG, Ellipse } from "../../imports/images";
 import { HiOutlineMail } from "../../imports/icons";
 
 // redux
@@ -65,6 +64,7 @@ const Login = () => {
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       className="login auth-page"
     >
+      <GoogleSignInButton />
       <header className="page-header">
         <Link to="/">
           <Brand color="#0247FE" />
@@ -85,12 +85,6 @@ const Login = () => {
         <main className="main-content content">
           <div className="content-container">
             <h2>Welcome back!</h2>
-            <GoogleSignInButton />
-            {/* <button className="sign-in-with-google">
-              <Google />
-              <span>Sign In with Google</span>
-            </button> */}
-            <Divider text="Or Sign In with" />
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
                 size="large"

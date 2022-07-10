@@ -6,12 +6,11 @@ import { motion } from "framer-motion";
 import { SubmitButton } from "../../components/Buttons/Buttons";
 import { PasswordField, TextField } from "../../components/Inputs/InputFields";
 import { Brand } from "../../components/Brand/Brands";
-import { Divider } from "../../components/Dividers/Divider";
 import Carousel from "../../components/Carousel/Carousel";
 import { toast } from "../../components/Feedbacks/Toasts";
 
 // images
-import { RegisterSVG, Google } from "../../imports/images";
+import { RegisterSVG } from "../../imports/images";
 import { HiOutlineMail, AiOutlineUser } from "../../imports/icons";
 
 // redux
@@ -107,6 +106,7 @@ const Register = () => {
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       className="login auth-page"
     >
+      <GoogleSignInButton />
       <header className="page-header">
         <Link to="/">
           <Brand color="#0247FE" />
@@ -124,9 +124,6 @@ const Register = () => {
             <h2>
               Set up your <span>track</span> account
             </h2>
-            <GoogleSignInButton />
-
-            <Divider text="Or Sign up with" />
             <form onSubmit={handleSubmit} autoComplete="off">
               <TextField
                 size="large"

@@ -13,7 +13,7 @@ export const request = async (
 
   // declare request headers
   const headers = { "Content-Type": "application/json" };
-  if (authorize) headers.Authorization = `Token ${getToken()}`;
+  if (authorize) headers.Authorization = `Bearer ${getToken()}`;
 
   // declare options
   const customConfig = {

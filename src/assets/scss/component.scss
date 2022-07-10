@@ -82,6 +82,19 @@
     @include conceptual-toast($primary-color);
   }
 }
+.g_spinner-container {
+  @apply absolute top-16 right-20 z-50;
+}
+.spinner {
+  @apply animate-spin;
+  animation-duration: 0.5s;
+  .circle {
+    @apply opacity-25;
+  }
+  .path {
+    @apply opacity-75;
+  }
+}
 
 // preloaders
 .preloader {
