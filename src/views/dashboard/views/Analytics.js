@@ -2,11 +2,6 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Analytics = props => {
-  const { setView } = props;
-  useEffect(() => {
-    setView("analytics");
-    console.log("analytics");
-  }, []);
   return (
     <motion.section
       className="analytics"

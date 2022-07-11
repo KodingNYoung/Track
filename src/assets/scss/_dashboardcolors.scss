@@ -1,0 +1,49 @@
+// DASHBOARD COLORS
+// dark mode colors
+$dark-bg-dashboard: #141414;
+$dark-bg-surface: #1c1b1b;
+$dark-primary-color: #345ecc;
+$dark-icon-color: #777777;
+$dark-danger: #d7775f;
+$dark-success: #2fba91;
+$dark-card-header: #c7cfd2;
+$dark-card-important-text: #a3abbd;
+$dark-text: #fdfdfd;
+
+// light mode
+$light-bg-dashboard: #fdfdfd;
+$light-bg-surface: #fdfdfd; //add a shadow on the surface
+$light-primary-color: #0247fe;
+$light-icon-color: #a3abbd;
+$light-danger: #f36643;
+$light-success: #20c997;
+$light-card-header: #15134b;
+$light-card-important-text: #5a5881;
+$light-text: #111111;
+$light-sider-shadow: 20px 0 20px #fafafa;
+
+%dashboard-modes {
+  // color schemes
+  &.light {
+    background: $light-bg-dashboard;
+    .sidebar {
+      // to delay the shadow transition when turning white and retaining the exist transition
+      transition: box-shadow 0.3s 0.3s,
+        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: $light-bg-surface;
+      box-shadow: $light-sider-shadow;
+    }
+    .page-content-layout {
+      background: $light-bg-dashboard;
+    }
+  }
+  &.dark {
+    background: $dark-bg-dashboard;
+    .sidebar {
+      background-color: $dark-bg-surface;
+    }
+    .page-content-layout {
+      background: $dark-bg-dashboard;
+    }
+  }
+}

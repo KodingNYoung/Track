@@ -8,7 +8,11 @@ import {
   MdOutlineDashboard,
   BiCategory,
   BsBarChart,
-  RiExchangeFundsFill
+  RiExchangeFundsFill,
+  HiHome,
+  BiTransferAlt,
+  BsCollectionFill,
+  FaCog
 } from "imports/icons";
 
 // css
@@ -20,54 +24,49 @@ const { Item } = Menu;
 
 const DashboardSider = props => {
   // props
-  const { collapsed, smScreen, activeView } = props;
+  const { activeView } = props;
 
   const items = [
     {
       key: "overview",
       label: <NavLink to="/dashboard">Overview</NavLink>,
-      icon: <MdOutlineDashboard />
+      icon: <HiHome style={{ width: "20px !important" }} />,
+      className: "ant-tooltip-open ant-menu-item-active"
     },
     {
       key: "transactions",
-      label: <NavLink to="/dashboard/transactions"></NavLink>,
-      icon: <RiExchangeFundsFill />
+      label: <NavLink to="/dashboard/transactions">Transactions</NavLink>,
+      icon: <BiTransferAlt />
     },
     {
       key: "categories",
-      label: <NavLink to="/dashboard/categories"></NavLink>,
-      icon: <BiCategory />
+      label: <NavLink to="/dashboard/categories">Categories</NavLink>,
+      icon: <BsCollectionFill />
     },
     {
-      key: "chart",
-      label: <NavLink to="/dashboard/analytics"></NavLink>,
+      key: "analytics",
+      label: <NavLink to="/dashboard/analytics">Charts</NavLink>,
       icon: <BsBarChart />
+    },
+    {
+      key: "settings",
+      label: <NavLink to="/dashboard/settings">Settings</NavLink>,
+      icon: <FaCog />,
+      className: "divider-space"
     }
   ];
 
   return (
     <Sider trigger={null} collapsible collapsed={true} className="sidebar">
-      <Brand collapsed={true} color="white" />
+      <Brand collapsed={true} color="blue" size="small" />
       <Menu
         mode="inline"
+        selectable
         defaultSelectedKeys={["overview"]}
         selectedKeys={[activeView]}
         className="menu"
         items={items}
-      >
-        {/* <Item key="overview" icon={<MdOutlineDashboard />}>
-          <NavLink to="/dashboard">Overview</NavLink>
-        </Item>
-        <Item key="transactions" icon={<RiExchangeFundsFill />}>
-          <NavLink to="/dashboard/transactions">Transactions</NavLink>
-        </Item>
-        <Item key="categories" icon={<BiCategory />}>
-          <NavLink to="/dashboard/categories">Categories</NavLink>
-        </Item>
-        <Item key="analytics" icon={<BsBarChart />}>
-          <NavLink to="/dashboard/analytics">Chart</NavLink>
-        </Item> */}
-      </Menu>
+      />
     </Sider>
   );
 };

@@ -13,7 +13,7 @@ const { Header } = Layout;
 const { Item } = Menu;
 
 const DashboardHeader = props => {
-  const { toggleSiderCollapse, logout, smScreen } = props;
+  const { toggleSiderCollapse, logout, smScreen, setDarkMode } = props;
 
   return (
     <Header className="admin-header">
@@ -23,6 +23,9 @@ const DashboardHeader = props => {
         )}
       </section>
 
+      <button onClick={() => setDarkMode(darkMode => !darkMode)}>
+        toggle mode
+      </button>
       <Dropdown
         trigger={["click"]}
         overlay={

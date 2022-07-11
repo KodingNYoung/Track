@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Transactions = props => {
-  const { setView } = props;
-  useEffect(() => {
-    setView("transactions");
-  }, []);
   return (
     <motion.section
       className="transactions"

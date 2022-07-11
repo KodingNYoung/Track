@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Categories = props => {
-  const { setView } = props;
-  useEffect(() => {
-    setView("categories");
-  }, []);
   return (
     <motion.section
       className="categories"

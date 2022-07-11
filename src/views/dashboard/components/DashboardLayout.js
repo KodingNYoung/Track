@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 
 // core components
@@ -19,25 +19,22 @@ const { Content } = Layout;
 
 const DashboardLayout = props => {
   // props
-  const { children, activeView } = props;
+  const { children, activeView, setView } = props;
   // hooks
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // selectors
-  const { status, message } = useSelector(state => state.auth.meta);
+  const { status } = useSelector(state => state.auth.meta);
   // state
   const [collapsed, setCollapsed] = useState(false);
-  const [modal, setModal] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const [smScreen, setSmScreen] = useState(
     window.matchMedia("(max-width: 1080px)").matches
   );
 
   // functions
   const toggleSiderCollapse = () => setCollapsed(collapsed => !collapsed);
-  const openModal = () => setModal(true);
-  const closeModal = () => setModal(false);
-
-  //
   const logout = () => {
     dispatch(logoutUser());
   };
@@ -61,16 +58,19 @@ const DashboardLayout = props => {
   useEffect(() => {
     handleGetProfile();
   }, []);
+  useEffect(() => {
+    const view = location.pathname.split("/")[2];
+    setView(view || "overview");
+  }, [location]);
 
   // UI
 
   return (
     <Layout
-      theme="light"
       hasSider={true}
-      className={`dashboard-layout${collapsed ? " collapsed" : ""}${
-        smScreen ? " small-screen" : ""
-      }`}
+      className={`dashboard-layout ${darkMode ? "dark" : "light"} ${
+        collapsed ? "collapsed" : ""
+      } ${smScreen ? "small-screen" : ""}`}
     >
       <DashboardSider
         smScreen={smScreen}
@@ -78,8 +78,13 @@ const DashboardLayout = props => {
         collapsed={collapsed}
       />
       <Layout className="page-content-layout">
-        <DashboardHeader toggleSiderCollapse={toggleSiderCollapse} />
-        {/* <Content className="site-layout-background">{children}</Content> */}
+        <DashboardHeader
+          toggleSiderCollapse={toggleSiderCollapse}
+          smScreen={smScreen}
+          logout={logout}
+          setDarkMode={setDarkMode}
+        />
+        <Content className="site-layout-background">{children}</Content>
       </Layout>
     </Layout>
   );

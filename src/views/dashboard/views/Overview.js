@@ -23,7 +23,6 @@ import {
 import "assets/css/overview.css";
 
 const Overview = props => {
-  const { setView } = props;
   const [period, setPeriod] = useState({
     chart: "week",
     analytics: "week"
@@ -61,10 +60,6 @@ const Overview = props => {
     const datasets = data?.data?.[date];
     setBarChartData({ labels, datasets });
   };
-
-  useEffect(() => {
-    setView("overview");
-  }, []);
 
   useEffect(() => {
     formatChartDate(barChartFilters);

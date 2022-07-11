@@ -1,6 +1,5 @@
 .brand {
   @apply w-full flex justify-center items-center text-2xl font-bold transition-all duration-300 h-20 p-5;
-  color: #fdfdfd;
 }
 .brand svg {
   max-width: 60px;
@@ -13,4 +12,7 @@
 }
 .brand.collapsed span {
   @apply w-0;
+}
+.brand.small svg {
+  max-width: 30px;
 }
