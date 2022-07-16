@@ -3,8 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 
 // core components
-import DashboardHeader from "./children/DashboardHeader";
-import DashboardSider from "./children/DashboardSider";
+import DashboardHeader from "./DashboardHeader";
+import DashboardSider from "./DashboardSider";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,7 @@ const { Content } = Layout;
 
 const DashboardLayout = props => {
   // props
-  const { children, activeView, setView } = props;
+  const { children, activeView, setView, view } = props;
   // hooks
   const location = useLocation();
   const navigate = useNavigate();
@@ -83,6 +83,8 @@ const DashboardLayout = props => {
           smScreen={smScreen}
           logout={logout}
           setDarkMode={setDarkMode}
+          darkMode={darkMode}
+          isOverview={view === "overview"}
         />
         <Content className="site-layout-background">{children}</Content>
       </Layout>

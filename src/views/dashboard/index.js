@@ -12,7 +12,11 @@ const Dashboard = () => {
   const [currentView, setCurrentView] = useState("overview");
 
   return (
-    <DashboardLayout activeView={currentView} setView={setCurrentView}>
+    <DashboardLayout
+      activeView={currentView}
+      setView={setCurrentView}
+      view={currentView}
+    >
       <Routes>
         <Route path="/" element={<Overview />} />
         <Route path="transactions" element={<Transactions />} />

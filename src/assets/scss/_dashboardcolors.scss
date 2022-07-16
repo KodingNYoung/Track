@@ -20,6 +20,7 @@ $light-success: #20c997;
 $light-card-header: #15134b;
 $light-card-important-text: #5a5881;
 $light-text: #111111;
+
 $light-sider-shadow: 20px 0 20px #fafafa;
 
 %dashboard-modes {
@@ -28,22 +29,97 @@ $light-sider-shadow: 20px 0 20px #fafafa;
     background: $light-bg-dashboard;
     .sidebar {
       // to delay the shadow transition when turning white and retaining the exist transition
-      transition: box-shadow 0.3s 0.3s,
-        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.2s, box-shadow 0.2s 0.2s,
+        background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       background-color: $light-bg-surface;
       box-shadow: $light-sider-shadow;
+      .menu {
+        .ant-menu-item {
+          color: $light-icon-color;
+          &.ant-menu-item-selected {
+            color: $light-primary-color;
+            &::before {
+              background-color: $light-primary-color;
+            }
+          }
+        }
+      }
     }
     .page-content-layout {
       background: $light-bg-dashboard;
+      .admin-header {
+        .trigger-container {
+          color: $light-text;
+        }
+        .header-right-content {
+          color: $light-text;
+          .mode-btn {
+            color: $light-text;
+          }
+        }
+      }
     }
   }
   &.dark {
     background: $dark-bg-dashboard;
     .sidebar {
+      // to delay the shadow transition when turning white and retaining the exist transition
+      transition: all 0.3s, box-shadow 0s,
+        background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       background-color: $dark-bg-surface;
+      .menu {
+        .ant-menu-item {
+          color: $dark-icon-color;
+          &.ant-menu-item-selected {
+            color: $dark-primary-color;
+            &::before {
+              background-color: $dark-primary-color;
+            }
+          }
+        }
+      }
     }
     .page-content-layout {
       background: $dark-bg-dashboard;
+      .admin-header {
+        .trigger-container {
+          color: $dark-text;
+        }
+        .header-right-content {
+          color: $dark-text;
+          .mode-btn {
+            color: $dark-primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.user-menu {
+  &.dark {
+    background-color: $dark-bg-surface;
+    .ant-dropdown-menu-item {
+      a {
+        color: $dark-text;
+      }
+      &.logout-btn {
+        color: $dark-primary-color;
+      }
+      &:hover {
+        background-color: lighten($dark-bg-surface, 10%);
+      }
+    }
+  }
+  &.light {
+    background-color: $light-bg-surface;
+    .ant-dropdown-menu-item {
+      &.logout-btn {
+        color: $light-primary-color;
+      }
+      &:hover {
+        background-color: darken($light-bg-surface, 10%);
+      }
     }
   }
 }

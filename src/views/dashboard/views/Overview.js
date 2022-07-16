@@ -72,7 +72,8 @@ const Overview = props => {
       animate="visible"
       variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
     >
-      <div className="overview-header-cards">
+      <h1>Overview</h1>
+      {/* <div className="overview-header-cards">
         <CardComponent className="overview-header-card overview-card">
           <h3 className="card-header">total income</h3>
           <div className="card-body">
@@ -381,7 +382,7 @@ const Overview = props => {
             </div>
           </CardComponent>
         </section>
-      </div>
+      </div> */}
     </motion.section>
   );
 };

@@ -5,10 +5,7 @@ import { Brand } from "components/Brands";
 
 // icons
 import {
-  MdOutlineDashboard,
-  BiCategory,
   BsBarChart,
-  RiExchangeFundsFill,
   HiHome,
   BiTransferAlt,
   BsCollectionFill,
@@ -30,8 +27,7 @@ const DashboardSider = props => {
     {
       key: "overview",
       label: <NavLink to="/dashboard">Overview</NavLink>,
-      icon: <HiHome style={{ width: "20px !important" }} />,
-      className: "ant-tooltip-open ant-menu-item-active"
+      icon: <HiHome style={{ width: "20px !important" }} />
     },
     {
       key: "transactions",
